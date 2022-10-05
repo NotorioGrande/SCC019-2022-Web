@@ -24,7 +24,7 @@ Os **administradores**, constítuidos de _id_, _phone_, _adress_, _photo_, _name
 * Registrar e administrar administradores, clientes e produtos do sistema;
 * Sistema é tem em seu inicío uma conta administrinadora cujo usuário e senha são _admin_ e _admin_.
 
-Os **clientes**, constituídos de _id_, _phone_, _photo_, _address_, _name_, _email_, _username_, _password_ e _isAdmin_, _xp_total devem:
+Os **clientes**, constituídos de _id_, _phone_, _photo_, _address_, _name_, _email_, _username_, _password_ e _isAdmin_, _xptotal_ devem:
 * Comprar produtos.
 
 Os **produtos (jogos)** são constituídos de _id_, _name_, _photo_, _plataform_, _genres_, _description_, _price_, _quantity stock_ e _quantity sold_. 
