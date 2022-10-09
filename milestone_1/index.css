@@ -1,3 +1,11 @@
+.pesquisa{
+  display: flex;
+  flex-direction: row;
+
+
+
+}
+
 .index-container {
   min-height: 100vh;
 }
