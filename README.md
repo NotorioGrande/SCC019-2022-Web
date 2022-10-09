@@ -46,9 +46,10 @@ As funcionalidades são:
 * Filtros: filtros podem ser aplicados aos produtos pelos clientes. Os filtros possíveis são por _name_, _plataform, _genres_, _price_, _quantity stock_ e _quantity sold_. Por exemplo, um cliente pode definir um filtro que mostra apenas os jogos cuja plataforma é o Playstation 2;
 
 ## Descrição
+O mockup foi feito usando a ferramenta Figma, disponível nesse link (colocar o link), o html e css foram gerados com um plugin, e alguns problemas foram consertados manualmente.
 
 ## Comentários Sobre o Código
-
+O código no momento atual está muito bagunçado, visto que foi gerado de maneira automática, então não há semântica, muitas classes repetidas e uma estrutura geral péssima, será refatorado para a próxima entrega.
 ## Plano de Teste
 
 ## Resultados do Teste
