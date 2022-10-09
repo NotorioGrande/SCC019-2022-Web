@@ -1,3 +1,29 @@
+*{
+
+  font-family: VT323, Arial, Helvetica, sans-serif;
+}
+
+.Input {
+  width: 600px;
+  height: 55px;
+  position: relative;
+  box-sizing: border-box;
+  border-color: transparent;
+  margin-right: 0;
+  border-radius: 25px;
+  margin-bottom: 0;
+  background-color: #d9d9d9;
+  font-size: 3em
+}
+
+.pesquisa{
+  display: flex;
+  flex-direction: row;
+
+
+
+}
+
 .login-container {
   min-height: 100vh;
 }
@@ -155,8 +181,10 @@
   border-radius: 25px;
   margin-bottom: 0;
   background-color: rgba(255, 255, 255, 1);
+  font-size: 2em;
 }
 .login-text04 {
+  background-color: #c2c4d3;
   color: rgba(31, 46, 68, 1);
   height: auto;
   font-size: 40px;
@@ -168,7 +196,6 @@
   line-height: normal;
   font-stretch: normal;
   margin-right: 0;
-  margin-bottom: 0;
   text-decoration: none;
 }
 .login-botoesnav {
@@ -312,7 +339,8 @@
   background-color: rgba(31, 46, 68, 1);
 }
 .login-text16 {
-  color: rgba(255, 255, 255, 1);
+  background-color: rgb(31, 46, 68);
+  color: white;
   height: auto;
   font-size: 60px;
   align-self: auto;

@@ -125,6 +125,8 @@
       <div class="login-login">
         <div class="login-header">
           <div class="login-titulonav">
+
+
             <div class="login-titulo">
               <img src="public/playground_assets/carti679-ibu-200h.png" alt="cartI679" class="login-cart" />
               <div class="login-titulo1">
@@ -136,8 +138,10 @@
             </div>
             <div class="login-nav">
               <div class="login-pesquisar">
-                <div class="login-campopesquisa"></div>
-                <span class="login-text04"><span>Pesquisar</span></span>
+                <form class="pesquisa" action="">
+                <input class="login-campopesquisa" name="pesquisar"></input>
+                <input class="login-text04"type="submit" name="enviar" value="Pesquisar">
+              </form>
               </div>
               <div class="login-botoesnav">
                 <span class="login-text06"><span>Home</span></span>
@@ -148,22 +152,22 @@
           </div>
         </div>
         <div class="login-formlogin">
-          <div class="login-semconta">
-            <span class="login-text12"><span>Não tem uma conta?</span></span>
-            <span class="login-text14"><span>Cadastro</span></span>
-          </div>
-          <div class="login-botaologin">
-            <span class="login-text16"><span>Login</span></span>
+          <form action="">
+          <div class="login-email">
+            <span class="login-text20"><span>Email</span></span>
+            <input type="email" name="email" class="Input">
           </div>
           <div class="login-senha">
             <span class="login-text18"><span>Senha</span></span>
-            <img src="public/playground_assets/senhainput3910-cbl7-200h.png" alt="senhainput3910"
-              class="login-senhainput" />
+            <input type="password" name="password" class="Input">
           </div>
-          <div class="login-email">
-            <span class="login-text20"><span>Email</span></span>
-            <img src="public/playground_assets/emaiinput3910-4u8p-200h.png" alt="emaiinput3910"
-              class="login-emaiinput" />
+          <div class="login-botaologin">
+            <input class="login-text16" type="submit" value="Login">
+          </div>
+        </form>
+          <div class="login-semconta">
+            <span class="login-text12"><span>Não tem uma conta?</span></span>
+            <span class="login-text14"><a href="cadastro.html">Cadastro</a></span>
           </div>
         </div>
       </div>
