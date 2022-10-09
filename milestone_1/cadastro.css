@@ -3,7 +3,7 @@
 }
 .cadastro-cadastro {
   width: 100%;
-  height: 720px;
+  height: 100%;
   display: flex;
   position: relative;
   max-width: 100%;
@@ -232,30 +232,26 @@
 }
 .cadastro-formcadastro {
   width: 1210px;
-  height: 563px;
+  height:fit-content;
   display: flex;
   position: relative;
   box-sizing: border-box;
   align-items: flex-start;
   flex-shrink: 0;
   border-color: transparent;
-  margin-right: 0;
   border-radius: 0px 0px 0px 0px;
-  margin-bottom: 0;
 }
 .cadastro-cadastrar {
-  top: 509px;
+  position: relative;
+  top: 550px;
   left: 493px;
   width: 225px;
   display: flex;
   padding: 7px 40px;
-  position: absolute;
   box-sizing: border-box;
   align-items: flex-start;
   border-color: transparent;
-  margin-right: 0;
   border-radius: 25px;
-  margin-bottom: 0;
   background-color: rgba(31, 46, 68, 1);
 }
 .cadastro-text12 {
@@ -326,7 +322,7 @@
   margin-bottom: 21px;
   text-decoration: none;
 }
-.cadastro-inputnome {
+.cadastro-inputlongo {
   width: 780px;
   height: 55px;
   position: relative;
@@ -335,6 +331,9 @@
   margin-right: 0;
   border-radius: 25px;
   margin-bottom: 0;
+  background-color: #D9D9D9;
+  font-size: x-large;
+  padding: 0 20px 0 20px;
 }
 .cadastro-username {
   display: flex;
@@ -449,7 +448,7 @@
   margin-bottom: 18px;
   text-decoration: none;
 }
-.cadastro-inputtel {
+.cadastro-inputcurto {
   width: 380px;
   height: 55px;
   position: relative;
@@ -458,6 +457,9 @@
   margin-right: 0;
   border-radius: 25px;
   margin-bottom: 0;
+  background-color: #D9D9D9;
+  font-size: x-large;
+  padding: 0 20px 0 20px;
 }
 .cadastro-ceplogradouro {
   width: 1210px;
@@ -544,6 +546,7 @@
   margin-right: 0;
   border-radius: 25px;
   margin-bottom: 0;
+  margin-top: 20px;
 }
 .cadastro-senha {
   width: 1210px;
@@ -584,7 +587,7 @@
   margin-bottom: 18px;
   text-decoration: none;
 }
-.cadastro-inputsenha {
+.cadastro-inputmedio {
   width: 580px;
   height: 55px;
   position: relative;
@@ -593,6 +596,9 @@
   margin-right: 0;
   border-radius: 25px;
   margin-bottom: 0;
+  background-color: #D9D9D9;
+  font-size: x-large;
+  padding: 0 20px 0 20px;
 }
 .cadastro-confirmar-senha {
   display: flex;
