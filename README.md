@@ -49,7 +49,7 @@ As funcionalidades são:
 O mockup foi feito usando a ferramenta Figma, disponível nesse link (colocar o link), o html e css foram gerados com um plugin, e alguns problemas foram consertados manualmente.
 
 ## Comentários Sobre o Código
-O código no momento atual está muito bagunçado, visto que foi gerado de maneira automática, então não há semântica, muitas classes repetidas e uma estrutura geral péssima, será refatorado para a próxima entrega.
+No momento atual, o c está muito bagunçado, visto que foi gerado de maneira automática, então não há semântica, muitas classes repetidas e uma estrutura geral péssima, será refatorado para a próxima entrega.
 ## Plano de Teste
 
 ## Resultados do Teste
