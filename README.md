@@ -46,7 +46,7 @@ As funcionalidades são:
 * Filtros: filtros podem ser aplicados aos produtos pelos clientes. Os filtros possíveis são por _name_, _plataform, _genres_, _price_, _quantity stock_ e _quantity sold_. Por exemplo, um cliente pode definir um filtro que mostra apenas os jogos cuja plataforma é o Playstation 2;
 
 ## Descrição
-O mockup foi feito usando a ferramenta Figma, disponível nesse link (colocar o link), o html e css foram gerados com um plugin, e alguns problemas foram consertados manualmente.
+O mockup foi feito usando a ferramenta Figma, disponível nesse link [Mockup](https://www.figma.com/proto/4njq9ULHhlMh6fvO3o0bJu/Milestone-1---mockup?node-id=35%3A5&scaling=scale-down&page-id=0%3A1&starting-point-node-id=35%3A5&show-proto-sidebar=1). Têm dois fluxos que podem ser seguidos, basta selecionar na lateral esquerda da página. Um é para o usuário comum e o outro é para o administrador. O html e css foram gerados com um plugin, e alguns problemas foram consertados manualmente.
 
 ## Comentários Sobre o Código
 No momento atual, o c está muito bagunçado, visto que foi gerado de maneira automática, então não há semântica, muitas classes repetidas e uma estrutura geral péssima, será refatorado para a próxima entrega.
