@@ -62,8 +62,8 @@ No momento atual, o c está muito bagunçado, visto que foi gerado de maneira au
 
 ## Integrantes
 
-| Nome                       |
-|----------------------------|
-| Gabriel Barbosa de Oliveira |
-| Gustavo Bhering Grande |
-| Rafael de Almeida |
+| Nome                       | NUSP |
+|----------------------------|------|
+| Gabriel Barbosa de Oliveira | 12543415 |
+| Gustavo Bhering Grande | 12542780 |
+| Rafael de Almeida | 11872028 |
