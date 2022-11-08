@@ -16,12 +16,18 @@ const Header = ({location, name, logged}) => {
 
             </div>
             <div className='parte-cinza'> 
-                <span>home</span>
                 <div className="parte-esquerda-wrapper">
-                {(logged ? <span>logout</span> : <span>login</span>)}
+                <span>Home</span>
+         {/* logica para mostrar botoes diferentes se estiver logado ou nao */}
+                {(logged ? (
+                <span>Logout</span>) :
+                (<>
+                <span>Login</span>
+                <span>Cadastro</span>
+                </>))}
                 </div>
 
-                <div className='pesquisa'>
+                <div className='pesquisa parte-direita-wrapper'>
                 <input id="pesquisar" type="text" />
                 <span>Pesquisar</span>
                 </div>

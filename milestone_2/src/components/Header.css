@@ -32,9 +32,9 @@ nav{
     height: 6vh;
     color: var(--darkBlue);
     background-color: var(--gray);
-    padding: 10px 0px;
     display: flex;
-    font-size: 4vh;
+    justify-content: space-between;
+    font-size: 4.5vh;
 }
 
 .parte-esquerda-wrapper, .parte-direita-wrapper{
@@ -45,22 +45,35 @@ nav{
 
 .parte-esquerda-wrapper{
     left: 1%;
+    
 }
+
+ .parte-cinza > .parte-esquerda-wrapper > *{
+    margin: 0 5%;
+    
+}
+
 
 .parte-direita-wrapper{
     display: flex;
     justify-content: space-evenly;
     width: 30%;
+    right: 1%;
 }
 
 .pesquisa{
-
+    
     height: 100%;
+}
+
+.pesquisa > *{
+    margin: 0 2%;
 }
 
 #pesquisar{
     border: 0;
     border-radius: 25px;
-    width: 15vw;
-    
+    width: 35.5vw;
+    font-size: 2.5vh;
+    margin: 1%;
 }
