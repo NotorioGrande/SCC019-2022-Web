@@ -1,0 +1,20 @@
+milestone_2/node_modules
+milestone_2/.pnp
+milestone_2/.pnp.js
+
+# testing
+milestone_2/coverage
+
+# production
+milestone_2/build
+
+# misc
+milestone_2/.DS_Store
+milestone_2/.env.local
+milestone_2/.env.development.local
+milestone_2/.env.test.local
+milestone_2/.env.production.local
+
+milestone_2/npm-debug.log*
+milestone_2/yarn-debug.log*
+milestone_2/yarn-error.log
