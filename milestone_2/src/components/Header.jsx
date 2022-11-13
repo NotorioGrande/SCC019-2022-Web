@@ -1,13 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import "./Header.css"
-const Header = ({location, name, logged}) => {
+const Header = ({name, logged}) => {
+
+    //determina o que colocar no header
+    let location = useLocation();
+    let locationFormatted = location.pathname.slice(1);
+    if (locationFormatted === ""){
+        locationFormatted = "Home";
+    }
+    else{
+
+        locationFormatted = locationFormatted[0].toUpperCase() + locationFormatted.slice(1);
+    }
+
     return (
         <nav>
             <div className='parte-vermelha'>
                 <div className="parte-esquerda-wrapper">
                     <h1>Retro Archive Store &gt; </h1>
-                    <span id="location">{location} </span>
+                    <span id="location">{locationFormatted}</span>
                 </div>
                 <div className="parte-direita-wrapper">
                     <span id='name'>{name}</span>
