@@ -1,0 +1,52 @@
+@import "./colors.css";
+@import "./sizes.css";
+.login-form{
+    /*O margin top precisa de no minimo o tamanho do header (14 vh) */
+    margin-top: calc(var(--altura-header) + 5vh);
+    font-size: 6vh;
+    font-family: 'VT323';
+}
+
+.campo, .login-button {
+    
+    border-radius: 25px;
+    border: none;
+}
+
+.campo{
+    background-color: var(--form-gray);
+    width: 30vw;
+    height: 7vh;
+    font-size: 5vh;
+    padding: 0 1vw;
+}
+.email, .senha{
+    margin-left: calc(50vw - 30vw/2);
+    
+}
+.login-button{
+    color: white;
+    background-color: var(--dark-blue);
+    height: 8vh;
+    width: 10vw;
+    font-size: 7.5vh;
+    font-family: 'VT323', Arial, Helvetica, sans-serif;
+    margin-left: calc(50vw - 10vw/2);
+    margin-top: 5vh;
+
+
+}
+
+.sem-conta{
+    margin-top: 2vh;
+    font-family: 'VT323';
+    font-size: 6vh;
+    text-align: center;
+
+}
+
+.cadastro{
+    text-decoration: none;
+    color: var(--dark-blue);
+
+}

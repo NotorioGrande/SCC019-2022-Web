@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./Header.css"
 const Header = ({location, name, logged}) => {
     return (
@@ -17,13 +18,13 @@ const Header = ({location, name, logged}) => {
             </div>
             <div className='parte-cinza'> 
                 <div className="parte-esquerda-wrapper">
-                <span>Home</span>
+                <Link className='link' to="/">Home</Link>
          {/* logica para mostrar botoes diferentes se estiver logado ou nao */}
                 {(logged ? (
                 <span>Logout</span>) :
                 (<>
-                <span>Login</span>
-                <span>Cadastro</span>
+                <Link className='link' to='/login'>Login</Link>
+                <Link className='link' to='/cadastro'>Cadastro</Link>
                 </>))}
                 </div>
 
