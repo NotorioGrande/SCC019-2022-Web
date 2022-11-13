@@ -1,0 +1,37 @@
+@import "colors.css";
+@import "sizes.css";
+#card{
+    position: relative;
+    width: 315px;
+    height: 460px;
+
+    margin: 10px 5vw 10px 5vw;
+
+    background: var(--gray);
+    box-shadow: -14px 12px var(--dark-blue);
+    border-radius: 25px;
+}
+
+#card img{
+    margin: auto;
+    display: block;
+    border-radius: 25px;
+    padding-top: 10px;
+}
+
+#price{
+    font-size: 5vh;
+    text-align: center;
+}
+
+#console{
+    font-size: 5vh;
+    text-align: center;
+}
+
+#name{
+    padding-top: 2vh;
+    font-size: 3vh;
+    color: var(--dark-blue);
+    text-align: center;
+}
