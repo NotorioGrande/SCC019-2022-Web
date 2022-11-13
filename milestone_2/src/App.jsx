@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Header location="home" name="usuario"  />
+      <Header name="usuario"/>
         <Routes>
             <Route path="/" />
             <Route path="login" element={<Login />}/>
