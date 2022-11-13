@@ -11,7 +11,7 @@
     border-radius: 25px;
 }
 
-#card img{
+#card-img{
     width: 15vw;
     height: 29vh;
 
@@ -21,17 +21,17 @@
     margin-top: 2vh;
 }
 
-#price{
+#card-price{
     font-size: 5.5vh;
     text-align: center;
 }
 
-#console{
+#card-console{
     font-size: 5.5vh;
     text-align: center;
 }
 
-#name{
+#card-name{
     font-size: 3vh;
     text-align: center;
 

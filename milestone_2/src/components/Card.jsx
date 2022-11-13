@@ -4,10 +4,10 @@ import "./Card.css"
 const Card = ({name,price,img,console}) => {
     return (
         <div id='card'>
-            <img src={img} alt="game" />
-            <div id='price'>R$ {price}</div>
-            <div id='console'>{console}</div>
-            <div id='name'>{name}</div>
+            <img id='card-img' src={img} alt="game" />
+            <div id='card-price'>R$ {price}</div>
+            <div id='card-console'>{console}</div>
+            <div id='card-name'>{name}</div>
         </div>
       );
 }
