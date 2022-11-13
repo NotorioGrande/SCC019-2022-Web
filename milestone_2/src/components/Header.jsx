@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import "./Header.css"
 const Header = ({name, logged}) => {
+
+    //determina o que colocar no header
     let location = useLocation();
     let locationFormatted = location.pathname.slice(1);
     if (locationFormatted === ""){
