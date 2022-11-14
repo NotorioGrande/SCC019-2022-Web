@@ -1,0 +1,58 @@
+@import "colors.css";
+@import "sizes.css";
+
+.user-page{
+    padding-top: var(--altura-header);
+    font-family: 'VT323', monospace;
+}
+
+.informations{
+    display: flex;
+}
+
+.informations-left{
+    width: 50vw;
+    margin: 5vh 5vw 5vh 5vw;
+}
+
+.informations-right{
+    width: 30vw;
+    margin-top: 5vh;
+    margin-left: 5vw;
+}
+
+.informations-left p{
+    font-size: 7vmin;
+    padding-top: 4vh;
+}
+
+.informations-right p{
+    text-align: center;
+    font-size: 5vmin;
+    padding-top: 2vh;
+}
+
+.user-img img{
+    margin: auto;
+    display: block;
+    width: 25vmin;
+    height: 25vmin;
+    border: solid var(--form-gray) 3px;
+    border-radius: 100vmin;
+}
+
+.edit-button{
+    margin: 10vh auto 1vh auto;
+    width: 23vw;
+    height: 8vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 7vmin;
+    background-color: var(--dark-blue);
+    border-radius: 10vmin;
+}
+
+.edit-button .editar{
+    text-decoration: none;
+    color: white;
+}
