@@ -2,13 +2,13 @@ import React from 'react';
 // import { Link } from 'react-router-dom'; // dps eu vejo
 import "./Home.css"
 import Card from './Card';
-import banner from './banner.png'
-import smw from './smw.png'
+import banner from './banner.png';
+import smw from './smw.png';
 
-let game_name = 'Super Mario World'
-let game_price = '56,90'
-let game_img = smw
-let game_console = 'SNES'
+let game_name = 'Super Mario World';
+let game_price = '56,90';
+let game_img = smw;
+let game_console = 'SNES';
 
 const Home = ({location, name, logged}) => {
     return (
