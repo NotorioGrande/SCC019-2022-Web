@@ -1,0 +1,67 @@
+@import "colors.css";
+@import "sizes.css";
+
+.admin-edit-page{
+    padding-top: var(--altura-header);
+    font-family: 'VT323', monospace;
+}
+
+.admin-edit-page .informations{
+    width: 50vw;
+    margin: auto;
+    justify-content: center;
+}
+
+.admin-edit-page .informations-top{
+    margin-top: 5vh;
+}
+
+.admin-edit-page .informations-down{
+    margin-top: 1vh;
+}
+
+.admin-edit-page .informations-top p{
+    text-align: center;
+    font-size: 5vmin;
+    padding-top: 1vh;
+}
+
+.admin-edit-page .informations-down p{
+    font-size: 6vmin;
+    padding-top: 3vh;
+}
+
+.admin-edit-page .user-img img{
+    margin: auto;
+    display: block;
+    width: 20vmin;
+    height: 20vmin;
+    border: solid var(--form-gray) 3px;
+    border-radius: 100vmin;
+}
+
+.admin-edit-page .all-buttons{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.admin-edit-page .edit-button{
+    margin: 4vh 2vw 1vh 2vw;
+    width: 50vh;
+    height: 8vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 5vmin;
+    background-color: var(--dark-blue);
+    border-radius: 10vmin;
+}
+
+.admin-edit-page .edit-button .button{
+    text-decoration: none;
+    color: white;
+}
+
+#delete-button{
+    background-color: var(--red);
+}

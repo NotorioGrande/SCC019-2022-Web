@@ -8,6 +8,7 @@ import User from './components/User';
 import Edit from './components/Edit';
 import Pesquisa from './components/Pesquisa';
 import Cartao from './components/Cartao';
+import AdminEdit from './components/AdminEdit'
 import { useState } from 'react';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/editar" element={<Edit /*user={user}*/ />}/>
             <Route path="/pesquisa" element={<Pesquisa/>}/>
             <Route path="/cartao" element={<Cartao />}/>
+            <Route path="/admin/edit" element={<AdminEdit /*user={user}*//>}/>
         </Routes>
       </Router>
     </div>
