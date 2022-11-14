@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Cadastro from './components/Cadastro';
 import User from './components/User';
+import Edit from './components/Edit';
 import Pesquisa from './components/Pesquisa';
 import { useState } from 'react';
 
@@ -16,11 +17,12 @@ function App() {
       <Router>
       <Header name="usuario" setInputPesquisa={setInputPesquisa}/>
         <Routes>
-            <Route path="/" element={<Home /*games={games}*//>}/>
+            <Route path="/" element={<Home /*games={games}*/ />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/cadastro" element={<Cadastro />}/>
             <Route path="/usuario" element={<User /*user={user}*/ />}/>
-            <Route path="/pesquisa" element={<Pesquisa/>}/>       
+            <Route path="/editar" element={<Edit /*user={user}*/ />}/>
+            <Route path="/pesquisa" element={<Pesquisa/>}/>
         </Routes>
       </Router>
     </div>

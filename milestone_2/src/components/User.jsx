@@ -28,7 +28,7 @@ const User = ({/*user*/}) => { //recebe o objeto de um usuario
                     <p>Cartão: {user.card}</p>
                 </div>
                 <div className='informations-right'>
-                    <p>{user.name}</p>
+                    <p>{user.name},</p>
                     <p>{user.title}</p>
                     <div className='user-img'>
                         <img src={user.img} alt="user" />

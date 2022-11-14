@@ -1,0 +1,109 @@
+@import "colors.css";
+@import "sizes.css";
+
+.edit-page{
+    padding-top: var(--altura-header);
+    font-family: 'VT323', monospace;
+}
+
+.edit-page .informations{
+    display: flex;
+}
+
+.edit-page .informations-left{
+    width: 70vw;
+    margin: 2vh 2vw 5vh 2vw;
+}
+
+.edit-page .informations-right{
+    width: 20vw;
+    margin: 5vh 2vw 0vh 2vw;
+}
+
+.edit-page .row-1{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-page .row-2{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-page .row-3{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-page .row-4{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.edit-page .row-4 .required-field{
+    display: flex;
+}
+
+.edit-page .asterisk{
+    color: var(--red);
+}
+
+.edit-page .edit-campo{
+    margin-left: 2vw;
+}
+
+.edit-page .campo{
+    background-color: var(--form-gray);
+    height: 7vh;
+    width: 100%;
+    font-size: 5vh;
+    padding: 0 1vw;
+    border: none;
+    border-radius: 25px;
+}
+
+.edit-page .informations-left p{
+    font-size: 4vmin;
+    padding-top: 4vh;
+}
+
+.edit-page .informations-right p{
+    text-align: center;
+    font-size: 4vmin;
+    padding-top: 2vh;
+}
+
+.edit-page .informations-right p{
+    text-align: center;
+    font-size: 4vmin;
+    padding-top: 2vh;
+}
+
+.edit-page .user-img img{
+    margin: auto;
+    display: block;
+    width: 20vmin;
+    height: 20vmin;
+    border: solid var(--form-gray) 3px;
+    border-radius: 100vmin;
+}
+
+.edit-page .all-buttons{
+    display: flex;
+}
+
+.edit-page .edit-button{
+    margin: 4vh auto 1vh auto;
+    width: 23vw;
+    height: 8vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 3vw;
+    background-color: var(--dark-blue);
+    border-radius: 10vmin;
+}
+
+.edit-page .edit-button .button{
+    text-decoration: none;
+    color: white;
+}

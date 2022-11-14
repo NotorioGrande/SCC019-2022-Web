@@ -1,19 +1,19 @@
 @import "colors.css";
 @import "sizes.css";
 #card{
-    width: 17vw;
+    width: 33vh;
     height: 48vh;
 
-    margin: 10px 5vw 10px 5vw;
+    margin: 1vh 5vw 1vh 5vw;
 
     background: var(--gray);
-    box-shadow: -1vw 1.5vh var(--dark-blue);
+    box-shadow: -1vh 1.5vh var(--dark-blue);
     border-radius: 25px;
 }
 
 #card-img{
-    width: 15vw;
-    height: 29vh;
+    width: 90%;
+    height: 53%;
 
     margin: auto;
     display: block;
@@ -22,19 +22,20 @@
 }
 
 #card-price{
-    font-size: 5.5vh;
+    font-size: 5.5vmin;
     text-align: center;
 }
 
 #card-console{
-    font-size: 5.5vh;
+    padding-top: 0.5vmin;
+    font-size: 5.5vmin;
     text-align: center;
 }
 
 #card-name{
-    font-size: 3vh;
+    font-size: 4vmin;
     text-align: center;
 
     color: var(--dark-blue);
-    padding-top: 1vh;
+    padding-top: 1vmin;
 }

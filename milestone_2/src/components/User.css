@@ -6,33 +6,33 @@
     font-family: 'VT323', monospace;
 }
 
-.informations{
+.user-page .informations{
     display: flex;
 }
 
-.informations-left{
+.user-page .informations-left{
     width: 50vw;
-    margin: 5vh 5vw 5vh 5vw;
+    margin: 5vh 5vw 5vh 8vw;
 }
 
-.informations-right{
+.user-page .informations-right{
     width: 30vw;
     margin-top: 5vh;
-    margin-left: 5vw;
+    margin-left: 8vw;
 }
 
-.informations-left p{
+.user-page .informations-left p{
     font-size: 7vmin;
     padding-top: 4vh;
 }
 
-.informations-right p{
+.user-page .informations-right p{
     text-align: center;
     font-size: 5vmin;
     padding-top: 2vh;
 }
 
-.user-img img{
+.user-page .user-img img{
     margin: auto;
     display: block;
     width: 25vmin;
@@ -41,8 +41,8 @@
     border-radius: 100vmin;
 }
 
-.edit-button{
-    margin: 10vh auto 1vh auto;
+.user-page .edit-button{
+    margin: 5vh auto 1vh auto;
     width: 23vw;
     height: 8vh;
     display: block;
@@ -52,7 +52,7 @@
     border-radius: 10vmin;
 }
 
-.edit-button .editar{
+.user-page .edit-button .editar{
     text-decoration: none;
     color: white;
 }
