@@ -1,0 +1,33 @@
+@import "./colors.css";
+@import "./sizes.css";
+
+.filtros{
+    background-color: var(--dark-blue);
+    color: white;
+    font-family: "VT323";
+    width: 14vw;
+    font-size: 5vh;
+    position: fixed;
+}
+
+.filtros > div {
+    display: flex;
+    margin: 0.4vh 2vh;
+
+
+}
+
+.filtros input{
+    margin-right:1vw ;
+
+}
+
+.div-pesquisa {
+    margin-top: var(--altura-header);
+}
+
+.filtro-titulo{
+    margin-left: 0.5vw;
+    font-size: 6vh;
+
+}

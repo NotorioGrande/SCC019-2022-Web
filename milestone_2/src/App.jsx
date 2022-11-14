@@ -5,33 +5,22 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Cadastro from './components/Cadastro';
 import User from './components/User';
-import user_img from './components/anonymous-user.png';
-
-let user = {
-  name: 'Fulano da Silva',
-  username: 'fulano_gamer1234',
-  title: 'O mago do retrô',
-  email: 'fulanodasilva@gmail.com',
-  adress: 'Alameda dos Fulanos, 1234',
-  phone: '+55 16 9 1234-5678',
-  card: 'Mastercard final 1234',
-  level: '999',
-  img: user_img
-}
+import Pesquisa from './components/Pesquisa';
+import { useState } from 'react';
 
 function App() {
+  const [inputPesquisa, setInputPesquisa] = useState("");
+
   return (
     <div className="App">
       <Router>
-      <Header name="usuario"/>
+      <Header name="usuario" setInputPesquisa={setInputPesquisa}/>
         <Routes>
-            <Route path="/" element={<Home />}/>
+            <Route path="/" element={<Home /*games={games}*//>}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/cadastro" element={<Cadastro />}/>
-            <Route path="/usuario" element={<User email={user.email}
-            username={user.username} adress={user.adress} phone={user.phone}
-            card={user.card} name={user.name} title={user.title} img={user.img}
-            level={user.level} />}/>
+            <Route path="/usuario" element={<User /*user={user}*/ />}/>
+            <Route path="/pesquisa" element={<Pesquisa/>}/>       
         </Routes>
       </Router>
     </div>
