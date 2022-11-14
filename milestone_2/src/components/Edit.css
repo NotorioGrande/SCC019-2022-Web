@@ -20,27 +20,12 @@
     margin: 5vh 2vw 0vh 2vw;
 }
 
-.edit-page .row-1{
+.edit-page .row{
     display: flex;
     flex-wrap: wrap;
 }
 
-.edit-page .row-2{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.edit-page .row-3{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.edit-page .row-4{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.edit-page .row-4 .required-field{
+.edit-page .row .required-field{
     display: flex;
 }
 
@@ -90,15 +75,17 @@
 
 .edit-page .all-buttons{
     display: flex;
+    margin: auto;
+    justify-content: center;
 }
 
 .edit-page .edit-button{
-    margin: 4vh auto 1vh auto;
-    width: 23vw;
+    margin: 4vh 2vw 1vh 2vw;
+    width: 40vh;
     height: 8vh;
     display: block;
     font-family: 'VT323', monospace;
-    font-size: 3vw;
+    font-size: 4vmin;
     background-color: var(--dark-blue);
     border-radius: 10vmin;
 }

@@ -21,7 +21,7 @@ const Edit = ({/*user*/}) => { //recebe o objeto de um usuario
         <div className='edit-page'>
             <div className='informations'>
                 <div className='informations-left'>
-                    <div className='row-1'>
+                    <div className='row'>
                         <div className='edit-campo'>
                             <p>Email</p>
                             <input type="email" name="email" id="edit-email" className='campo'/>
@@ -31,7 +31,7 @@ const Edit = ({/*user*/}) => { //recebe o objeto de um usuario
                             <input type="text" name="username" id="edit-username" className='campo'/>
                         </div>
                     </div>
-                    <div className='row-2'>
+                    <div className='row'>
                         <div className='edit-campo'>
                             <p>Endereço</p>
                             <input type="text" name="adress" id="edit-adress" className='campo'/>
@@ -41,7 +41,7 @@ const Edit = ({/*user*/}) => { //recebe o objeto de um usuario
                             <input type="tel" name="senha" id="edit-phone" className='campo'/>
                         </div>
                     </div>
-                    <div className='row-3'>
+                    <div className='row'>
                         <div className='edit-campo'>
                             <p>Nova senha </p>
                             <input type="password" name="nova-senha" id="newpassword1" className='campo'/>
@@ -51,7 +51,7 @@ const Edit = ({/*user*/}) => { //recebe o objeto de um usuario
                             <input type="password" name="nova-senha" id="newpassword2" className='campo'/>
                         </div>
                     </div>
-                    <div className='row-4'>
+                    <div className='row'>
                         <div className='edit-campo'>
                             <div className='required-field'>
                                 <p className='asterisk'>*</p>

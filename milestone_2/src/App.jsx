@@ -7,6 +7,7 @@ import Cadastro from './components/Cadastro';
 import User from './components/User';
 import Edit from './components/Edit';
 import Pesquisa from './components/Pesquisa';
+import Cartao from './components/Cartao';
 import { useState } from 'react';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/usuario" element={<User /*user={user}*/ />}/>
             <Route path="/editar" element={<Edit /*user={user}*/ />}/>
             <Route path="/pesquisa" element={<Pesquisa/>}/>
+            <Route path="/cartao" element={<Cartao />}/>
         </Routes>
       </Router>
     </div>
