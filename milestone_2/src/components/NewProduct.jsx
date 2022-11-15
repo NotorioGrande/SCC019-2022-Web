@@ -7,14 +7,19 @@ const refresh_product = () => {
     let card_price = document.getElementById('card-price')
     let card_console = document.getElementById('card-console')
     let card_name = document.getElementById('card-name')
-    // let card_img = document.getElementById('card-img')
 
     card_price.innerHTML = document.getElementById('newproduct-price').value
     card_console.innerHTML = document.getElementById('newproduct-console').value
     card_name.innerHTML = document.getElementById('newproduct-name').value
-
-    // card_img.innerHTML = document.getElementById('newproduct-img').value
 }
+
+let loadFile = (event) => {
+    var output = document.getElementById('card-img');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+        URL.revokeObjectURL(output.src)
+    }
+};
 
 const NewProduct = ({admin}) => {
     return (
@@ -23,7 +28,7 @@ const NewProduct = ({admin}) => {
                 <div className='informations-left'>
                     <Card />
                     <button className='edit-button'>
-                        <Link className='button' to="/upload">Carregar imagens</Link>
+                        <input onChange={loadFile} type="file" name="file" accept="image/*" className='button' id="imgInp"/>
                     </button>
                 </div>
                 <div className='informations-right'>
