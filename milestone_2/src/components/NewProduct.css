@@ -51,12 +51,12 @@
 
 .new-product-page .informations-left .edit-button{
     justify-content: center;
-    margin: 4vh 2vw 1vh 6vw;
-    width: 60%;
-    height: 8vh;
+    margin: 4vh 2vw 1vh 4vw;
+    width: 20vw;
+    height: 9vh;
     display: block;
     font-family: 'VT323', monospace;
-    font-size: 4vmin;
+    font-size: 4.5vmin;
     background-color: var(--dark-blue);
     border-radius: 10vmin;
 }
@@ -64,10 +64,10 @@
 .new-product-page .informations-right .edit-button{
     margin: 18vh 2vw 1vh 8vh;
     width: 22vw;
-    height: 13vh;
+    height: 11vh;
     display: block;
     font-family: 'VT323', monospace;
-    font-size: 6vmin;
+    font-size: 5.5vmin;
     background-color: var(--dark-blue);
     border-radius: 5vmin;
 }
@@ -81,4 +81,19 @@
     margin-right: 6vh;
     height: 30vh;
     width: 100%;
+}
+
+.new-product-page #card{
+    width: 18vw;
+    height: 26vw;
+}
+
+.new-product-page input[type='file']{
+    display: none
+}
+
+.new-product-page label{
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
 }

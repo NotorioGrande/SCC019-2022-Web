@@ -28,6 +28,7 @@ const NewProduct = ({admin}) => {
                 <div className='informations-left'>
                     <Card />
                     <button className='edit-button'>
+                        <label for='imgInp'>Carregar imagens</label>
                         <input onChange={loadFile} type="file" name="file" accept="image/*" className='button' id="imgInp"/>
                     </button>
                 </div>
