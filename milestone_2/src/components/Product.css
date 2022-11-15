@@ -1,0 +1,140 @@
+@import "colors.css";
+@import "sizes.css";
+
+.product-page{
+    padding-top: var(--altura-header);
+    font-family: 'VT323', monospace;
+}
+
+.product-page .informations{
+    display: flex;
+}
+
+.product-page .informations-right{
+    width: 65vw;
+    margin: auto;
+    margin-left: 3vw;
+}
+
+.product-page .informations-left{
+    width: 35vw;
+    margin: auto;
+    margin-left: 6vw;
+    margin-right: 0vw;
+    justify-content: center;
+}
+
+.product-page .row-1{
+    margin-top: 4vh;
+    display: flex;
+    font-size: 10vmin;
+}
+
+.product-page .row-2{
+    margin-top: 6vh;
+    display: flex;
+    color: var(--red);
+}
+
+.product-page .values{
+    margin: auto;
+    margin-left: 0;
+    margin-right: 2vw;
+}
+
+.product-page .value-1{
+    display: flex;
+    font-size: 9vmin;
+}
+
+.product-page .value-2{
+    display: flex;
+    font-size: 7vmin;
+}
+
+.product-page .row-3{
+    margin-top: 4vh;
+    display: flex;
+    font-size: 8vmin;
+}
+
+.product-page .row-4{
+    display: flex;
+    width: 90%;
+    font-size: 6vmin;
+}
+
+.product-page .all-buttons{
+    margin: auto;
+    margin-left: 2vw;
+}
+
+.product-page .informations-left .edit-button{
+    justify-content: center;
+    margin: 4vh 2vw 1vh 4vw;
+    width: 20vw;
+    height: 9vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 4.3vh;
+    background-color: var(--dark-blue);
+    border-radius: 10vmin;
+}
+
+.product-page .informations-right .edit-button{
+    width: 25vh;
+    margin: 0vh 2vw 1vh 4vw;
+    height: 7vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 6vmin;
+    background-color: #E1B73D;
+    border-radius: 5vmin;
+}
+
+.product-page .edit-button .button{
+    text-decoration: none;
+    color: var(--dark-blue)
+}
+
+@media only screen and (max-device-width: 1150px) {
+    .product-page .informations{
+        flex-wrap: wrap;
+    }
+
+    .product-page .informations-left{
+        margin: auto;
+        justify-content: center;
+        display: block;
+        width: 33vh;
+    }
+
+    .product-page .informations-right{
+        width: 90vw;
+        margin: auto;
+    }
+
+    .product-page .informations-right .edit-button{
+        width: 30vmin;
+        font-size: 5min;
+    }
+
+    .product-page .row-4{
+        width: 100%;
+    }
+
+    .product-page .row-2{
+        margin-top: 2vh;
+    }
+
+    .product-page .row-3{
+        margin-top: 2vh;
+    }
+
+    .product-page #card{
+        width: 34vh;
+        height: 50vh;
+        margin: auto;
+        margin-top: 2vh;
+    }
+}

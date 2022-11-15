@@ -66,9 +66,6 @@ const NewProduct = ({admin}) => {
                     </div>
                 </div>
             </div>
-            <div className='all-buttons'>
-                
-            </div>
         </div>
     );
 }

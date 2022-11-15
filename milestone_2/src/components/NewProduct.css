@@ -12,12 +12,12 @@
 
 .new-product-page .informations-right{
     width: 75vw;
-    margin: 0vh 5vw 0vh 0vw;
+    margin: auto;
 }
 
 .new-product-page .informations-left{
     width: 25vw;
-    margin: 5vh 5vw 0vh 0vw;
+    margin: auto;
 }
 
 .new-product-page .row{
@@ -43,12 +43,6 @@
     padding-top: 4vh;
 }
 
-.new-product-page .informations-left p{
-    text-align: center;
-    font-size: 4vmin;
-    padding-top: 2vh;
-}
-
 .new-product-page .informations-left .edit-button{
     justify-content: center;
     margin: 4vh 2vw 1vh 4vw;
@@ -56,7 +50,7 @@
     height: 9vh;
     display: block;
     font-family: 'VT323', monospace;
-    font-size: 4.5vmin;
+    font-size: 4.3vh;
     background-color: var(--dark-blue);
     border-radius: 10vmin;
 }
@@ -96,4 +90,41 @@
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
+}
+
+@media only screen and (max-device-width: 1150px) {
+    .new-product-page .informations{
+        flex-wrap: wrap;
+    }
+
+    .new-product-page .informations-left{
+        justify-content: center;
+        display: block;
+        width: 33vh;
+    }
+
+    .new-product-page .informations-right{
+        width: 90vw;
+        margin: auto;
+    }
+
+    .new-product-page .informations-left .edit-button{
+        width: 33vh;
+        margin: auto;
+        margin-top: 4vh;
+        font-size: 4.5vh;
+    }
+
+    .new-product-page .informations-right .edit-button{
+        width: 30vmin;
+        margin: 20vh 2vw 1vh 8vh;
+        font-size: 5min;
+    }
+
+    .new-product-page #card{
+        width: 34vh;
+        height: 50vh;
+        margin: auto;
+        margin-top: 2vh;
+    }
 }

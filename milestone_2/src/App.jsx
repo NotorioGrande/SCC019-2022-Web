@@ -12,6 +12,7 @@ import AdminEdit from './components/AdminEdit'
 import AdminProducts from './components/AdminProduct'
 import NewProduct from './components/NewProduct'
 import Admin from './components/Admin'
+import Product from './components/Product';
 import { useState } from 'react';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route path="/admin/products" element={<AdminProducts />}/>
             <Route path="/admin/products/new" element={<NewProduct />}/>
             <Route path="/admin/users/edit" element={<AdminEdit /*user={user}*/ />}/>
+            <Route path="/product" element={<Product /*game={game}*/ />}/>
         </Routes>
       </Router>
     </div>
