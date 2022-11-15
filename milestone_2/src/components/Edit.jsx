@@ -65,7 +65,7 @@ const Edit = ({/*user*/}) => { //recebe o objeto de um usuario
                     <p>{user.name},</p>
                     <p>{user.title}</p>
                     <div className='user-img'>
-                        <img src={user.img} alt="user" />
+                        <img src={user.img} alt="" />
                     </div>
                     <p>Nível: {user.level}</p>
                 </div>
@@ -82,7 +82,7 @@ const Edit = ({/*user*/}) => { //recebe o objeto de um usuario
                 </button>
             </div>
         </div>
-      );
+    );
 }
  
 export default Edit;

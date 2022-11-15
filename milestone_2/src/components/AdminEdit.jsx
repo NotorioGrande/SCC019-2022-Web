@@ -32,7 +32,7 @@ const AdminEdit = ({/*user*/}) => { //recebe o objeto de um usuario
                 <div className='informations-down'>
                     <p>Email: {user.email}</p>
                     <p>Username: {user.username}</p>
-                    <p>Nome: {user.adress}</p>
+                    <p>Nome: {user.name}</p>
                 </div>
             </div>
             <div className='all-buttons'>

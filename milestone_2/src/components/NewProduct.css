@@ -1,0 +1,81 @@
+@import "colors.css";
+@import "sizes.css";
+
+.new-product-page{
+    padding-top: var(--altura-header);
+    font-family: 'VT323', monospace;
+}
+
+.new-product-page .informations{
+    display: flex;
+}
+
+.new-product-page .informations-right{
+    width: 75vw;
+}
+
+.new-product-page .informations-left{
+    width: 25vw;
+    margin: 5vh 5vw 0vh 0vw;
+}
+
+.new-product-page .row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.new-product-page .edit-campo{
+    margin-left: 1vw;
+}
+
+.new-product-page .campo{
+    background-color: var(--form-gray);
+    height: 7vh;
+    width: 60vmin;
+    font-size: 5vh;
+    padding: 0 1vw;
+    border: none;
+    border-radius: 25px;
+}
+
+.new-product-page .informations-right p{
+    font-size: 7vmin;
+    padding-top: 4vh;
+}
+
+.new-product-page .informations-left p{
+    text-align: center;
+    font-size: 4vmin;
+    padding-top: 2vh;
+}
+
+.new-product-page .informations-left .edit-button{
+    margin: 4vh 2vw 1vh 2vw;
+    width: 40vh;
+    height: 8vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 4vmin;
+    background-color: var(--dark-blue);
+    border-radius: 10vmin;
+}
+
+.new-product-page .informations-right .edit-button{
+    margin: 18vh 2vw 1vh 4vw;
+    width: 50vh;
+    height: 13vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 6vmin;
+    background-color: var(--dark-blue);
+    border-radius: 5vmin;
+}
+
+.new-product-page .edit-button .button{
+    text-decoration: none;
+    color: white;
+}
+
+.new-product-page #newproduct-description{
+    height: 30vh;
+}
