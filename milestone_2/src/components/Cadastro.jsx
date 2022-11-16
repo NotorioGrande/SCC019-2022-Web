@@ -25,15 +25,15 @@ const Cadastro = () => {
         let campoEmail = document.getElementById("campo-email").value;
         let campoUsername = document.getElementById("campo-username").value;
         let campoNome = document.getElementById("campo-nome").value;
-        let campoEndereco = document.getElementById("campo-endereco").value;
+        let campoEndereco = document.getElementById("campo-logradouro").value;
         let campoTelefone = document.getElementById("campo-telefone").value;
         let new_user = {
             email : campoEmail,
             nome : campoNome,
             username : campoUsername,
             senha : campoSenha,
-            campoEndereco,
-            campoTelefone
+            endereco : campoEndereco,
+            telefone : campoTelefone
         };
         await delay();
         cookies.set(new_user.email, new_user);
