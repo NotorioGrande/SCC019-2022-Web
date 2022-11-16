@@ -7,7 +7,7 @@ function delay(){
       setTimeout(resolve, 100);
   });
 }
-const Login = () => {
+const Login = ({setUser}) => {
     
     const handleLogin = async () =>{
         let cookies = new Cookies();
@@ -22,6 +22,7 @@ const Login = () => {
         }
 
         cookies.set("logged_user", retorno);
+        setUser(retorno);
         window.alert("logado");
 
     }

@@ -33,6 +33,7 @@
     font-family: 'VT323', Arial, Helvetica, sans-serif;
     margin-left: calc(50vw - 10vw/2);
     margin-top: 5vh;
+    cursor : pointer;
 
 
 }

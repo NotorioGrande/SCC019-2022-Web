@@ -18,6 +18,10 @@ nav{
     width: 100vw;
 }
 
+#name{
+    text-decoration: none;
+    color: inherit;
+}
 
 .parte-vermelha{
     width: 100%;

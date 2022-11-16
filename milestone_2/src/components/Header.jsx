@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import "./Header.css"
-const Header = ({name, logged}) => {
+import Cookies from 'universal-cookie';
+const Header = ({user, setUser}) => {
 
     //determina o que colocar no header
     let location = useLocation();
@@ -14,6 +15,13 @@ const Header = ({name, logged}) => {
 
         locationFormatted = locationFormatted[0].toUpperCase() + locationFormatted.slice(1);
     }
+    
+    const handleLogout = () =>{
+        let cookies = new Cookies();
+        cookies.remove("logged_user");
+        setUser(undefined);
+
+    }
 
     return (
         <nav>
@@ -23,7 +31,11 @@ const Header = ({name, logged}) => {
                     <span id="location">{locationFormatted}</span>
                 </div>
                 <div className="parte-direita-wrapper">
-                    <span id='name'>{name}</span>
+                    {user ? (<Link id='name' to="/usuario">{user.nome}</Link>) : 
+                    <span id='name'>anônimo</span>
+                    }
+        
+
                     <span>cog</span>
                     <span>cart</span>
                 </div>
@@ -33,8 +45,8 @@ const Header = ({name, logged}) => {
                 <div className="parte-esquerda-wrapper">
                 <Link className='link' to="/">Home</Link>
          {/* logica para mostrar botoes diferentes se estiver logado ou nao */}
-                {(logged ? (
-                <span>Logout</span>) :
+                {(user ? (
+                <Link className='link' to='/' onClick={handleLogout}>Logout</Link>) :
                 (<>
                 <Link className='link' to='/login'>Login</Link>
                 <Link className='link' to='/cadastro'>Cadastro</Link>

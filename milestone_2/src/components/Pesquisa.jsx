@@ -1,6 +1,8 @@
 import React from 'react';
 import "./Pesquisa.css";
-const Pesquisa = () => {
+const Pesquisa = ({setInputPesquisa}) => {
+
+
     return (  
         <div className="div-pesquisa">
         <div className="filtros">

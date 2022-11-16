@@ -17,16 +17,17 @@ import { useState } from 'react';
 
 function App() {
   const [inputPesquisa, setInputPesquisa] = useState("");
+  const [user, setUser] = useState(undefined);
 
   return (
     <div className="App">
       <Router>
-      <Header name="usuario" setInputPesquisa={setInputPesquisa}/>
+      <Header setInputPesquisa={setInputPesquisa} setUser={setUser} user={user}/>
         <Routes>
             <Route path="/" element={<Home /*games={games}*/ />}/>
-            <Route path="/login" element={<Login />}/>
+            <Route path="/login" element={<Login setUser={setUser} />} />
             <Route path="/cadastro" element={<Cadastro />}/>
-            <Route path="/usuario" element={<User /*user={user}*/ />}/>
+            <Route path="/usuario" element={<User user={user} />}/>
             <Route path="/editar" element={<Edit /*user={user}*/ />}/>
             <Route path="/pesquisa" element={<Pesquisa/>}/>
             <Route path="/cartao" element={<Cartao />}/>
