@@ -1,38 +1,73 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import "./AdminEdit.css";
-import user_img from './anonymous-user.png';
+import userImg from './anonymous-user.png';
 
-//objeto de usuario de exemplo
-let user = {
+//objeto de users de exemplo
+let users = [{
     name: 'Fulano da Silva',
     username: 'fulano_gamer1234',
     title: 'O mago do retrô',
     email: 'fulanodasilva@gmail.com',
-    adress: 'Alameda dos Fulanos, 1234',
+    address: 'Alameda dos Fulanos, 1234',
     phone: '+55 16 9 1234-5678',
     card: 'Mastercard final 1234',
     level: '999',
-    img: user_img,
-    admin: false
-}
+    img: userImg
+},
+{
+    name: 'Rafinha',
+    username: 'rafinha_headshotRJ',
+    title: 'O mago do retrô',
+    email: 'fulanodasilva@gmail.com',
+    address: 'Alameda dos Fulanos, 1234',
+    phone: '+55 16 9 1234-5678',
+    card: 'Mastercard final 1234',
+    level: '999',
+    img: userImg
+},
+{
+    name: 'Grande',
+    username: 'grande_gameplay',
+    title: 'O mago do retrô',
+    email: 'fulanodasilva@gmail.com',
+    address: 'Alameda dos Fulanos, 1234',
+    phone: '+55 16 9 1234-5678',
+    card: 'Mastercard final 1234',
+    level: '999',
+    img: userImg
+},
+{
+    name: 'Vetor',
+    username: 'vetor_r4_plays',
+    title: 'O mago do retrô',
+    email: 'fulanodasilva@gmail.com',
+    address: 'Alameda dos Fulanos, 1234',
+    phone: '+55 16 9 1234-5678',
+    card: 'Mastercard final 1234',
+    level: '999',
+    img: userImg
+}]
 
-const AdminEdit = ({/*user*/}) => { //recebe o objeto de um usuario
+const AdminEdit = ({}) => { //Aqui tem que fazer uma query no banco de dados pelo id do usuário e pegar os dados, no array acima estão eles.
+    let { id } = useParams();
+
     return (
+
         <div className='admin-edit-page'>
             <div className='informations'>
                 <div className='informations-top'>
-                    <p>{user.name},</p>
-                    <p>{user.title}</p>
+                    <p>{users[id].name},</p>
+                    <p>{users[id].title}</p>
                     <div className='user-img'>
-                        <img src={user.img} alt="user" />
+                        <img src={users[id].img}/>
                     </div>
-                    <p>Nível: {user.level}</p>
+                    <p>Nível: {users[id].level}</p>
                 </div>
                 <div className='informations-down'>
-                    <p>Email: {user.email}</p>
-                    <p>Username: {user.username}</p>
-                    <p>Nome: {user.name}</p>
+                    <p>Email: {users[id].email}</p>
+                    <p>Username: {users[id].username}</p>
+                    <p>Nome: {users[id].name}</p>
                 </div>
             </div>
             <div className='all-buttons'>

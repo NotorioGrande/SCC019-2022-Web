@@ -8,6 +8,7 @@ import User from './components/User';
 import Edit from './components/Edit';
 import Pesquisa from './components/Pesquisa';
 import Cartao from './components/Cartao';
+import ListUsers from './components/ListUsers';
 import AdminEdit from './components/AdminEdit'
 import AdminProducts from './components/AdminProduct'
 import NewProduct from './components/NewProduct'
@@ -37,7 +38,8 @@ function App() {
             <Route path="/admin" element={<Admin />}/>
             <Route path="/admin/products" element={<AdminProducts />}/>
             <Route path="/admin/products/new" element={<NewProduct />}/>
-            <Route path="/admin/users/edit" element={<AdminEdit /*user={user}*/ />}/>
+            <Route path="/admin/users" element={<ListUsers /*users={users}*//>}/>
+            <Route path="/admin/users/:id" element={<AdminEdit /*user={user}*/ />}/>
             <Route path="/product" element={<Product /*game={game}*/ />}/>
             <Route path="/cart" element={<Cart /*cart={cart}*/ />}/>
         </Routes>
