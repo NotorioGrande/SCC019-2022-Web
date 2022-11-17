@@ -1,16 +1,16 @@
 @import "colors.css";
 @import "sizes.css";
 
-.kart-page{
+.cart-page{
     padding-top: var(--altura-header);
     font-family: 'VT323', monospace;
 }
 
-.kart-page .informations{
+.cart-page .informations{
     display: flex;
 }
 
-.kart-page .informations-right{
+.cart-page .informations-right{
     width: 40vw;
     margin: auto;
     position: fixed;
@@ -19,7 +19,7 @@
     white-space: nowrap;
 }
 
-.kart-page .informations-left{
+.cart-page .informations-left{
     width: 37vw;
     display: flex;
     flex-wrap: wrap;
@@ -27,8 +27,8 @@
     justify-content: center;
 }
 
-.kart-page .informations-left .close-button{
-    padding-left: 90%;
+.cart-page .informations-left .close-button{
+    margin-left: 90%;
     text-align: left;
     background: none;
     font-size: 3vh;
@@ -36,7 +36,7 @@
     cursor:pointer;
 }
 
-.kart-page .informations-left p{
+.cart-page .informations-left p{
     font-size: 4.5vh;
     text-align: center;
     padding-right: 2vh;
@@ -44,21 +44,21 @@
     color: var(--dark-blue);
 }
 
-.kart-page .row{
+.cart-page .row{
     display: flex;
     font-size: 4vmax;
     height: 5vmax;
 }
 
-.kart-page .row .value-1{
+.cart-page .row .value-1{
     padding-right: 1.5vw;
 }
 
-.kart-page .row .value-2{
+.cart-page .row .value-2{
     color: var(--red);
 }
 
-.kart-page .informations-left .edit-button{
+.cart-page .informations-left .edit-button{
     width: 23vh;
     margin: 0vh 2vw 1vh 2vw;
     height: 5.5vh;
@@ -69,7 +69,7 @@
     border-radius: 5vmin;
 }
 
-.kart-page .informations-right .edit-button{
+.cart-page .informations-right .edit-button{
     width: 30vmax;
     margin: 3vh auto 1vh auto;
     height: 5vmax;
@@ -80,32 +80,32 @@
     border-radius: 5vmin;
 }
 
-.kart-page .edit-button .button{
+.cart-page .edit-button .button{
     text-decoration: none;
     color: white;
 }
 
-.kart-page #card{
+.cart-page #card{
     width: 25vh;
     height: 40vh;
-    margin: 1vh 2vw 2vh 2vw;
+    margin: 0vh 2vw 2vh 2vw;
 }
 
 /* Isso é pra mudar depois no próprio card */
-.kart-page #card-price{
+.cart-page #card-price{
     font-size: 240%;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
-.kart-page #card-console{
+.cart-page #card-console{
     padding-top: 2%;
     font-size: 240%;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
-.kart-page #card-name{
+.cart-page #card-name{
     font-size: 200%;
     text-align: center;
 
