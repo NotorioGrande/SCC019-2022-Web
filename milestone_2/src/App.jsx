@@ -15,7 +15,8 @@ import NewProduct from './components/NewProduct'
 import Admin from './components/Admin'
 import Product from './components/Product';
 import Cart from './components/Cart';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Cookies from 'universal-cookie';
 
 //Falta Pesquisa,PesquisaADM,ListaUsuarios,Carrinho
 
@@ -23,6 +24,19 @@ function App() {
   const [inputPesquisa, setInputPesquisa] = useState("");
   const [user, setUser] = useState(undefined);
 
+  
+  const handleLoad = () =>{
+      let cookies = new Cookies();
+      let retorno = cookies.get("logged_user");
+      if(retorno !== undefined){
+          setUser(retorno);
+      }
+
+  }
+  useEffect(() => {
+      handleLoad();
+  }, []); // so vai rodar quando carregar pela primeira vez
+  
   return (
     <div className="App">
       <Router>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Cookies from 'universal-cookie';
 import "./Cadastro.css"
-
+import { useNavigate } from 'react-router-dom';
 function delay(){
   return new Promise(function(resolve) {
       setTimeout(resolve, 100);
@@ -12,6 +12,8 @@ function delay(){
 
 const Cadastro = () => {
     const cookies = new Cookies();
+    const navigate = useNavigate();
+
     const handleCadastro = async () => {
         //primeiro checar se as senhas coincidem
         let campoSenha = document.getElementById("campo-senha").value;
@@ -37,6 +39,7 @@ const Cadastro = () => {
         };
         await delay();
         cookies.set(new_user.email, new_user);
+        navigate("/login");
         return;
     }
 
