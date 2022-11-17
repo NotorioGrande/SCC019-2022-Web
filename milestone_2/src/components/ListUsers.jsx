@@ -50,7 +50,7 @@ let users = [{
 }]
 
 const ListUsers = ({/*users*/}) => { // recebe um array de objetos dos usuarios
-                                     // na vdd agora é pra dar um query no banco de dados e retornar todos os usuários
+                                     // na vdd agora é pra dar um query no banco de dados e retornar o array com os objetos dos usuários
     return (
         <div className='list-users'>
             <div className='filter-list'>
