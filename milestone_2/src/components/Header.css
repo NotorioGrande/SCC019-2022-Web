@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+.icon{
+    width: 2vw;
+    height: 5vh;
+}
+
 .link{
     text-decoration: none;
     color: inherit;

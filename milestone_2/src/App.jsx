@@ -24,7 +24,6 @@ function App() {
   const [inputPesquisa, setInputPesquisa] = useState("");
   const [user, setUser] = useState(undefined);
 
-  
   const handleLoad = () =>{
       let cookies = new Cookies();
       let retorno = cookies.get("logged_user");

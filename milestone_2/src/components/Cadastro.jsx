@@ -2,13 +2,12 @@ import React from 'react';
 import Cookies from 'universal-cookie';
 import "./Cadastro.css"
 import { useNavigate } from 'react-router-dom';
+
 function delay(){
   return new Promise(function(resolve) {
       setTimeout(resolve, 100);
   });
 }
-
-
 
 const Cadastro = () => {
     const cookies = new Cookies();
@@ -35,7 +34,8 @@ const Cadastro = () => {
             username : campoUsername,
             senha : campoSenha,
             endereco : campoEndereco,
-            telefone : campoTelefone
+            telefone : campoTelefone,
+            adm : false
         };
         await delay();
         cookies.set(new_user.email, new_user);

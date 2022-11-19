@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import "./Header.css"
 import Cookies from 'universal-cookie';
+import cartIcon from '../assets/cart_icon.png';
+import gearIcon from '../assets/gear_icon.png';
+
 const Header = ({user, setUser}) => {
 
     //determina o que colocar no header
@@ -34,10 +37,10 @@ const Header = ({user, setUser}) => {
                     {user ? (<Link id='name' to="/usuario">{user.nome}</Link>) : 
                     <span id='name'>anônimo</span>
                     }
-        
 
-                    <span>cog</span>
-                    <span>cart</span>
+                    {user && user.adm && (<img src={gearIcon} alt="carrinho" class="icon"/>)}
+
+                    <img src={cartIcon} alt="carrinho" className="icon"/>
                 </div>
 
             </div>
