@@ -70,20 +70,20 @@
 
 /* Isso é pra mudar depois no próprio card */
 .div-pesquisa #card-price{
-    font-size: 240%;
+    font-size: 2.5vmax;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
 .div-pesquisa #card-console{
     padding-top: 2%;
-    font-size: 240%;
+    font-size: 2.5vmax;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
 .div-pesquisa #card-name{
-    font-size: 200%;
+    font-size: 1.5vmax;
     text-align: center;
 
     color: var(--dark-blue);
