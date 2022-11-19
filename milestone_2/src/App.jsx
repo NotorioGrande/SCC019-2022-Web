@@ -7,6 +7,7 @@ import Cadastro from './components/Cadastro';
 import User from './components/User';
 import Edit from './components/Edit';
 import Pesquisa from './components/Pesquisa';
+import PesquisaAdm from './components/PesquisaAdm';
 import Cartao from './components/Cartao';
 import ListUsers from './components/ListUsers';
 import AdminEdit from './components/AdminEdit'
@@ -17,8 +18,6 @@ import Product from './components/Product';
 import Cart from './components/Cart';
 import { useState, useEffect } from 'react';
 import Cookies from 'universal-cookie';
-
-//Falta Pesquisa,PesquisaADM,ListaUsuarios,Carrinho
 
 function App() {
   const [inputPesquisa, setInputPesquisa] = useState("");
@@ -50,6 +49,7 @@ function App() {
             <Route path="/cartao" element={<Cartao />}/>
             <Route path="/admin" element={<Admin />}/>
             <Route path="/admin/products" element={<AdminProducts />}/>
+            <Route path="/admin/products/search" element={<PesquisaAdm />}/>
             <Route path="/admin/products/new" element={<NewProduct />}/>
             <Route path="/admin/users" element={<ListUsers /*users={users}*//>}/>
             <Route path="/admin/users/:id" element={<AdminEdit /*user={user}*/ />}/>

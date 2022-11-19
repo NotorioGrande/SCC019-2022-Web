@@ -1,12 +1,12 @@
 @import "./colors.css";
 @import "./sizes.css";
 
-.div-pesquisa {
+.page-search-adm {
     margin-top: var(--altura-header);
     font-family: 'VT323', monospace;
 }
 
-.div-pesquisa .filtros{
+.page-search-adm .filtros{
     background-color: var(--dark-blue);
     color: white;
     width: 14vw;
@@ -15,21 +15,21 @@
     position: fixed;
 }
 
-.div-pesquisa .filtros > div {
+.page-search-adm .filtros > div {
     display: flex;
     margin: 0.4vh 2vh;
 }
 
-.div-pesquisa .filtros input{
+.page-search-adm .filtros input{
     margin-right:1vw ;
 }
 
-.div-pesquisa .filtro-titulo{
+.page-search-adm .filtro-titulo{
     margin-left: 0.5vw;
     font-size: 6vh;
 }
 
-.div-pesquisa .content{
+.page-search-adm .content{
     width: 90vw;
     display: flex;
     flex-wrap: wrap;
@@ -38,7 +38,7 @@
     padding-top: 2vh;
 }
 
-.div-pesquisa .content p{
+.page-search-adm .content p{
     font-size: 4.5vh;
     text-align: center;
     padding-right: 2vh;
@@ -46,7 +46,7 @@
     color: var(--dark-blue);
 }
 
-.div-pesquisa .content .edit-button{
+.page-search-adm .content .edit-button{
     width: 23vh;
     margin: 0vh 2vw 1vh 2vw;
     height: 5.5vh;
@@ -57,40 +57,40 @@
     border-radius: 5vmin;
 }
 
-.div-pesquisa .edit-button .button{
+.page-search-adm .button-game{
+    text-decoration: none;
+    color: var(--dark-blue);
+}
+
+.page-search-adm .button{
     text-decoration: none;
     color: white;
 }
 
-.div-pesquisa #card{
+.page-search-adm #card{
     width: 25vh;
     height: 40vh;
-    margin: 0vh 2vw 2vh 2vw;
+    margin: 1vh 2vw 2vh 2vw;
 }
 
 /* Isso é pra mudar depois no próprio card */
-.div-pesquisa #card-price{
+.page-search-adm #card-price{
     font-size: 240%;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
-.div-pesquisa #card-console{
+.page-search-adm #card-console{
     padding-top: 2%;
     font-size: 240%;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
-.div-pesquisa #card-name{
+.page-search-adm #card-name{
     font-size: 200%;
     text-align: center;
 
     color: var(--dark-blue);
     padding-top: 2%;
-}
-
-.div-pesquisa .button{
-    text-decoration: none;
-    color: var(--dark-blue);
 }
