@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from './Card';
-import "./Pesquisa.css";
+import "./PesquisaAdm.css";
 import smw from './smw.png';
 
 let games = [{
@@ -86,10 +86,10 @@ let games = [{
     id: '8'
 }]
 
-const Pesquisa = ({setInputPesquisa}) => {
+const PesquisaAdm = ({setInputPesquisa}) => {
 
     return (
-        <div className="div-pesquisa">
+        <div className="page-search-adm">
             <div className="filtros">
                 <p className='filtro-titulo'>Console</p>
                 <div className="atari-filter">
@@ -142,10 +142,18 @@ const Pesquisa = ({setInputPesquisa}) => {
                 {games.map((element,index) => {
                     return(
                         <div className='cart-item' key={index} id={'item-' + index}> {/* Dps eu mudo o nome da classe*/}
-                            <Link className='button' to="/product">
+                            <Link className='button-game' to="/product">
                                 <Card name={element.name} price={element.price} img={element.img} console={element.console}/>
                             </Link>
-                            <p>Quantidade: {element.stock}</p>
+                            <p>Id: {element.id}</p>
+                            <p>Vendidos: {element.sold}</p>
+                            <p>Estoque: {element.stock}</p>
+                            <button className='edit-button'>
+                                <Link className='button' to="/admin/products/new">Alterar</Link>  {/*Não é rota, só botar um bglh ai pra alterar a quantidade*/}
+                            </button>
+                            <button className='edit-button'>
+                                <Link className='button' to="/admin/products/new">Apagar</Link>  {/*Não é rota, só botar um bglh ai pra alterar a quantidade*/}
+                            </button>
                         </div>
                     )
                 })}
@@ -153,5 +161,5 @@ const Pesquisa = ({setInputPesquisa}) => {
         </div>
     );
 }
- 
-export default Pesquisa;
+
+export default PesquisaAdm;

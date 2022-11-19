@@ -10,7 +10,7 @@ const AdminProducts = ({admin}) => {
                 <Link className='button' to="/admin/products/new">Adicionar novo</Link>
             </button>
             <button className='acess-button'>
-                <Link className='button' to="/admin/products/list">Gerenciar existentes</Link>
+                <Link className='button' to="/admin/products/search">Gerenciar existentes</Link>
             </button>
         </div>
     );
