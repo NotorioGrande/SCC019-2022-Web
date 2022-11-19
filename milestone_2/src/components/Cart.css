@@ -93,22 +93,22 @@
 
 /* Isso é pra mudar depois no próprio card */
 .cart-page #card-price{
-    font-size: 2.5vmax;
+    font-size: 5vh;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
 .cart-page #card-console{
-    padding-top: 2%;
-    font-size: 2.5vmax;
+    padding-top: 0;
+    font-size: 4.5vh;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
 .cart-page #card-name{
-    font-size: 1.5vmax;
+    font-size: 3vh;
     text-align: center;
 
     color: var(--dark-blue);
-    padding-top: 2%;
+    padding-top: 0;
 }
