@@ -21,6 +21,7 @@ nav{
     top: 0;
     font-family: 'VT323', monospace;
     width: 100vw;
+    z-index: 0;
 }
 
 #name{

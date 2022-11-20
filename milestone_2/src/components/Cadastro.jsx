@@ -6,7 +6,8 @@ import {delay} from '../helpers/system.js';
 const Cadastro = () => {
     const navigate = useNavigate();
 
-    const handleCadastro = async () => {
+    const handleCadastro = async (e) => {
+        e.preventDefault();
         //primeiro checar se as senhas coincidem
         let campoSenha = document.getElementById("campo-senha").value;
         let campoConfirmarSenha = document.getElementById("campo-confirmar-senha").value;
@@ -48,40 +49,42 @@ const Cadastro = () => {
 
     return ( 
         <>
-        <div className="cadastro-form">
+        <div className="cadastro-div">
+            <form className='cadastro-form' action="" onSubmit={handleCadastro}>
                 <div className="nome">
                     <p>Nome</p>
-                    <input type="text" name="nome" id="campo-nome" className='campo'/>
+                    <input required type="text" name="nome" id="campo-nome" className='campo'/>
                 </div>
                 <div className="username">
                     <p>Username</p>
-                    <input type="text" name="username" id="campo-username" className='campo'/>
+                    <input required type="text" name="username" id="campo-username" className='campo'/>
                 </div>
                 <div className="email">
                     <p>Email</p>
-                    <input type="email" name="email" id="campo-email" className='campo'/>
+                    <input required type="email" name="email" id="campo-email" className='campo'/>
                 </div>
                 <div className="telefone">
                     <p>Telefone</p>
-                    <input type="text" name="telefone" id="campo-telefone" className='campo'/>
+                    <input required type="text" name="telefone" id="campo-telefone" className='campo'/>
                 </div>
                 <div className="cep">
                     <p>Cep</p>
-                    <input type="text" name="cep" id="campo-cep" className='campo'/>
+                    <input required type="text" name="cep" id="campo-cep" className='campo'/>
                 </div>
                 <div className="logradouro">
                     <p>Logradouro</p>
-                    <input type="text" name="logradouro" id="campo-logradouro" className='campo'/>
+                    <input  required type="text" name="logradouro" id="campo-logradouro" className='campo'/>
                 </div>
                 <div className="senha">
                     <p>Senha</p>
-                    <input type="password" name="senha" id="campo-senha" className='campo'/>
+                    <input required type="password" name="senha" id="campo-senha" className='campo'/>
                 </div>
                 <div className="confirmar-senha">
                     <p>Confirmar Senha</p>
-                    <input type="password" name="senha" id="campo-confirmar-senha" className='campo'/>
+                    <input required type="password" name="senha" id="campo-confirmar-senha" className='campo'/>
                 </div>
-                <button onClick={handleCadastro} className='cadastro-button'>Cadastro</button>
+                <input type="submit"  className='cadastro-button' value="Cadastro"/>
+                </form>
         </div>
 
         </>

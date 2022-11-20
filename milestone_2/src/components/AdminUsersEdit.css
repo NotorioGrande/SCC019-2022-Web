@@ -2,7 +2,7 @@
 @import "sizes.css";
 
 .admin-edit-page{
-    padding-top: var(--altura-header);
+    margin-top: var(--altura-header);
     font-family: 'VT323', monospace;
 }
 
@@ -12,9 +12,6 @@
     justify-content: center;
 }
 
-.admin-edit-page .informations-top{
-    margin-top: 5vh;
-}
 
 .admin-edit-page .informations-down{
     margin-top: 1vh;
@@ -23,12 +20,12 @@
 .admin-edit-page .informations-top p{
     text-align: center;
     font-size: 5vmin;
-    padding-top: 1vh;
+    padding-top: 2vh;
 }
 
 .admin-edit-page .informations-down p{
     font-size: 6vmin;
-    padding-top: 3vh;
+    padding-top: 1vh;
 }
 
 .admin-edit-page .user-img img{
@@ -57,7 +54,7 @@
     border-radius: 10vmin;
 }
 
-.admin-edit-page .edit-button .button{
+.admin-edit-page .edit-button {
     text-decoration: none;
     color: white;
 }
