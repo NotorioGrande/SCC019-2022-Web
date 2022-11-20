@@ -7,6 +7,7 @@
     font-family: 'VT323';
     display: flex;
     flex-wrap: wrap;
+    height: 80vh;
 }
 .cadastro-form > *{
     /*O margin top precisa de no minimo o tamanho do header (14 vh) */

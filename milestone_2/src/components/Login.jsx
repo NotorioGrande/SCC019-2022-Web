@@ -11,7 +11,8 @@ const Login = ({setUser}) => {
     
     const navigate = useNavigate();
 
-    const handleLogin = async () =>{
+    const handleLogin = async (e) =>{
+        e.preventDefault();
         let cookies = new Cookies();
         let email = document.getElementById("campo-email").value;
         let senha = document.getElementById("campo-senha").value;
@@ -43,22 +44,24 @@ const Login = ({setUser}) => {
         }
         cookies.set("logged_user", retorno);
         setUser(retorno);
-        window.alert("logado");
+        window.alert("Logado com sucesso.");
         navigate("/");
 
     }
     return (
         <>
-        <div className="login-form">
+        <div className="login-div">
+            <form onSubmit={handleLogin} className="login-form">
                 <div className="email">
                     <p>Email</p>
-                    <input type="email" name="email" id="campo-email" className='campo'/>
+                    <input required type="email" name="email" id="campo-email" className='campo'/>
                 </div>
                 <div className="senha">
                     <p>Senha</p>
-                    <input type="password" name="senha" id="campo-senha" className='campo'/>
+                    <input required type="password" name="senha" id="campo-senha" className='campo'/>
                 </div>
-                <button onClick={handleLogin} className='login-button'>Login</button>
+                <input type="submit" className='login-button' value="Login"/>
+            </form>
         </div>
         <div className='sem-conta'>
             <p>Não tem uma conta?</p>
