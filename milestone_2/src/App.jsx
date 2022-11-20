@@ -13,6 +13,7 @@ import ListUsers from './components/ListUsers';
 import AdminUsersEdit from './components/AdminUsersEdit'
 import AdminProducts from './components/AdminProduct'
 import NewProduct from './components/NewProduct'
+import EditProduct from './components/EditProduct'
 import Admin from './components/Admin'
 import Product from './components/Product';
 import Cart from './components/Cart';
@@ -51,6 +52,7 @@ function App() {
             <Route path="/admin/products" element={<AdminProducts />}/>
             <Route path="/admin/products/search" element={<PesquisaAdm />}/>
             <Route path="/admin/products/new" element={<NewProduct />}/>
+            <Route path="/admin/products/edit/:id" element={<EditProduct />}/>
             <Route path="/admin/users" element={<ListUsers /*users={users}*//>}/>
             <Route path="/admin/users/:id" element={<AdminUsersEdit /*user={user}*/ />}/>
             <Route path="/product" element={<Product /*game={game}*/ />}/>

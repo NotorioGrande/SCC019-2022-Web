@@ -10,6 +10,7 @@ export function getUsersArray(){
     
     userEmailList= userEmailList.split(" ");
     let userList = [];
+
     for(let userEmail of userEmailList){
         //precisa parsear pq localStorage só guarda em string
         let user = JSON.parse(localStorage.getItem(userEmail));

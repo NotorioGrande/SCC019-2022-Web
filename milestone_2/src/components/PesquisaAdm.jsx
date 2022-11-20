@@ -4,92 +4,13 @@ import Card from './Card';
 import "./PesquisaAdm.css";
 import smw from './smw.png';
 import {getProductsArray, removeProduct} from '../helpers/products.js'
-
-let games = [{
-    name: 'Super Mario World',
-    price: 'R$ 56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '0'
-},
-{
-    name: 'Super Mario World',
-    price: 'R$ 56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '1'
-},
-{
-    name: 'Super Mario World',
-    price: 'R$ 56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '2'
-},
-{
-    name: 'Super Mario World',
-    price: 'R$ 56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '3'
-},
-{
-    name: 'Super Mario World',
-    price: 'R$ 56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '4'
-},
-{
-    name: 'Super Mario World',
-    price: 'R$ 56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '5'
-},
-{
-    name: 'Super Mario World',
-    price: 'R$ 56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '6'
-},
-{
-    name: 'Super Mario World',
-    price: 'R$ 56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '7'
-},
-{
-    name: 'Super Mario World',
-    price: 'R$ 56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '8'
-}]
+import { useState } from 'react';
 
 const PesquisaAdm = ({setInputPesquisa}) => {
     let products = getProductsArray();
-    console.log(products);
+    console.log(localStorage);
+
+    const [recarregarPesquisaAdm, setRecarregarPesquisaAdm] = useState(true);
 
     if (products == null){
         return(
@@ -98,8 +19,6 @@ const PesquisaAdm = ({setInputPesquisa}) => {
             </div>
         )
     }
-
-    
 
     else{
         return (
@@ -165,10 +84,10 @@ const PesquisaAdm = ({setInputPesquisa}) => {
                                         <p>Vendidos: {element.vendido}</p>
                                         <p>Estoque: {element.estoque}</p>
                                         <button className='edit-button'>
-                                            <Link className='button' to="/admin/products/new">Alterar</Link>  {/*Não é rota, só botar um bglh ai pra alterar a quantidade*/}
+                                            <Link className='button' to={"/admin/products/edit/" + element.id}>Alterar</Link>
                                         </button>
-                                        <button className='edit-button' id={element.id}>
-                                            <Link className='button' to="/admin/products/search">Apagar</Link>  {/*Não é rota, só botar um bglh ai pra alterar a quantidade*/}
+                                        <button className='edit-button' id={element.id} onClick={()=> {removeProduct(element.id); setRecarregarPesquisaAdm(!recarregarPesquisaAdm);}}>
+                                            <Link className='button' to="/admin/products/search">Apagar</Link>
                                         </button>
                                     </div>
                                 )

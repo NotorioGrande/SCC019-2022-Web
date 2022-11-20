@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams} from 'react-router-dom';
 import Card from './Card';
-import "./NewProduct.css";
+import "./EditProduct.css";
 import { useNavigate } from 'react-router-dom';
 import {delay} from '../helpers/system.js';
+import {getProduct} from '../helpers/products.js'
+import { useState } from 'react';
 
 const refresh_product = () => {
     let card_price = document.getElementById('card-price')
     let card_console = document.getElementById('card-console')
     let card_name = document.getElementById('card-name')
 
-    card_price.innerHTML = document.getElementById('newproduct-price').value
-    card_console.innerHTML = document.getElementById('newproduct-console').value
-    card_name.innerHTML = document.getElementById('newproduct-name').value
+    card_price.innerHTML = document.getElementById('editproduct-price').value
+    card_console.innerHTML = document.getElementById('editproduct-console').value
+    card_name.innerHTML = document.getElementById('editproduct-name').value
 }
 
 let loadFile = (event) => {
@@ -23,16 +25,20 @@ let loadFile = (event) => {
     }
 };
 
-const NewProduct = ({admin}) => {
+const EditProduct = ({admin}) => {
     const navigate = useNavigate();
+    const [carregarCard, setCarregarCard] = useState(true);
+    let {id} = useParams();
+
+    let product = getProduct(id);
 
     const saveProduct = async () => {
         //pegando os valores
-        let campoNome = document.getElementById("newproduct-name").value;
-        let campoEstoque = document.getElementById("newproduct-stock").value;
-        let campoPreco = document.getElementById("newproduct-price").value;
-        let campoPlataforma = document.getElementById("newproduct-console").value;
-        let campoDescricao = document.getElementById("newproduct-description").value;
+        let campoNome = document.getElementById("editproduct-name").value;
+        let campoEstoque = document.getElementById("editproduct-stock").value;
+        let campoPreco = document.getElementById("editproduct-price").value;
+        let campoPlataforma = document.getElementById("editproduct-console").value;
+        let campoDescricao = document.getElementById("editproduct-description").value;
 
         let campoId = localStorage.getItem("id");
 
@@ -46,7 +52,7 @@ const NewProduct = ({admin}) => {
         campoId = localStorage.getItem("id");
 
         //novo produto a ser colocado no localStorage
-        let newProduct = {
+        let editproduct = {
             nome: campoNome,
             estoque: campoEstoque,
             vendido: null,
@@ -63,19 +69,19 @@ const NewProduct = ({admin}) => {
 
         if(productList){
             //se salva o id para facilitar a retribuicao dos dados depois
-            localStorage.setItem("productList", productList + " " + newProduct.id);
+            localStorage.setItem("productList", productList + " " + editproduct.id);
         }
         else{
-            localStorage.setItem("productList", newProduct.id);
+            localStorage.setItem("productList", editproduct.id);
         }
         //salva no storage o produto
-        localStorage.setItem(newProduct.id, JSON.stringify(newProduct));
+        localStorage.setItem(editproduct.id, JSON.stringify(editproduct));
         navigate("/admin/products");
         return;
     }
 
     return (
-        <div className='new-product-page'>
+        <div className='edit-product-page'>
             <div className='informations'>
                 <div className='informations-left'>
                     <Card />
@@ -88,31 +94,31 @@ const NewProduct = ({admin}) => {
                     <div className='row'>
                         <div className='edit-campo'>
                             <p>Nome</p>
-                            <input onKeyUp={refresh_product} type="text" name="name" id="newproduct-name" className='campo'/>
+                            <input onKeyUp={refresh_product} type="text" name="name" id="editproduct-name" className='campo' defaultValue={product.nome}/>
                         </div>
                         <div className='edit-campo'>
                             <p>Estoque</p>
-                            <input type="text" name="stock" id="newproduct-stock" className='campo'/>
+                            <input type="text" name="stock" id="editproduct-stock" className='campo' defaultValue={product.estoque}/>
                         </div>
                     </div>
                     <div className='row'>
                         <div className='edit-campo'>
                             <p>Preço</p>
-                            <input onKeyUp={refresh_product} type="text" name="price" id="newproduct-price" className='campo'/>
+                            <input onKeyUp={refresh_product} type="text" name="price" id="editproduct-price" className='campo' defaultValue={product.preco}/>
                         </div>
                         <div className='edit-campo'>
                             <p>Plataforma</p>
-                            <input onKeyUp={refresh_product} type="text" name="console" id="newproduct-console" className='campo'/>
+                            <input onKeyUp={refresh_product} type="text" name="console" id="editproduct-console" className='campo' defaultValue={product.plataforma}/>
                         </div>
                     </div>
                     <div className='row'>
                         <div className='edit-campo'>
                             <p>Descrição: </p>
-                            <textarea name="description" cols="21" rows="5" className='campo' id="newproduct-description"></textarea>
+                            <textarea name="description" cols="21" rows="5" className='campo' id="editproduct-description" defaultValue={product.descricao}></textarea>
                         </div>
                         <div className='edit-campo'>
                             <button className='edit-button' onClick={saveProduct}>
-                                <Link className='button' to="/admin/products">Adicionar Produto</Link>
+                                <Link className='button' to="/admin/products">Salvar</Link>
                             </button>
                         </div>
                     </div>
@@ -122,4 +128,4 @@ const NewProduct = ({admin}) => {
     );
 }
  
-export default NewProduct;
+export default EditProduct;
