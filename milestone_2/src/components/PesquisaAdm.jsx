@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Card from './Card';
 import "./PesquisaAdm.css";
 import smw from './smw.png';
+import {getProductsArray} from '../helpers/products.js'
 
 let games = [{
     name: 'Super Mario World',
@@ -87,6 +88,40 @@ let games = [{
 }]
 
 const PesquisaAdm = ({setInputPesquisa}) => {
+    let products = getProductsArray();
+
+    console.log(localStorage.length);
+
+    const listProducts = () => {
+        if (products == null){
+            return(
+            <div>
+                <h2>Sem produtos cadastrados</h2>
+            </div>
+            )
+        }
+
+        else{
+            products.map((element, index) => {
+                return(
+                    <div className='cart-item' key={index} id={'item-' + index}> {/* Dps eu mudo o nome da classe*/}
+                        <Link className='button-game' to="/product">
+                            <Card name={element.nome} price={element.preco} img={smw} console={element.plataforma}/>
+                        </Link>
+                        <p>Id: {element.uuid}</p>
+                        <p>Vendidos: {element.vendido}</p>
+                        <p>Estoque: {element.estoque}</p>
+                        <button className='edit-button'>
+                            <Link className='button' to="/admin/products/new">Alterar</Link>  {/*Não é rota, só botar um bglh ai pra alterar a quantidade*/}
+                        </button>
+                        <button className='edit-button'>
+                            <Link className='button' to="/admin/products/new">Apagar</Link>  {/*Não é rota, só botar um bglh ai pra alterar a quantidade*/}
+                        </button>
+                    </div>
+                )
+            })
+        }
+    }
 
     return (
         <div className="page-search-adm">
@@ -139,24 +174,7 @@ const PesquisaAdm = ({setInputPesquisa}) => {
                 </div>
             </div>
             <div className='content'>
-                {games.map((element,index) => {
-                    return(
-                        <div className='cart-item' key={index} id={'item-' + index}> {/* Dps eu mudo o nome da classe*/}
-                            <Link className='button-game' to="/product">
-                                <Card name={element.name} price={element.price} img={element.img} console={element.console}/>
-                            </Link>
-                            <p>Id: {element.id}</p>
-                            <p>Vendidos: {element.sold}</p>
-                            <p>Estoque: {element.stock}</p>
-                            <button className='edit-button'>
-                                <Link className='button' to="/admin/products/new">Alterar</Link>  {/*Não é rota, só botar um bglh ai pra alterar a quantidade*/}
-                            </button>
-                            <button className='edit-button'>
-                                <Link className='button' to="/admin/products/new">Apagar</Link>  {/*Não é rota, só botar um bglh ai pra alterar a quantidade*/}
-                            </button>
-                        </div>
-                    )
-                })}
+                {listProducts()}
             </div>
         </div>
     );

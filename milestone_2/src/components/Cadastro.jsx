@@ -1,13 +1,7 @@
 import React from 'react';
-import Cookies from 'universal-cookie';
 import "./Cadastro.css"
 import { useNavigate } from 'react-router-dom';
-
-function delay(){
-  return new Promise(function(resolve) {
-      setTimeout(resolve, 100);
-  });
-}
+import {delay} from '../helpers/system.js';
 
 const Cadastro = () => {
     const navigate = useNavigate();
@@ -51,8 +45,6 @@ const Cadastro = () => {
         navigate("/login");
         return;
     }
-
-
 
     return ( 
         <>

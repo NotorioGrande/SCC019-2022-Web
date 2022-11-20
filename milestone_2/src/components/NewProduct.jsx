@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from './Card';
 import "./NewProduct.css";
+import { useNavigate } from 'react-router-dom';
+import {delay} from '../helpers/system.js';
+import {v4 as uuidv4} from 'uuid';
 
 const refresh_product = () => {
     let card_price = document.getElementById('card-price')
@@ -22,13 +25,53 @@ let loadFile = (event) => {
 };
 
 const NewProduct = ({admin}) => {
+    const navigate = useNavigate();
+
+    const saveProduct = async () => {
+        //pegando os valores
+        let campoNome = document.getElementById("newproduct-name").value;
+        let campoEstoque = document.getElementById("newproduct-stock").value;
+        let campoPreco = document.getElementById("newproduct-price").value;
+        let campoPlataforma = document.getElementById("newproduct-console").value;
+        let campoDescricao = document.getElementById("newproduct-description").value;
+        let campoUuid = uuidv4();
+
+        //novo produto a ser colocado no localStorage
+        let newProduct = {
+            nome: campoNome,
+            estoque: campoEstoque,
+            vendido: null,
+            img: null,
+            preco: campoPreco,
+            plataforma: campoPlataforma,
+            descricao: campoDescricao,
+            uuid: campoUuid
+        };
+
+        await delay();
+
+        let productList = localStorage.getItem("productList");
+
+        if(productList){
+            //se salva o uuid para facilitar a retribuicao dos dados depois
+            localStorage.setItem("productList", productList + " " + newProduct.uuid);
+        }
+        else{
+            localStorage.setItem("productList", newProduct.uuid);
+        }
+        //salva no storage o produto
+        localStorage.setItem(newProduct.uuid, JSON.stringify(newProduct));
+        navigate("/admin/products");
+        return;
+    }
+
     return (
         <div className='new-product-page'>
             <div className='informations'>
                 <div className='informations-left'>
                     <Card />
                     <button className='edit-button'>
-                        <label for='imgInp'>Carregar imagens</label>
+                        <label htmlFor='file'>Carregar imagens</label>
                         <input onChange={loadFile} type="file" name="file" accept="image/*" className='button' id="imgInp"/>
                     </button>
                 </div>
@@ -59,7 +102,7 @@ const NewProduct = ({admin}) => {
                             <textarea name="description" cols="21" rows="5" className='campo' id="newproduct-description"></textarea>
                         </div>
                         <div className='edit-campo'>
-                            <button className='edit-button'>
+                            <button className='edit-button' onClick={saveProduct}>
                                 <Link className='button' to="/admin/products">Adicionar Produto</Link>
                             </button>
                         </div>

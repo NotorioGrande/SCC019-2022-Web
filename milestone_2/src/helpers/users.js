@@ -3,7 +3,7 @@
 export function getUsersArray(){
     let userEmailList = localStorage.getItem("userList");
     //vazio é quando tinha e nao tem mais, nulo é pq nunca teve
-    if(userEmailList === "" || userEmailList === null){
+    if(userEmailList === null || userEmailList === ""){
         return null;
     
     };

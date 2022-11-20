@@ -38,7 +38,7 @@ const Header = ({user, setUser}) => {
                     <span id='name'>anônimo</span>
                     }
 
-                    {user && user.adm && (<Link to="/admin"> <img src={gearIcon} alt="carrinho" class="icon"/></Link>)}
+                    {user && user.adm && (<Link to="/admin"> <img src={gearIcon} alt="carrinho" className="icon"/></Link>)}
 
                     <a href="/cart"><img src={cartIcon} alt="carrinho" className="icon"/></a>
                 </div>
