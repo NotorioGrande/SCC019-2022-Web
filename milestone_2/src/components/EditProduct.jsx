@@ -5,7 +5,6 @@ import "./EditProduct.css";
 import { useNavigate } from 'react-router-dom';
 import {delay} from '../helpers/system.js';
 import {getProduct} from '../helpers/products.js'
-import { useState } from 'react';
 
 const refresh_product = () => {
     let card_price = document.getElementById('card-price')
@@ -27,7 +26,6 @@ let loadFile = (event) => {
 
 const EditProduct = ({admin}) => {
     const navigate = useNavigate();
-    const [carregarCard, setCarregarCard] = useState(true);
     let {id} = useParams();
 
     let product = getProduct(id);
@@ -40,18 +38,9 @@ const EditProduct = ({admin}) => {
         let campoPlataforma = document.getElementById("editproduct-console").value;
         let campoDescricao = document.getElementById("editproduct-description").value;
 
-        let campoId = localStorage.getItem("id");
+        let campoId = id;
 
-        if(campoId){
-            localStorage.setItem("id", parseInt(campoId) + 1);
-        }
-        else{
-            localStorage.setItem("id", 1);
-        }
-
-        campoId = localStorage.getItem("id");
-
-        //novo produto a ser colocado no localStorage
+        //produto atualizado
         let editproduct = {
             nome: campoNome,
             estoque: campoEstoque,
@@ -65,15 +54,6 @@ const EditProduct = ({admin}) => {
 
         await delay();
 
-        let productList = localStorage.getItem("productList");
-
-        if(productList){
-            //se salva o id para facilitar a retribuicao dos dados depois
-            localStorage.setItem("productList", productList + " " + editproduct.id);
-        }
-        else{
-            localStorage.setItem("productList", editproduct.id);
-        }
         //salva no storage o produto
         localStorage.setItem(editproduct.id, JSON.stringify(editproduct));
         navigate("/admin/products");
