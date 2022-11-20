@@ -44,7 +44,7 @@ function App() {
             <Route path="/login" element={<Login setUser={setUser} />} />
             <Route path="/cadastro" element={<Cadastro />}/>
             <Route path="/usuario" element={<User user={user} />}/>
-            <Route path="/editar" element={<Edit /*user={user}*/ />}/>
+            <Route path="/editar" element={<Edit user={user} setUser={setUser} />}/>
             <Route path="/pesquisa" element={<Pesquisa/>}/>
             <Route path="/cartao" element={<Cartao />}/>
             <Route path="/admin" element={<Admin />}/>
