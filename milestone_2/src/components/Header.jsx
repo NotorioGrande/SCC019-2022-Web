@@ -40,7 +40,7 @@ const Header = ({user, setUser}) => {
 
                     {user && user.adm && (<img src={gearIcon} alt="carrinho" class="icon"/>)}
 
-                    <img src={cartIcon} alt="carrinho" className="icon"/>
+                    <a href="/cart"><img src={cartIcon} alt="carrinho" className="icon"/></a>
                 </div>
 
             </div>
