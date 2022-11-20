@@ -16,8 +16,12 @@ const Login = ({setUser}) => {
         let email = document.getElementById("campo-email").value;
         let senha = document.getElementById("campo-senha").value;
         await delay();
-        let retorno = cookies.get(email);
-        if(retorno === undefined || senha !== retorno.senha){
+        let retorno = localStorage.getItem(email);
+        if(retorno){
+            retorno = JSON.parse(retorno);
+        }
+        if(retorno === null || senha !== retorno.senha){
+            //usuario inicial é definido aqui no nível lógico e nao no sentido de storage
             if (email === "admin@admin.com" && senha === "admin"){
                 var adm = {
                     email : "admin@admin.com",
@@ -37,11 +41,9 @@ const Login = ({setUser}) => {
                 return;
             }
         }
-
         cookies.set("logged_user", retorno);
         setUser(retorno);
         window.alert("logado");
-
         navigate("/");
 
     }

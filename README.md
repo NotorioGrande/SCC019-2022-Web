@@ -46,15 +46,20 @@ As funcionalidades são:
 * Filtros: filtros podem ser aplicados aos produtos pelos clientes. Os filtros possíveis são por _name_, _plataform, _genres_, _price_, _quantity stock_ e _quantity sold_. Por exemplo, um cliente pode definir um filtro que mostra apenas os jogos cuja plataforma é o Playstation 2;
 
 ## Descrição
-O mockup foi feito usando a ferramenta Figma, disponível nesse link [Mockup](https://www.figma.com/proto/4njq9ULHhlMh6fvO3o0bJu/Milestone-1---mockup?node-id=35%3A5&scaling=scale-down&page-id=0%3A1&starting-point-node-id=35%3A5&show-proto-sidebar=1). Têm dois fluxos que podem ser seguidos, basta selecionar na lateral esquerda da página. Um é para o usuário comum e o outro é para o administrador. O html e css foram gerados com um plugin, e alguns problemas foram consertados manualmente.
+Projeto foi feito usando React, a conta de administrador tem email: admin@admin.com e senha: admin. A área do administrador 
 
 ## Comentários Sobre o Código
-No momento atual, o c está muito bagunçado, visto que foi gerado de maneira automática, então não há semântica, muitas classes repetidas e uma estrutura geral péssima, será refatorado para a próxima entrega.
+No momento não foram implementados mecanismos de segurança ou todas as garantias que o usuário está seguindo o devido fluxo. Além disso, para simular algumas funções do back end foi usado localStorage.
 ## Plano de Teste
+
+Os testes estão sendo feitos manualmente, e possivelmente usaremos um script ou ferramenta que automatize o processo para testar o back end na última entrega.
 
 ## Resultados do Teste
 
+Sistema age conforme o esperado.
+
 ## Procedimentos de Build
+Rodar npm install dentro da pasta milestone_2 e depois rodar npm start.
 
 ## Problemas
 

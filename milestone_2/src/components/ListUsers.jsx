@@ -2,55 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // dps eu vejo
 import "./ListUsers.css"
 import userImg from './anonymous-user.png';
+import {getUsersArray} from '../helpers/users.js'
 
-//objeto de users de exemplo
-let users = [{
-    name: 'Fulano da Silva',
-    username: 'fulano_gamer1234',
-    title: 'O mago do retrô',
-    email: 'fulanodasilva@gmail.com',
-    address: 'Alameda dos Fulanos, 1234',
-    phone: '+55 16 9 1234-5678',
-    card: 'Mastercard final 1234',
-    level: '999',
-    img: userImg
-},
-{
-    name: 'Fulano da Silva',
-    username: 'rafinha_headshotRJ',
-    title: 'O mago do retrô',
-    email: 'fulanodasilva@gmail.com',
-    address: 'Alameda dos Fulanos, 1234',
-    phone: '+55 16 9 1234-5678',
-    card: 'Mastercard final 1234',
-    level: '999',
-    img: userImg
-},
-{
-    name: 'Fulano da Silva',
-    username: 'grande_gameplay',
-    title: 'O mago do retrô',
-    email: 'fulanodasilva@gmail.com',
-    address: 'Alameda dos Fulanos, 1234',
-    phone: '+55 16 9 1234-5678',
-    card: 'Mastercard final 1234',
-    level: '999',
-    img: userImg
-},
-{
-    name: 'Fulano da Silva',
-    username: 'vetor_r4_plays',
-    title: 'O mago do retrô',
-    email: 'fulanodasilva@gmail.com',
-    address: 'Alameda dos Fulanos, 1234',
-    phone: '+55 16 9 1234-5678',
-    card: 'Mastercard final 1234',
-    level: '999',
-    img: userImg
-}]
-
-const ListUsers = ({/*users*/}) => { // recebe um array de objetos dos usuarios
+const ListUsers = () => { // recebe um array de objetos dos usuarios
                                      // na vdd agora é pra dar um query no banco de dados e retornar o array com os objetos dos usuários
+    let users = getUsersArray();
+    if (users == null){
+        return(
+        <div className='list-users'>
+            <h2>Sem usuários cadastrados</h2>
+
+        </div>
+        )
+    }
+    else{
     return (
         <div className='list-users'>
             <div className='filter-list'>
@@ -96,6 +61,7 @@ const ListUsers = ({/*users*/}) => { // recebe um array de objetos dos usuarios
             </div>
         </div>
       );
+            }
 }
  
 export default ListUsers;

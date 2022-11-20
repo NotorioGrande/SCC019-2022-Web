@@ -70,27 +70,27 @@
 .page-search-adm #card{
     width: 25vh;
     height: 40vh;
-    margin: 1vh 2vw 2vh 2vw;
+    margin: 0vh 2vw 2vh 2vw;
 }
 
 /* Isso é pra mudar depois no próprio card */
 .page-search-adm #card-price{
-    font-size: 240%;
+    font-size: 5vh;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
 .page-search-adm #card-console{
-    padding-top: 2%;
-    font-size: 240%;
+    padding-top: 0;
+    font-size: 4.5vh;
     text-align: center;
 }
 
 /* Isso é pra mudar depois no próprio card */
 .page-search-adm #card-name{
-    font-size: 200%;
+    font-size: 3vh;
     text-align: center;
 
     color: var(--dark-blue);
-    padding-top: 2%;
+    padding-top: 0;
 }

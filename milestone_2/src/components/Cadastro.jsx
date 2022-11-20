@@ -10,7 +10,6 @@ function delay(){
 }
 
 const Cadastro = () => {
-    const cookies = new Cookies();
     const navigate = useNavigate();
 
     const handleCadastro = async () => {
@@ -22,13 +21,14 @@ const Cadastro = () => {
             return;
         }
        
-
+        //pegando os valores
         let campoEmail = document.getElementById("campo-email").value;
         let campoUsername = document.getElementById("campo-username").value;
         let campoNome = document.getElementById("campo-nome").value;
         let campoEndereco = document.getElementById("campo-logradouro").value;
         let campoTelefone = document.getElementById("campo-telefone").value;
-        let new_user = {
+        //nova usuario a ser colocado no localStorage
+        let newUser = {
             email : campoEmail,
             nome : campoNome,
             username : campoUsername,
@@ -38,7 +38,16 @@ const Cadastro = () => {
             adm : false
         };
         await delay();
-        cookies.set(new_user.email, new_user);
+        let userList = localStorage.getItem("userList");
+        if(userList){
+            //se salva o email para facilitar a retribuicao dos dados depois
+            localStorage.setItem("userList", userList + " " + newUser.email);
+        }
+        else{
+            localStorage.setItem("userList", newUser.email)
+        }
+        //salva no storage o usuario
+        localStorage.setItem(newUser.email, JSON.stringify(newUser));
         navigate("/login");
         return;
     }

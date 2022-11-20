@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./Admin.css";
 
-const AdminEdit = ({admin}) => {
+const AdminEdit = ({}) => {
     return (
         <div className='admin-page'>
             <p>Área do Administrador</p>
