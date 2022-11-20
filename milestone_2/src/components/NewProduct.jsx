@@ -4,7 +4,6 @@ import Card from './Card';
 import "./NewProduct.css";
 import { useNavigate } from 'react-router-dom';
 import {delay} from '../helpers/system.js';
-import {v4 as uuidv4} from 'uuid';
 
 const refresh_product = () => {
     let card_price = document.getElementById('card-price')
@@ -34,7 +33,17 @@ const NewProduct = ({admin}) => {
         let campoPreco = document.getElementById("newproduct-price").value;
         let campoPlataforma = document.getElementById("newproduct-console").value;
         let campoDescricao = document.getElementById("newproduct-description").value;
-        let campoUuid = uuidv4();
+
+        let campoId = localStorage.getItem("id");
+
+        if(campoId){
+            localStorage.setItem("id", "id" + 1);
+        }
+        else{
+            localStorage.setItem("id", 1);
+        }
+
+        campoId = localStorage.getItem("id");
 
         //novo produto a ser colocado no localStorage
         let newProduct = {
@@ -45,7 +54,7 @@ const NewProduct = ({admin}) => {
             preco: campoPreco,
             plataforma: campoPlataforma,
             descricao: campoDescricao,
-            uuid: campoUuid
+            id: campoId
         };
 
         await delay();
@@ -53,14 +62,14 @@ const NewProduct = ({admin}) => {
         let productList = localStorage.getItem("productList");
 
         if(productList){
-            //se salva o uuid para facilitar a retribuicao dos dados depois
-            localStorage.setItem("productList", productList + " " + newProduct.uuid);
+            //se salva o id para facilitar a retribuicao dos dados depois
+            localStorage.setItem("productList", productList + " " + newProduct.id);
         }
         else{
-            localStorage.setItem("productList", newProduct.uuid);
+            localStorage.setItem("productList", newProduct.id);
         }
         //salva no storage o produto
-        localStorage.setItem(newProduct.uuid, JSON.stringify(newProduct));
+        localStorage.setItem(newProduct.id, JSON.stringify(newProduct));
         navigate("/admin/products");
         return;
     }

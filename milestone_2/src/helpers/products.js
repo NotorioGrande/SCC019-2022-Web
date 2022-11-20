@@ -1,19 +1,23 @@
 //funcao que retorna um array de produtos cadastrados
 //sem produtos retorna NULL
 export function getProductsArray(){
-    let productUuidList = localStorage.getItem("productList");
+    let productIdList = localStorage.getItem("productList");
     //vazio é quando tinha e nao tem mais, nulo é pq nunca teve
-    if(productUuidList === null || productUuidList === ""){
+    if(productIdList === null || productIdList === ""){
         return null;
     
     };
     
-    productUuidList= productUuidList.split(" ");
+    productIdList= productIdList.split(" ");
     let productList = [];
-    for(let productUuid of productUuidList){
+    for(let productId of productIdList){
         //precisa parsear pq localStorage só guarda em string
-        let product = JSON.parse(localStorage.getItem(productUuid));
+        let product = JSON.parse(localStorage.getItem(productId));
         productList.push(product);
     }
     return productList;
+}
+
+export function removeProduct(id){
+    localStorage.removeItem(id);
 }
