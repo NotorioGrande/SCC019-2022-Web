@@ -48,6 +48,9 @@ As funcionalidades são:
 ## Descrição
 Projeto foi feito usando React, a conta de administrador tem email: admin@admin.com e senha: admin. A área do administrador 
 
+## Diagrama de Navegação
+![plot](./directory_1/directory_2/.../directory_n/plot.png)
+
 ## Comentários Sobre o Código
 No momento não foram implementados mecanismos de segurança ou todas as garantias que o usuário está seguindo o devido fluxo. Além disso, para simular algumas funções do back end foi usado localStorage.
 ## Plano de Teste
@@ -59,11 +62,12 @@ Os testes estão sendo feitos manualmente, e possivelmente usaremos um script ou
 Sistema age conforme o esperado.
 
 ## Procedimentos de Build
-Rodar npm install dentro da pasta milestone_2 e depois rodar npm start.
+Rodar npm install dentro da pasta milestone_2 e depois rodar npm start. Precisa ter NodeJS instalado e npm tamb
 
 ## Problemas
 
 ## Comentários
+Para essa entrega, nem todas as funções tem um back end simulado, aquelas que tem são: cadastro, login e gerenciar usuários, cadastrar e gerenciar produtos. A pesquisa e mostrar os produtos cadastrados, junto com o carrinho, só mostram a tela em si, sem realmente fazer leitura ou escrita.
 
 ## Integrantes
 

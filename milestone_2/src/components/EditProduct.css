@@ -82,6 +82,12 @@
     height: 26vw;
 }
 
+.edit-product-page #save-button{
+    cursor: pointer;
+    color: white;
+
+}
+
 .edit-product-page input[type='file']{
     display: none
 }

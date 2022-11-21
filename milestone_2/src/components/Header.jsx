@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import "./Header.css"
 import Cookies from 'universal-cookie';
 import cartIcon from '../assets/cart_icon.png';
 import gearIcon from '../assets/gear_icon.png';
 
-const Header = ({user, setUser}) => {
+const Header = ({user, setUser, setInputPesquisa}) => {
 
     //determina o que colocar no header
     let location = useLocation();
+    let navigate = useNavigate();
     let locationFormatted = location.pathname.slice(1);
     if (locationFormatted === ""){
         locationFormatted = "Home";
@@ -23,6 +24,17 @@ const Header = ({user, setUser}) => {
         let cookies = new Cookies();
         cookies.remove("logged_user");
         setUser(undefined);
+
+    }
+    
+    const handlePesquisaClick = () => {
+        let inputPesquisa = document.getElementById("pesquisar").value;
+        setInputPesquisa(inputPesquisa);
+        if(location.pathname !=='/admin/products/search'){
+            navigate("/pesquisa");
+        }
+
+
 
     }
 
@@ -58,7 +70,7 @@ const Header = ({user, setUser}) => {
 
                 <div className='pesquisa parte-direita-wrapper'>
                 <input id="pesquisar" type="text" />
-                <span>Pesquisar</span>
+                <span  id="pesquisar-texto" onClick={handlePesquisaClick}>Pesquisar</span>
                 </div>
             </div>
         </nav>
