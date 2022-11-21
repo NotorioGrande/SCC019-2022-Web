@@ -59,11 +59,12 @@ Os testes estão sendo feitos manualmente, e possivelmente usaremos um script ou
 Sistema age conforme o esperado.
 
 ## Procedimentos de Build
-Rodar npm install dentro da pasta milestone_2 e depois rodar npm start.
+Rodar npm install dentro da pasta milestone_2 e depois rodar npm start. Precisa ter NodeJS instalado e npm tamb
 
 ## Problemas
 
 ## Comentários
+Para essa entrega, nem todas as funções tem um back end simulado, aquelas que tem são: cadastro, login e gerenciar usuários, cadastrar e gerenciar produtos. A pesquisa e mostrar os produtos cadastrados, junto com o carrinho, só mostram a tela em si, sem realmente fazer leitura ou escrita.
 
 ## Integrantes
 
