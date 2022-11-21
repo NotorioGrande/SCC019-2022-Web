@@ -128,7 +128,7 @@ const Edit = ({user, setUser}) => { //recebe o objeto de um usuario
                 <button className='edit-button'>
                     <Link className='button' to="/upload">Upload de imagem</Link>
                 </button>
-                <button onClick={handleEdit} className='edit-button'>
+                <button onClick={handleEdit} className='edit-button' id='save-button'>
                     Salvar
                 </button>
             </div>
