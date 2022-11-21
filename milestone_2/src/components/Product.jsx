@@ -21,6 +21,8 @@ const addToCart = () => {
     let cart = localStorage.getItem("cart")
     cart = JSON.parse(cart)
 
+    if(!cart) cart = []
+
     let isOnCart = false
     
     cart.forEach(function(element,i){

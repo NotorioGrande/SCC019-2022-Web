@@ -84,6 +84,8 @@ const Cart= () => {
     cart = localStorage.getItem("cart")
     cart = JSON.parse(cart)
 
+    if(!cart) cart = []
+
     let totalPrice = 0
     let totalItens = 0
 
