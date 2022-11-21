@@ -77,6 +77,7 @@
     font-family: 'VT323', monospace;
     font-size: 4vmax;
     background-color: var(--dark-blue);
+    color: white;
     border-radius: 5vmin;
 }
 

@@ -26,7 +26,6 @@
 
 .product-page .row-1{
     margin-top: 4vh;
-    display: flex;
     font-size: 10vmin;
 }
 
@@ -89,12 +88,8 @@
     font-family: 'VT323', monospace;
     font-size: 6vmin;
     background-color: #E1B73D;
+    color: var(--dark-blue);
     border-radius: 5vmin;
-}
-
-.product-page .edit-button .button{
-    text-decoration: none;
-    color: var(--dark-blue)
 }
 
 @media only screen and (max-device-width: 1150px) {
