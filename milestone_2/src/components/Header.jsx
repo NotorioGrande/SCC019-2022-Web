@@ -47,7 +47,7 @@ const Header = ({user, setUser}) => {
             <div className='parte-cinza'> 
                 <div className="parte-esquerda-wrapper">
                 <Link className='link' to="/">Home</Link>
-         {/* logica para mostrar botoes diferentes se estiver logado ou nao */}
+                {/* logica para mostrar botoes diferentes se estiver logado ou nao */}
                 {(user ? (
                 <Link className='link' to='/' onClick={handleLogout}>Logout</Link>) :
                 (<>
@@ -62,10 +62,7 @@ const Header = ({user, setUser}) => {
                 </div>
             </div>
         </nav>
-
-
-
-      );
+    );
     
 
 }
