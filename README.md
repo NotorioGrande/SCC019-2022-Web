@@ -48,6 +48,9 @@ As funcionalidades são:
 ## Descrição
 Projeto foi feito usando React, a conta de administrador tem email: admin@admin.com e senha: admin. A área do administrador 
 
+## Diagrama de Navegação
+![plot](./directory_1/directory_2/.../directory_n/plot.png)
+
 ## Comentários Sobre o Código
 No momento não foram implementados mecanismos de segurança ou todas as garantias que o usuário está seguindo o devido fluxo. Além disso, para simular algumas funções do back end foi usado localStorage.
 ## Plano de Teste
