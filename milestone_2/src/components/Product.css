@@ -63,6 +63,12 @@
     font-size: 6vmin;
 }
 
+.product-page .quantity{
+    border: solid black 2px;
+    display: flex;
+    font-size: 4vh;
+}
+
 .product-page .all-buttons{
     margin: auto;
     margin-left: 2vw;

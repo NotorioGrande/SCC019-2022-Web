@@ -70,6 +70,16 @@ const Product = () => {
                             </div>
                         </div>
                         <div className='all-buttons'>
+                            <div className='quantity'>
+                                <div className='add-quantity'>
+                                    +
+                                </div>
+                                <p> Quantidade: </p>
+                                <p className='quantity-number'> 1 </p>
+                                <div className='subtract-quantity'>
+                                    -
+                                </div>
+                            </div>
                             <button onClick={buyProduct} className='edit-button'> Comprar </button>
                             <button onClick={addToCart} className='edit-button'> Carrinho </button>
                         </div>

@@ -8,7 +8,7 @@
 
     background: var(--gray);
     box-shadow: -1vh 1.5vh var(--dark-blue);
-    border-radius: 25px;
+    border-radius: 2vh;
 }
 
 #card-img{
@@ -17,7 +17,7 @@
 
     margin: auto;
     display: block;
-    border-radius: 25px;
+    border-radius: 2vh;
     margin-top: 2vh;
 }
 

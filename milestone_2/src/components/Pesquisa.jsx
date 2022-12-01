@@ -6,7 +6,7 @@ import smw from './smw.png';
 
 let games = [{
     name: 'Super Mario World',
-    price: 'R$ 56,90',
+    price: '56,90',
     img: smw,
     console: 'SNES',
     stock: '100',
@@ -15,7 +15,7 @@ let games = [{
 },
 {
     name: 'Super Mario World',
-    price: 'R$ 56,90',
+    price: '56,90',
     img: smw,
     console: 'SNES',
     stock: '100',
@@ -24,7 +24,7 @@ let games = [{
 },
 {
     name: 'Super Mario World',
-    price: 'R$ 56,90',
+    price: '56,90',
     img: smw,
     console: 'SNES',
     stock: '100',
@@ -33,7 +33,7 @@ let games = [{
 },
 {
     name: 'Super Mario World',
-    price: 'R$ 56,90',
+    price: '56,90',
     img: smw,
     console: 'SNES',
     stock: '100',
@@ -42,7 +42,7 @@ let games = [{
 },
 {
     name: 'Super Mario World',
-    price: 'R$ 56,90',
+    price: '56,90',
     img: smw,
     console: 'SNES',
     stock: '100',
@@ -51,7 +51,7 @@ let games = [{
 },
 {
     name: 'Super Mario World',
-    price: 'R$ 56,90',
+    price: '56,90',
     img: smw,
     console: 'SNES',
     stock: '100',
@@ -60,7 +60,7 @@ let games = [{
 },
 {
     name: 'Super Mario World',
-    price: 'R$ 56,90',
+    price: '56,90',
     img: smw,
     console: 'SNES',
     stock: '100',
@@ -69,7 +69,7 @@ let games = [{
 },
 {
     name: 'Super Mario World',
-    price: 'R$ 56,90',
+    price: '56,90',
     img: smw,
     console: 'SNES',
     stock: '100',
@@ -78,7 +78,7 @@ let games = [{
 },
 {
     name: 'Super Mario World',
-    price: 'R$ 56,90',
+    price: '56,90',
     img: smw,
     console: 'SNES',
     stock: '100',
