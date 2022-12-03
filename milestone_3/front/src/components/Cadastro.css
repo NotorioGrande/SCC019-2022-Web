@@ -1,0 +1,60 @@
+@import "./colors.css";
+@import "./sizes.css";
+.cadastro-form{
+    /*O margin top precisa de no minimo o tamanho do header (14 vh) */
+    margin-top: calc(var(--altura-header) + 5vh);
+    font-size: 6vh;
+    font-family: 'VT323';
+    display: flex;
+    flex-wrap: wrap;
+}
+.cadastro-form > *{
+    /*O margin top precisa de no minimo o tamanho do header (14 vh) */
+    margin: 0 0.8vw;
+}
+
+.cadastro-form .campo, .cadastro-button {
+    
+    border-radius: 25px;
+    border: none;
+}
+
+.cadastro-form .campo{
+    background-color: var(--form-gray);
+    height: 7vh;
+    width: 100%;
+    font-size: 5vh;
+    padding: 0 1vw;
+}
+
+.cadastro-button{
+    color: white;
+    background-color: var(--dark-blue);
+    height: 8vh;
+    width: 15vw;
+    font-size: 7.5vh;
+    font-family: 'VT323', Arial, Helvetica, sans-serif;
+    margin-left: calc(50vw - 15vw/2);
+    margin-top: 5vh;
+    cursor: pointer;
+
+
+}
+
+.sem-conta{
+    margin-top: 2vh;
+    font-family: 'VT323';
+    font-size: 6vh;
+    text-align: center;
+
+}
+
+.cadastro{
+    text-decoration: none;
+    color: var(--dark-blue);
+
+}
+.cadastro-form .email, .cadastro-form .nome, .cadastro-form  .logradouro{
+    width: 60vw;
+
+}  

@@ -1,0 +1,51 @@
+@import "colors.css";
+@import "sizes.css";
+
+.edit-card-page{
+    padding-top: var(--altura-header);
+    font-family: 'VT323', monospace;
+}
+
+.edit-card-page .informations{
+    width: 80vw;
+    margin: auto;
+}
+
+.edit-card-page .row{
+    display: flex;
+}
+
+.edit-card-page .row .edit-campo{
+    margin-right: 2vw;
+}
+
+.edit-card-page .campo{
+    background-color: var(--form-gray);
+    height: 7vh;
+    width: 100%;
+    font-size: 5vh;
+    padding: 0 1vw;
+    border: none;
+    border-radius: 25px;
+}
+
+.edit-card-page .informations p{
+    font-size: 6vmin;
+    padding-top: 4vh;
+}
+
+.edit-card-page .edit-button{
+    margin: 4vh auto 1vh auto;
+    width: 40vmin;
+    height: 8vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 5vmin;
+    background-color: var(--dark-blue);
+    border-radius: 10vmin;
+}
+
+.edit-card-page .edit-button .button{
+    text-decoration: none;
+    color: white;
+}

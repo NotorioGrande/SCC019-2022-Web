@@ -1,0 +1,87 @@
+@import "colors.css";
+@import "sizes.css";
+
+.list-users{
+    font-family: 'VT323', monospace;
+    padding-top: var(--altura-header);
+}
+
+.list-users .filter-list{
+    background-color: var(--dark-blue);
+    color: white;
+    font-family: "VT323";
+    width: 35vh;
+    height: 100%;
+    font-size: 5vh;
+    position: fixed;
+}
+
+.list-users .filter-list > div {
+    display: flex;
+    margin: 0.4vh 2vh;
+}
+
+.list-users .filter-list input{
+    margin-right:1vw ;
+}
+.list-users .div-pesquisa {
+    margin-top: var(--altura-header);
+}
+
+.list-users .filtro-titulo{
+    margin-left: 0.5vw;
+    font-size: 6vmin;
+}
+
+.list-users .row p{
+    margin: auto;
+    margin-left: 10%;
+}
+
+.list-users .checkbox{
+    width: 3vh;
+}
+
+.list-users .edit-campo{
+    margin-left: 2vw;
+}
+
+.list-users .campo{
+    background-color: white;
+    font-family: 'VT323', monospace;
+    height: 5vh;
+    width: 90%;
+    font-size: 4vh;
+    padding: 0 1vw;
+    margin-bottom: 2vh;
+    border: none;
+    border-radius: 25px;
+}
+
+.list-users .content{
+    font-size: 8vh;
+    padding-left: 15vw;
+    text-align: center;
+}
+
+.list-users .content p{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.list-users .edit-button{
+    margin: auto;
+    margin-top: 1vh;
+    width: 46vh;
+    height: 8vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 5vh;
+    background-color: var(--dark-blue);
+    border-radius: 5vmin;
+}
+
+.list-users .edit-button .button{
+    text-decoration: none;
+    color: white;
+}

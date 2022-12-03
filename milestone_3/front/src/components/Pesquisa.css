@@ -1,0 +1,106 @@
+@import "./colors.css";
+@import "./sizes.css";
+
+.div-pesquisa {
+    margin-top: var(--altura-header);
+    font-family: 'VT323', monospace;
+}
+
+.div-pesquisa .filtros{
+    background-color: var(--dark-blue);
+    color: white;
+    width: 14vw;
+    height: 100%;
+    font-size: 5vh;
+    position: fixed;
+}
+
+.div-pesquisa .filtros > div {
+    display: flex;
+    margin: 0.4vh 2vh;
+}
+
+.div-pesquisa .filtros input{
+    margin-right:1vw ;
+}
+
+.div-pesquisa .filtro-titulo{
+    margin-left: 0.5vw;
+    font-size: 6vh;
+}
+
+.div-pesquisa .content{
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-left: 16vw;
+    padding-top: 2vh;
+}
+
+.div-pesquisa .content p{
+    font-size: 4.5vh;
+    text-align: center;
+    padding-right: 2vh;
+    padding-bottom: 1vh;
+    color: var(--dark-blue);
+}
+
+.div-pesquisa .content .edit-button{
+    width: 23vh;
+    margin: 0vh 2vw 1vh 2vw;
+    height: 5.5vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 4.5vh;
+    background-color: #E1B73D;
+    border-radius: 5vmin;
+}
+
+.div-pesquisa .edit-button .button{
+    text-decoration: none;
+    color: white;
+}
+
+.div-pesquisa .button{
+    text-decoration: none;
+    color: var(--dark-blue);
+}
+
+.div-pesquisa .cart-item{
+    width: 27vh;
+    margin: 0vh 2vw 2vh 2vw;
+}
+
+.div-pesquisa .cart-item p{
+    padding-top: 1vh;
+    font-size: 4vh;
+}
+
+.div-pesquisa #card{
+    width: 25vh;
+    height: 40vh;
+    margin: 0;
+}
+
+/* Isso é pra mudar depois no próprio card */
+.div-pesquisa #card-price{
+    font-size: 5vh;
+    text-align: center;
+}
+
+/* Isso é pra mudar depois no próprio card */
+.div-pesquisa #card-console{
+    padding-top: 0;
+    font-size: 4.5vh;
+    text-align: center;
+}
+
+/* Isso é pra mudar depois no próprio card */
+.div-pesquisa #card-name{
+    font-size: 3vh;
+    text-align: center;
+
+    color: var(--dark-blue);
+    padding-top: 0;
+}

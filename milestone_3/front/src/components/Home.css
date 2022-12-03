@@ -1,0 +1,25 @@
+@import "colors.css";
+@import "sizes.css";
+
+#home{
+    font-family: 'VT323', monospace;
+    padding-top: var(--altura-header);
+}
+
+#banner{
+    width: 100vw;
+    height: 25vh;
+}
+
+#featured{
+    font-size: 6vh;
+    width: 90vw;
+    margin: 1vh 5vw 1vh 5vw;
+}
+
+#featured-cards{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    flex-direction: row;
+}

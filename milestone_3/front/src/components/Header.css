@@ -1,0 +1,96 @@
+@import "colors.css";
+@import "sizes.css";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.icon{
+    width: 2vw;
+    height: 5vh;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    font-family: 'VT323', monospace;
+    width: 100vw;
+    z-index: 0;
+}
+
+#name{
+    text-decoration: none;
+    color: inherit;
+}
+
+.parte-vermelha{
+    width: 100%;
+    background-color: var(--red);
+    height: var(--altura-vermelha);
+    padding: 10px 0px;
+    display: flex;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+.parte-vermelha, h1{
+    font-size: 6vh;
+}
+
+.parte-cinza{
+    width: 100%;
+    height: var(--altura-cinza);
+    color: var(--darkBlue);
+    background-color: var(--gray);
+    display: flex;
+    justify-content: space-between;
+    font-size: 4.5vh;
+}
+
+.parte-esquerda-wrapper, .parte-direita-wrapper{
+    display: flex;
+    position: relative;
+    height: 100%;
+}
+
+.parte-esquerda-wrapper{
+    left: 1%;
+    
+}
+
+ .parte-cinza > .parte-esquerda-wrapper > *{
+    margin: 0 5%;
+    
+}
+
+
+.parte-direita-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+    right: 1%;
+}
+
+.pesquisa > *{
+    margin: 0 2%;
+}
+
+#pesquisar{
+    border: 0;
+    border-radius: 25px;
+    width: 35.5vw;
+    font-size: 2.5vh;
+    margin: 1%;
+    padding: 0 2.5%;
+}
+#pesquisar-texto{
+    cursor: pointer;
+
+
+}

@@ -1,0 +1,115 @@
+@import "colors.css";
+@import "sizes.css";
+
+.cart-page{
+    padding-top: var(--altura-header);
+    font-family: 'VT323', monospace;
+}
+
+.cart-page .informations{
+    display: flex;
+}
+
+.cart-page .informations-right{
+    width: 40vw;
+    margin: auto;
+    position: fixed;
+    top: 20vh;
+    left: 50vw;
+    white-space: nowrap;
+}
+
+.cart-page .informations-left{
+    width: 37vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1vw;
+    justify-content: center;
+}
+
+.cart-page .informations-left .close-button{
+    margin-left: 90%;
+    text-align: left;
+    background: none;
+    font-size: 3vh;
+    border: none;
+    cursor:pointer;
+}
+
+.cart-page .informations-left p{
+    font-size: 4.5vh;
+    text-align: center;
+    padding-right: 2vh;
+    padding-bottom: 1vh;
+    color: var(--dark-blue);
+}
+
+.cart-page .row{
+    display: flex;
+    font-size: 4vmax;
+    height: 5vmax;
+}
+
+.cart-page .row .value-1{
+    padding-right: 1.5vw;
+}
+
+.cart-page .row .value-2{
+    color: var(--red);
+}
+
+.cart-page .informations-left .edit-button{
+    width: 23vh;
+    margin: 0vh 2vw 1vh 2vw;
+    height: 5.5vh;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 4.5vh;
+    background-color: #E1B73D;
+    border-radius: 5vmin;
+}
+
+.cart-page .informations-right .edit-button{
+    width: 30vmax;
+    margin: 3vh auto 1vh auto;
+    height: 5vmax;
+    display: block;
+    font-family: 'VT323', monospace;
+    font-size: 4vmax;
+    background-color: var(--dark-blue);
+    color: white;
+    border-radius: 5vmin;
+}
+
+.cart-page .edit-button .button{
+    text-decoration: none;
+    color: white;
+}
+
+.cart-page #card{
+    width: 25vh;
+    height: 40vh;
+    margin: 0vh 2vw 2vh 2vw;
+}
+
+/* Isso é pra mudar depois no próprio card */
+.cart-page #card-price{
+    font-size: 5vh;
+    text-align: center;
+}
+
+/* Isso é pra mudar depois no próprio card */
+.cart-page #card-console{
+    padding-top: 0;
+    font-size: 4.5vh;
+    text-align: center;
+}
+
+/* Isso é pra mudar depois no próprio card */
+.cart-page #card-name{
+    font-size: 3vh;
+    text-align: center;
+
+    color: var(--dark-blue);
+    padding-top: 0;
+}

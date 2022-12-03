@@ -18,3 +18,28 @@ milestone_2/.env.production.local
 milestone_2/npm-debug.log*
 milestone_2/yarn-debug.log*
 milestone_2/yarn-error.log
+
+#milestone 3
+
+milestone_3/node_modules
+milestone_3/.pnp
+milestone_3/.pnp.js
+
+# testing
+milestone_3/coverage
+
+# production
+milestone_3/build
+
+# misc
+milestone_3/.DS_Store
+milestone_3/.env.local
+milestone_3/.env.development.local
+milestone_3/.env.test.local
+milestone_3/.env.production.local
+
+milestone_3/npm-debug.log*
+milestone_3/yarn-debug.log*
+milestone_3/yarn-error.log
+
+milestone_3/front/node_modules

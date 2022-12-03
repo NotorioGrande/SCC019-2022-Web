@@ -1,0 +1,7 @@
+:root{
+    --altura-vermelha : 8vh;
+    --altura-cinza : 6vh;
+    --altura-header : calc(var(--altura-cinza) + var(--altura-vermelha));
+
+
+}
