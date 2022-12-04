@@ -43,3 +43,4 @@ milestone_3/yarn-debug.log*
 milestone_3/yarn-error.log
 
 milestone_3/front/node_modules
+milestone_3/.env
