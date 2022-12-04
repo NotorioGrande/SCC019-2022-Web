@@ -4,7 +4,7 @@
     width: 33vh;
     height: 48vh;
     padding: 3px;
-    margin: 1vh 5vw 1vh 5vw;
+    margin: auto;
 
     background: var(--gray);
     box-shadow: -1vh 1.5vh var(--dark-blue);

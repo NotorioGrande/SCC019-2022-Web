@@ -56,7 +56,7 @@ const remove = (event) => {
     let removeName = event.currentTarget.nextSibling.children[3].innerHTML
 
     for(let i = 0; i < cart.length; i++){
-        if(cart[i].game.name == removeName){
+        if(cart[i].game.name === removeName){
             cart.splice(i,1)
             break;
         }
@@ -90,7 +90,7 @@ const Cart= () => {
     let totalItens = 0
 
     cart.forEach(function(element, i){
-        totalPrice += parseFloat((element.game.price).replace(',','.')) * parseInt(element.quantidade)
+        totalPrice += parseFloat(element.game.price) * parseInt(element.quantidade)
         totalItens += parseInt(element.quantidade)
     })
 
@@ -104,9 +104,6 @@ const Cart= () => {
                                 <button onClick={remove} className='close-button'>X</button>
                                 <Card name={element.game.name} price={element.game.price} img={element.game.img} console={element.game.console}/>
                                 <p>Quantidade: {element.quantidade}</p>
-                                <button className='edit-button'>
-                                    <Link className='button' to="/alterar">Alterar</Link>  {/*Não é rota, só botar um bglh ai pra alterar a quantidade*/}
-                                </button>
                             </div>
                         )
                     })}

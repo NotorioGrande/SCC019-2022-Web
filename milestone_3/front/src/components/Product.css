@@ -11,7 +11,7 @@
 }
 
 .product-page .informations-right{
-    width: 65vw;
+    width: 55vw;
     margin: auto;
     margin-left: 3vw;
 }
@@ -19,18 +19,33 @@
 .product-page .informations-left{
     width: 35vw;
     margin: auto;
-    margin-left: 6vw;
-    margin-right: 0vw;
     justify-content: center;
 }
 
-.product-page .row-1{
+.product-page .all-tags{
+    margin: auto;
+    width: 25vw;
     margin-top: 4vh;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 3vh;
+}
+
+.product-page .tag{
+    background-color: var(--red);
+    color: var(--dark-blue);
+    border-radius: 10vh;
+    padding: 1vh 1vw 1vh 1vw;
+    margin: 0vh 0.5vw 0.5vh 0.5vw;
+}
+
+.product-page .row-1{
+    margin-top: 2vh;
     font-size: 10vmin;
 }
 
 .product-page .row-2{
-    margin-top: 6vh;
+    margin-top: 4vh;
     display: flex;
     color: var(--red);
 }
@@ -52,44 +67,53 @@
 }
 
 .product-page .row-3{
-    margin-top: 4vh;
+    margin-top: 2vh;
     display: flex;
-    font-size: 8vmin;
 }
 
-.product-page .row-4{
-    display: flex;
-    width: 90%;
+.product-page .row-3 p{
+    padding: 0px 1vw 0px 0vw;
     font-size: 6vmin;
 }
 
-.product-page .quantity{
-    border: solid black 2px;
+.product-page .row-4{
+    margin-top: 4vh;
     display: flex;
-    font-size: 4vh;
+    font-size: 7vmin;
+}
+
+.product-page .row-5{
+    display: flex;
+    font-size: 5vmin;
+}
+
+.product-page .quantity{
+    display: flex;
+    margin: auto;
+    font-size: 6vh;
+    justify-content: right;
+}
+
+.product-page .quantity .add-quantity, .subtract-quantity{
+    padding: 0vh 1.5vw 0vh 1.5vw;
+    cursor: pointer;
+    user-select: none;
+}
+
+.product-page .quantity p{
+    padding: 0vh 1vw 0vh 1vw;
 }
 
 .product-page .all-buttons{
-    margin: auto;
-    margin-left: 2vw;
-}
-
-.product-page .informations-left .edit-button{
+    margin: 0.5vh;
     justify-content: center;
-    margin: 4vh 2vw 1vh 4vw;
-    width: 20vw;
-    height: 9vh;
-    display: block;
-    font-family: 'VT323', monospace;
-    font-size: 4.3vh;
-    background-color: var(--dark-blue);
-    border-radius: 10vmin;
+    display: flex;
 }
 
-.product-page .informations-right .edit-button{
-    width: 25vh;
-    margin: 0vh 2vw 1vh 4vw;
-    height: 7vh;
+.product-page button{
+    width: 30vh;
+    margin: 2vh 15vw 0vh 15vw;
+    height: 9vh;
     display: block;
     font-family: 'VT323', monospace;
     font-size: 6vmin;
