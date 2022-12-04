@@ -1,19 +1,9 @@
-import React from 'react';
+import React , { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card from './Card';
 import "./NewProduct.css";
 import { useNavigate } from 'react-router-dom';
 import {delay} from '../helpers/system.js';
-
-const refresh_product = () => {
-    let card_price = document.getElementById('card-price')
-    let card_console = document.getElementById('card-console')
-    let card_name = document.getElementById('card-name')
-
-    card_price.innerHTML = document.getElementById('newproduct-price').value
-    card_console.innerHTML = document.getElementById('newproduct-console').value
-    card_name.innerHTML = document.getElementById('newproduct-name').value
-}
 
 let loadFile = (event) => {
     var output = document.getElementById('card-img');
@@ -24,6 +14,32 @@ let loadFile = (event) => {
 };
 
 const NewProduct = ({admin}) => {
+
+    const [price, setPrice] = useState(0)
+    const [name, setName] = useState('Jogo')
+    const [console, setConsole] = useState('Plataforma')
+
+    const refresh_product = () => {
+    
+        setPrice(Number(document.getElementById('newproduct-price').value))
+
+        let newName = document.getElementById('newproduct-name').value
+        if(newName === ''){
+            setName('Jogo')
+        }
+        else{
+            setName(newName)
+        }
+        
+        let newConsole = document.getElementById('newproduct-console').value
+        if(newConsole === ''){
+            setConsole('Console')
+        }
+        else{
+            setConsole(newConsole)
+        }
+    }
+
     const navigate = useNavigate();
 
     const saveProduct = async () => {
@@ -74,13 +90,36 @@ const NewProduct = ({admin}) => {
         return;
     }
 
+    let tags = ['Ação', "Beat'em up", "Shoot'em up", 'Plataforma', 'Metroidvania', 'Furtivo', 'FPS', 'Mundo aberto',
+    'Aventura', 'RPG', 'Action RPG', 'Tactical RPG', 'Corrida', 'Horror', 'Top-Down', '3D', 'Puzzle']
+
+    let selectedTags = []
+
+    const addTag = (event) => {
+        let tag = event.currentTarget.children[0].innerHTML
+
+        if(selectedTags.includes(tag)){
+            const index = selectedTags.indexOf(tag);
+            selectedTags.splice(index, 1);
+            event.currentTarget.style.backgroundColor = 'white'
+            event.currentTarget.style.color = 'black'
+        }
+        else{
+            selectedTags.push(tag)
+            event.currentTarget.style.backgroundColor = '#EC5939'
+            event.currentTarget.style.color = 'white'
+        }
+
+        console.log(selectedTags)
+    }
+
     return (
         <div className='new-product-page'>
             <div className='informations'>
                 <div className='informations-left'>
-                    <Card />
+                    <Card name={name} price={price.toFixed(2)} console={console}/>
                     <button className='edit-button'>
-                        <label htmlFor='file'>Carregar imagens</label>
+                        <label htmlFor='file'>Carregar imagem</label>
                         <input onChange={loadFile} type="file" name="file" accept="image/*" className='button' id="imgInp"/>
                     </button>
                 </div>
@@ -102,7 +141,28 @@ const NewProduct = ({admin}) => {
                         </div>
                         <div className='edit-campo'>
                             <p>Plataforma</p>
-                            <input onKeyUp={refresh_product} type="text" name="console" id="newproduct-console" className='campo'/>
+                            <select onChange={refresh_product} name="console" id="newproduct-console" className='campo'>
+                                <optgroup label="8 Bits">
+                                    <option value="Nes">Nes</option>
+                                    <option value="Master System">Master System</option>
+                                </optgroup>
+                                <optgroup label="16 Bits">
+                                    <option value="Snes">Snes</option>
+                                    <option value="Mega Drive">Mega Drive</option>
+                                </optgroup>
+                                <optgroup label="Portátil">
+                                    <option value="GB">GB</option>
+                                    <option value="GBC">GBC</option>
+                                    <option value="GBA">GBA</option>
+                                </optgroup>
+                                <optgroup label="64 Bits">
+                                    <option value="Nintendo 64">Nintendo 64</option>
+                                </optgroup>
+                                <optgroup label="Sony">
+                                    <option value="PS1">PS1</option>
+                                    <option value="PS2">PS2</option>
+                                </optgroup>
+                            </select>
                         </div>
                     </div>
                     <div className='row'>
@@ -110,10 +170,22 @@ const NewProduct = ({admin}) => {
                             <p>Descrição: </p>
                             <textarea name="description" cols="21" rows="5" className='campo' id="newproduct-description"></textarea>
                         </div>
-                        <div className='edit-campo'>
-                            <button className='edit-button' onClick={saveProduct}>
-                                <Link className='button' to="/admin/products">Adicionar Produto</Link>
-                            </button>
+                        <div className='columns'>
+                            <p>Tags: </p>
+                            <div className='all-tags'>
+                                {tags.map((element,index) => {
+                                    return(
+                                        <div onClick={addTag} className='tag' key={index}>
+                                            <p>{element}</p>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            <div className='edit-campo'>
+                                <button className='edit-button' onClick={saveProduct}>
+                                    <Link className='button' to="/admin/products">Adicionar Produto</Link>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

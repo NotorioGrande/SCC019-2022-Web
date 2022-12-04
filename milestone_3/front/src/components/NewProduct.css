@@ -21,6 +21,7 @@
 }
 
 .new-product-page .row{
+    padding-top: 3vh;
     display: flex;
 }
 
@@ -40,12 +41,11 @@
 
 .new-product-page .informations-right p{
     font-size: 7vmin;
-    padding-top: 4vh;
 }
 
 .new-product-page .informations-left .edit-button{
     justify-content: center;
-    margin: 4vh 2vw 1vh 4vw;
+    margin: 4vh auto 0vh auto;
     width: 20vw;
     height: 9vh;
     display: block;
@@ -56,7 +56,7 @@
 }
 
 .new-product-page .informations-right .edit-button{
-    margin: 18vh 2vw 1vh 8vh;
+    margin: 2vh 2vw 1vh 6vw;
     width: 22vw;
     height: 11vh;
     display: block;
@@ -72,9 +72,40 @@
 }
 
 .new-product-page #newproduct-description{
-    margin-right: 6vh;
     height: 30vh;
-    width: 100%;
+}
+
+.new-product-page .columns{
+    margin-left: 1.5vw;
+}
+
+.new-product-page .all-tags{
+    margin: 0px;
+    width: 40vw;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 3vh;
+}
+
+.new-product-page .tag{
+    background-color: white; 
+    border: 2px solid var(--red);
+    border-radius: 5vh;
+    color: black; 
+    padding: 10px 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.new-product-page .tag:hover{
+    transition-duration: 0.4s;
+    background-color: var(--red);
+    color: white;
+}
+
+.new-product-page .tag p{
+    font-size: 3vmin;
+    padding: 0px;
 }
 
 .new-product-page #card{
