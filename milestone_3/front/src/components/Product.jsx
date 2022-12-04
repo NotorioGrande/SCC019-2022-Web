@@ -141,9 +141,6 @@ const Product = () => {
                                 <p>5x de R$ {(cost/5).toFixed(2)}</p>
                             </div>
                         </div>
-                        {/* <div>
-                            Em estoque:
-                        </div> */}
                         <div className='quantity'>
                             <div onClick={addProduct} className='add-quantity'>
                                 +
