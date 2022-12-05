@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyparser = require('body-parser')
+const cors = require('cors')
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 
@@ -12,6 +13,10 @@ const app = express();
 //para lidar c requests
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended : false}));
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: ["GET","POST","PUT","DELETE"]
+}))
 app.use(require('./routes/user.js'))
 const port = 3001;
 dotenv.config();

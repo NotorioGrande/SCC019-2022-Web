@@ -1,7 +1,6 @@
 import React from 'react';
 import "./Cadastro.css"
 import { useNavigate } from 'react-router-dom';
-import {delay} from '../helpers/system.js';
 
 const Cadastro = () => {
     const navigate = useNavigate();
@@ -22,27 +21,28 @@ const Cadastro = () => {
         let campoNome = document.getElementById("campo-nome").value;
         let campoEndereco = document.getElementById("campo-logradouro").value;
         let campoTelefone = document.getElementById("campo-telefone").value;
-        //nova usuario a ser colocado no localStorage
+
         let newUser = {
-            email : campoEmail,
             nome : campoNome,
+            email : campoEmail,
             username : campoUsername,
             senha : campoSenha,
             endereco : campoEndereco,
             telefone : campoTelefone,
             adm : false
         };
-        await delay();
-        let userList = localStorage.getItem("userList");
-        if(userList){
-            //se salva o email para facilitar a retribuicao dos dados depois
-            localStorage.setItem("userList", userList + " " + newUser.email);
-        }
-        else{
-            localStorage.setItem("userList", newUser.email)
-        }
-        //salva no storage o usuario
-        localStorage.setItem(newUser.email, JSON.stringify(newUser));
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(newUser)
+        };
+
+        fetch('http://localhost:3001/api/user', requestOptions)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.log('Authorization failed : ' + error.message));
+
         navigate("/login");
         return;
     }
