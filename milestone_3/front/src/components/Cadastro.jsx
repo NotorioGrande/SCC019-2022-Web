@@ -41,7 +41,7 @@ const Cadastro = () => {
         fetch('http://localhost:3001/api/user', requestOptions)
             .then(response => response.json())
             .then(data => console.log(data))
-            .catch(error => console.log('Authorization failed : ' + error.message));
+            .catch(error => console.log('Fail : ' + error.message));
 
         navigate("/login");
         return;
