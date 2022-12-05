@@ -8,7 +8,8 @@ module.exports.cadastrarUser= async (req, res) => {
         senha: req.body.senha,
         endereco: req.body.endereco,
         telefone: req.body.telefone,
-        adm :req.body.adm 
+        adm :req.body.adm,
+        xp: 0
     })
     //para caso o usuario tente criar conta com username ou email ja existente, vai dar erro pq no model foi definido como unique as propriedades email e username
     try{
@@ -47,7 +48,7 @@ module.exports.getUser = async (req, res) =>{
     if(!mongoose.isValidObjectId(id)){
         return res.status(404).json({error : "id"});
     }
-    const userFound = await userModel.find({_id : id});
+    const userFound = await userModel.findOne({_id : id});
     if(userFound){
         return res.status(200).json(userFound);
     }
