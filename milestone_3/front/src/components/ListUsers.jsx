@@ -1,18 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom'; // dps eu vejo
 import "./ListUsers.css"
-import userImg from './anonymous-user.png';
-import {getUsersArray} from '../helpers/users.js'
 
-const ListUsers = () => { // recebe um array de objetos dos usuarios
-    // na vdd agora é pra dar um query no banco de dados e retornar o array com os objetos dos usuários
-    let users = getUsersArray();
+const ListUsers = () => {
 
-    if (users == null){
+    const [data,setData] = useState([{}])
+
+    useEffect(() => {
+        fetch('http://localhost:3001/api/user')
+        .then(response => response.json())
+        .then(content => {
+            setData(content)
+        })
+    }, [])
+
+    if (data == null){
         return(
         <div className='list-users'>
             <h2>Sem usuários cadastrados</h2>
-
         </div>
         )
     }
@@ -53,10 +58,10 @@ const ListUsers = () => { // recebe um array de objetos dos usuarios
                 </div>
                 <div className='content'>
                     <p>Usuários</p>
-                    {users.map((element,index) => {
+                    {data.map((element,index) => {
                         return(
                             <button className='edit-button' key={index} id={'user-' + index}>
-                                <Link className='button' to={'/admin/users/' + index} state={{element}}> {element.username} </Link> {/*N sei passar o usuario como parametro por aqui*/}
+                                <Link className='button' to={'/admin/users/' + element._id}> {element.username} </Link>
                             </button>
                         )
                     })}
