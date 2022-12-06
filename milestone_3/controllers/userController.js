@@ -57,6 +57,16 @@ module.exports.getUser = async (req, res) =>{
 
 
 }
+
+module.exports.getUserByEmail  = async (req, res) => {
+    const email = req.params.email;
+    const userFound = await userModel.findOne({email : email});
+    if(userFound){
+        return res.status(200).json(userFound);
+    }
+    return res.status(404).json({error : "email"});
+}
+
 module.exports.deleteUser = async (req, res) =>{
     const id = req.params.id;
     if(!mongoose.isValidObjectId(id)){

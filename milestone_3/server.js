@@ -18,7 +18,9 @@ app.use(cors({
   origin: "http://localhost:3000",
   methods: ["GET","POST","PUT","DELETE"]
 }))
-app.use(require('./routes/user.js'))
+//routers
+app.use(require('./routes/user.js'));
+app.use(require('./routes/product.js'));
 const port = 3001;
 dotenv.config();
 
