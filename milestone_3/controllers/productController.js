@@ -9,8 +9,8 @@ module.exports.cadastrarProduct = async (req, res) => {
         preco: req.body.preco,
         plataforma: req.body.plataforma,
         descricao: req.body.descricao,
-    })
-    const productCreated = newProduct.save();
+    });
+    const productCreated = await newProduct.save();
     return res.status(200).json(productCreated);
 }
 
@@ -28,7 +28,7 @@ module.exports.getProduct = async (req, res) => {
     if(!mongoose.isValidObjectId(id)){
         return res.status(404).json({error : "id"});
     }
-    const productFound = await productModel.findOne(id);
+    const productFound = await productModel.findOne({_id: id});
     if(productFound){
         return res.status(200).json(productFound);
     }
@@ -55,7 +55,7 @@ module.exports.updateProduct = async (req, res) => {
     if(!mongoose.isValidObjectId(id)){
         return res.status(404).json({error : "id"});
     }
-    const updatedProduct = productModel.findOneAndUpdate({
+    const updatedProduct = await productModel.findOneAndUpdate({_id: id},{
         nome: req.body.nome,
         estoque: req.body.estoque,
         vendido: req.body.vendido,
