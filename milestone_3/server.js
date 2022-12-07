@@ -21,6 +21,7 @@ app.use(cors({
 //routers
 app.use(require('./routes/user.js'));
 app.use(require('./routes/product.js'));
+app.use(require('./routes/comprar.js'))
 const port = 3001;
 dotenv.config();
 
