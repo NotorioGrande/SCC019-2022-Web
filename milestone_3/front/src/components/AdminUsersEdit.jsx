@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import "./AdminUsersEdit.css";
-import userImg from './anonymous-user.png'; //coloca foto, tira esse coment dps
-import Cookies from 'universal-cookie';
+import userImg from './anonymous-user.png';
 import NotFound from './NotFound';
 
 const AdminEdit = ({user}) => {
@@ -19,7 +18,6 @@ const AdminEdit = ({user}) => {
     }, [])
 
     const navigate = useNavigate();
-    const cookies = new Cookies();
     
     // funcao que deleta o usuario
     const handleDeleteUser = async () => {
@@ -28,8 +26,8 @@ const AdminEdit = ({user}) => {
             return;
         }
 
-        await fetch('http://localhost:3001/api/user/' + id, { method: 'DELETE' })
-        .then(response => response.json())
+        await axios.delete('http://localhost:3001/api/user/' + id)
+        .catch((err) => console.log('Erro de requisição : ' + err))
         
         window.alert(data.nome + " deletado");
         navigate("/admin/users");
@@ -44,16 +42,8 @@ const AdminEdit = ({user}) => {
 
         data.adm = !data.adm //inverte as permissões de admnistrador
 
-        const requestOptions = {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
-        };
-
-        await fetch('http://localhost:3001/api/user/' + id, requestOptions)
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.log('Fail : ' + error.message));
+        await axios.put('http://localhost:3001/api/user/' + id, data)
+            .catch(err => console.log('Erro de requisição : ' + err));
 
         if(data.adm){
             window.alert(data.nome + ' se tornou admin')
