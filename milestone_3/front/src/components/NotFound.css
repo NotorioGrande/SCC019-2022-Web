@@ -1,0 +1,8 @@
+@import "colors.css";
+@import "sizes.css";
+
+.not-found{
+    padding-top: var(--altura-header);
+    font-family: 'VT323', monospace;
+    font-size: 4vh;
+}

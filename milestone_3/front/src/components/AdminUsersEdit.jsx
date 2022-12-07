@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import "./AdminUsersEdit.css";
-import { getUsersArray } from '../helpers/users';
 import userImg from './anonymous-user.png'; //coloca foto, tira esse coment dps
 import Cookies from 'universal-cookie';
 
@@ -11,10 +11,9 @@ const AdminEdit = ({}) => {
     const [user,setUser] = useState({})
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/user/' + id)
-        .then(response => response.json())
-        .then(data => {
-            setUser(data[0])
+        axios.get('http://localhost:3001/api/user/' + id)
+        .then(response => {
+            setUser(response.data)
         })
     }, [])
 
@@ -67,7 +66,7 @@ const AdminEdit = ({}) => {
 
     return (
         <>
-        {(typeof user === 'undefined') ? (
+        {(user.error) ? (
             <div className='admin-edit-page'>
                 <h1>Usuário não encontrado</h1>
             </div>

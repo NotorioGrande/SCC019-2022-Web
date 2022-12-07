@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios'
 import { Link } from 'react-router-dom'; // dps eu vejo
 import "./ListUsers.css"
 
@@ -7,10 +8,9 @@ const ListUsers = () => {
     const [data,setData] = useState([{}])
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/user')
-        .then(response => response.json())
-        .then(content => {
-            setData(content)
+        axios.get('http://localhost:3001/api/user')
+        .then(response => {
+            setData(response.data)
         })
     }, [])
 
@@ -47,13 +47,6 @@ const ListUsers = () => {
                     </div>
                     <div className='edit-campo'>
                         <input type="text" name="username" id="filter-email" className='campo'/>
-                    </div>
-                    <div className="row">
-                        <input type="checkbox" name="cep" className='checkbox'/>
-                        <p>CEP</p>
-                    </div>
-                    <div className='edit-campo'>
-                        <input type="text" name="cep" id="filter-cep" className='campo'/>
                     </div>
                 </div>
                 <div className='content'>

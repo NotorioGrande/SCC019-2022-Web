@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Cadastro.css"
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 const Cadastro = () => {
     const navigate = useNavigate();
@@ -32,16 +33,12 @@ const Cadastro = () => {
             adm : false
         };
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(newUser)
-        };
+        if(campoEmail === 'admin@admin.com' && campoSenha === 'admin'){
+            newUser.adm = true
+        }
 
-        fetch('http://localhost:3001/api/user', requestOptions)
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.log('Fail : ' + error.message));
+        await axios.post('http://localhost:3001/api/user', newUser)
+        .catch(error => console.log('Erro na requisição : ' + error.message));
 
         navigate("/login");
         return;

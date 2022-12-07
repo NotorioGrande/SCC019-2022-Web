@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./User.css";
 import userImg from './anonymous-user.png';
+import NotFound from './NotFound'
 //objeto de usuario de exemplo
 /*let user = {
     name: 'Fulano da Silva',
@@ -15,33 +16,36 @@ import userImg from './anonymous-user.png';
     img: user_img
 }*/
 
-const User = ({user}) => { //recebe o objeto de um usuario
-
+const User = ({user}) => {
     
     return (
-        <div className='user-page'>
-            <div className='informations'>
-                <div className='informations-left'>
-                    <p>Email: {user.email}</p>
-                    <p>Username: {user.username}</p>
-                    <p>Endereço: {user.endereco}</p>
-                    <p>Telefone: {user.telefone}</p>
-                    <p>Cartão: placeholder</p>
-                </div>
-                <div className='informations-right'>
-                    <p>{user.nome},</p>
-                    <p>Noob</p>
-                    <div className='user-img'>
-                        <img src={userImg} alt="" />
+        user === undefined ? (
+            <NotFound/>
+        ):(
+            <div className='user-page'>
+                <div className='informations'>
+                    <div className='informations-left'>
+                        <p>Email: {user.email}</p>
+                        <p>Username: {user.username}</p>
+                        <p>Endereço: {user.endereco}</p>
+                        <p>Telefone: {user.telefone}</p>
+                        <p>Cartão: placeholder</p>
                     </div>
-                    <p>Nível: 1</p>
+                    <div className='informations-right'>
+                        <p>{user.nome},</p>
+                        <p>Noob</p>
+                        <div className='user-img'>
+                            <img src={userImg} alt="" />
+                        </div>
+                        <p>Nível: 1</p>
+                    </div>
                 </div>
+                <button className='edit-button'>
+                    <Link className='editar' to="/editar">Editar</Link>
+                </button>
             </div>
-            <button className='edit-button'>
-                <Link className='editar' to="/editar">Editar</Link>
-            </button>
-        </div>
-      );
+        )
+    );
 }
  
 export default User;

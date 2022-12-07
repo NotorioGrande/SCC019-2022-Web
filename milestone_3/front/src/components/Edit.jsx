@@ -2,16 +2,17 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "./Edit.css";
 import user_img from './anonymous-user.png';
-import {delay} from '../helpers/system';
+import axios from 'axios'
 import Cookies from 'universal-cookie';
+import NotFound from './NotFound'
 
-//objeto de usuario de exemplo
+const Edit = ({user}) => {
 
-const Edit = ({user, setUser}) => { //recebe o objeto de um usuario
     const navigate = useNavigate();
     const handleEdit = async (e) => {
-        let cookies = new Cookies();
+
         e.preventDefault();
+
         //primeiro checar se as senhas coincidem
         let campoConfirmarSenha = document.getElementById("confirm-password").value;
         if(campoConfirmarSenha !== user.senha){
@@ -28,7 +29,6 @@ const Edit = ({user, setUser}) => { //recebe o objeto de um usuario
         if(campoNovaSenha1 !== campoNovaSenha2){
             window.alert("Nova senha difere")
             return;
-
         }
 
         //atualiza o que nao estiver vazio
@@ -36,103 +36,110 @@ const Edit = ({user, setUser}) => { //recebe o objeto de um usuario
             ...user
         };
         if(campoEmail !== ""){
-            newUser.email = campoEmail;
+            
+            let isValidEmail = false
+
+            await axios.get('http://localhost:3001/api/user/email/' + campoEmail)
+            .then(() => {
+                window.alert("Este email já está sendo usado")
+            })
+            .catch(() => {
+                isValidEmail = true
+                newUser.email = campoEmail;
+            })
+            
+            if(!isValidEmail) return;
         };
         if(campoUsername !== ""){
             newUser.username = campoUsername;
         };
         if(campoTelefone !== ""){
             newUser.telefone = campoTelefone;
-
         };
         if(campoNovaSenha1 !== ""){
             newUser.senha = campoNovaSenha1;
         };
-        await delay();
-        let userList = localStorage.getItem("userList").split(" ");
-        //se o email for diferente
-        if(newUser.email != user.email){
-            for(let i = 0; i < userList.length; i++){
-                if(userList[i] === user.email){
-                    userList[i] = newUser.email;
-                }
-            }
-            localStorage.setItem("userList", userList);
-        }
-        //salva no storage o usuario
-        localStorage.setItem(newUser.email, JSON.stringify(newUser));
-        setUser(undefined);
-        cookies.remove("logged_user")
-        navigate("/login")
+
+        let cookies = new Cookies();
+		let userCookie = cookies.get("logged_user");
+
+        await axios.put('http://localhost:3001/api/user/' + userCookie, newUser)
+        .catch((err) => {
+            console.log('Erro na requisição: ' + err)
+            alert('Algo de errado aconteceu')
+        })
+
+        navigate("/usuario")
+        window.location.reload(false); //acho q isso aqui n é bom se é s.p.a.
         
         return;
-
-
-
-        }
-
+    }
 
     return (
-        <div className='edit-page'>
-            <div className='informations'>
-                <div className='informations-left'>
-                    <div className='row'>
-                        <div className='edit-campo'>
-                            <p>Email</p>
-                            <input type="email" name="email" id="edit-email" className='campo'/>
-                        </div>
-                        <div className='edit-campo'>
-                            <p>Username</p>
-                            <input type="text" name="username" id="edit-username" className='campo'/>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='edit-campo'>
-                            <p>Telefone</p>
-                            <input type="tel" name="telefone" id="edit-telefone" className='campo'/>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='edit-campo'>
-                            <p>Nova senha </p>
-                            <input type="password" name="nova-senha" id="newpassword1" className='campo'/>
-                        </div>
-                        <div className='edit-campo'>
-                            <p>Digite novamente a nova senha </p>
-                            <input type="password" name="nova-senha" id="newpassword2" className='campo'/>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='edit-campo'>
-                            <div className='required-field'>
-                                <p className='asterisk'>*</p>
-                                <p>Senha atual </p>
+        user === undefined ? (
+            <NotFound/>
+        ):(
+            <div className='edit-page'>
+                <div className='informations'>
+                    <div className='informations-left'>
+                        <div className='row'>
+                            <div className='edit-campo'>
+                                <p>Email</p>
+                                <input required type="email" name="email" id="edit-email" className='campo' placeholder={user.email}/>
                             </div>
-                            <input type="password" name="senha" id="confirm-password" className='campo'/>
+                            <div className='edit-campo'>
+                                <p>Username</p>
+                                <input type="text" name="username" id="edit-username" className='campo' placeholder={user.username}/>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='edit-campo'>
+                                <p>Telefone</p>
+                                <input type="tel" name="telefone" id="edit-telefone" className='campo' placeholder={user.telefone}/>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='edit-campo'>
+                                <p>Nova senha </p>
+                                <input type="password" name="nova-senha" id="newpassword1" className='campo'/>
+                            </div>
+                            <div className='edit-campo'>
+                                <p>Digite novamente a nova senha </p>
+                                <input type="password" name="nova-senha" id="newpassword2" className='campo'/>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='edit-campo'>
+                                <div className='required-field'>
+                                    <p className='asterisk'>*</p>
+                                    <p>Senha atual</p>
+                                </div>
+                                <input type="password" name="senha" id="confirm-password" className='campo'/>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='informations-right'>
-                    <p>{user.nome},</p>
-                    <p>noob</p>
-                    <div className='user-img'>
-                        <img src={user_img} alt="" />
+                    <div className='informations-right'>
+                        <p>{user.nome},</p>
+                        <p>noob</p>
+                        <div className='user-img'>
+                            <img src={user_img} alt="" />
+                        </div>
+                        <p>Nível: 1</p>
                     </div>
-                    <p>Nível: 1</p>
+                </div>
+                <div className='all-buttons'>
+                    <button className='edit-button'>
+                        <Link className='button' to="/cartao">Alterar cartão</Link>
+                    </button>
+                    <button className='edit-button'>
+                        <Link className='button' to="/upload">Upload de imagem</Link>
+                    </button>
+                    <button onClick={handleEdit} className='edit-button' id='save-button'>
+                        Salvar
+                    </button>
                 </div>
             </div>
-            <div className='all-buttons'>
-                <button className='edit-button'>
-                    <Link className='button' to="/cartao">Alterar cartão</Link>
-                </button>
-                <button className='edit-button'>
-                    <Link className='button' to="/upload">Upload de imagem</Link>
-                </button>
-                <button onClick={handleEdit} className='edit-button' id='save-button'>
-                    Salvar
-                </button>
-            </div>
-        </div>
+        )
     );
 }
  

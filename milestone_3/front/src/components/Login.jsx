@@ -1,52 +1,44 @@
 import React from 'react';
+import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
 import "./Login.css"
 import Cookies from 'universal-cookie';
-function delay(){
-  return new Promise(function(resolve) {
-      setTimeout(resolve, 100);
-  });
-}
+
+/*Para acessar o admin root, crie na aba de cadastro um usuario com
+email: 'admin@admin.com' e senha 'admin'*/
+
 const Login = ({setUser}) => {
     
     const navigate = useNavigate();
 
     const handleLogin = async (e) =>{
+        
         e.preventDefault();
+
         let cookies = new Cookies();
         let email = document.getElementById("campo-email").value;
         let senha = document.getElementById("campo-senha").value;
-        await delay();
-        let retorno = localStorage.getItem(email);
-        if(retorno){
-            retorno = JSON.parse(retorno);
-        }
-        if(retorno === null || senha !== retorno.senha){
-            //usuario inicial é definido aqui no nível lógico e nao no sentido de storage
-            if (email === "admin@admin.com" && senha === "admin"){
-                var adm = {
-                    email : "admin@admin.com",
-                    nome : "admin",
-                    username : "admin",
-                    senha : "admin",
-                    endereco : "",
-                    telefone : "",
-                    adm : true
-                };
 
-                retorno = adm;
-            }
+        axios.get('http://localhost:3001/api/user/email/' + email)
+        .then(response => {
+            console.log(response.data)
 
-            else{
-                window.alert("email ou senha incorretos");
+            if(senha !== response.data.senha){
+                window.alert("email e/ou senha incorretos");
                 return;
             }
-        }
-        cookies.set("logged_user", retorno);
-        setUser(retorno);
-        window.alert("Logado com sucesso.");
-        navigate("/");
 
+            let id = response.data._id
+            
+            cookies.set("logged_user", id);
+            setUser(response.data);
+            window.alert("Logado com sucesso.");
+            navigate("/");
+        })
+        .catch(() => {
+            window.alert("email e/ou senha incorretos");
+            return;
+        })
     }
     return (
         <>
