@@ -26,13 +26,13 @@ function App() {
   const [inputPesquisa, setInputPesquisa] = useState("");
   const [user, setUser] = useState(undefined);
 
-	const handleLoad = () =>{
+	const handleLoad = async () =>{
 		let cookies = new Cookies();
 		let userCookie = cookies.get("logged_user");
 
 		if(userCookie === undefined) return;
 		
-		axios.get('http://localhost:3001/api/user/' + userCookie)
+		await axios.get('http://localhost:3001/api/user/' + userCookie)
 		.then(response => {
 			if(response !== undefined){
 				setUser(response.data)
@@ -50,23 +50,23 @@ function App() {
 		<Router>
 		<Header setInputPesquisa={setInputPesquisa} setUser={setUser} user={user}/>
 			<Routes>
-				<Route path="/" element={<Home /*games={games}*/ />}/>
-				<Route path="/login" element={<Login setUser={setUser} />} />
+				<Route path="/" element={<Home />}/>
+				<Route path="/login" element={<Login setUser={setUser} />}/>
 				<Route path="/cadastro" element={<Cadastro />}/>
 				<Route path="/usuario" element={<User user={user} />}/>
 				<Route path="/editar" element={<Edit user={user} setUser={setUser} />}/>
-				<Route path="/pesquisa" element={<Pesquisa/>}/>
+				<Route path="/pesquisa" element={<Pesquisa />}/>
 				<Route path="/cartao" element={<Cartao />}/>
-				<Route path="/admin" element={<Admin />}/>
-				<Route path="/admin/products" element={<AdminProducts />}/>
-				<Route path="/admin/products/search" element={<PesquisaAdm />}/>
-				<Route path="/admin/products/new" element={<NewProduct />}/>
-				<Route path="/admin/products/edit/:id" element={<EditProduct />}/>
-				<Route path="/admin/users" element={<ListUsers/>}/>
-				<Route path="/admin/users/:id" element={<AdminUsersEdit/>}/>
-				<Route path="/product" element={<Product/>}/>
-				<Route path="/cart" element={<Cart/>}/>
-				<Route path="*" element={<NotFound/>} />
+				<Route path="/admin" element={<Admin user={user} />}/>
+				<Route path="/admin/products" element={<AdminProducts user={user} />}/>
+				<Route path="/admin/products/search" element={<PesquisaAdm user={user} />}/>
+				<Route path="/admin/products/new" element={<NewProduct user={user} />}/>
+				<Route path="/admin/products/edit/:id" element={<EditProduct user={user} />}/>
+				<Route path="/admin/users" element={<ListUsers user={user} />}/>
+				<Route path="/admin/users/:id" element={<AdminUsersEdit user={user} />}/>
+				<Route path="/product" element={<Product />}/>
+				<Route path="/cart" element={<Cart />}/>
+				<Route path="*" element={<NotFound />}/>
 			</Routes>
 		</Router>
 		</div>

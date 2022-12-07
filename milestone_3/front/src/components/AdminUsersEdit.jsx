@@ -4,16 +4,17 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import "./AdminUsersEdit.css";
 import userImg from './anonymous-user.png'; //coloca foto, tira esse coment dps
 import Cookies from 'universal-cookie';
+import NotFound from './NotFound';
 
-const AdminEdit = ({}) => {
+const AdminEdit = ({user}) => {
     let { id } = useParams();
 
-    const [user,setUser] = useState({})
+    const [data,setData] = useState({})
 
     useEffect(() => {
         axios.get('http://localhost:3001/api/user/' + id)
         .then(response => {
-            setUser(response.data)
+            setData(response.data)
         })
     }, [])
 
@@ -21,84 +22,96 @@ const AdminEdit = ({}) => {
     const cookies = new Cookies();
     
     // funcao que deleta o usuario
-    const handleDeleteUser = () => {
-        // if(cookies.get("logged_user") && cookies.get("logged_user").email === currentUser.email){
-        //     window.alert("Não é possível se remover");
-        //     return;
-        // }
+    const handleDeleteUser = async () => {
+        if(user.email === data.email){
+            window.alert("Não é possível se remover");
+            return;
+        }
 
-        fetch('http://localhost:3001/api/user/' + id, { method: 'DELETE' })
+        await fetch('http://localhost:3001/api/user/' + id, { method: 'DELETE' })
         .then(response => response.json())
         
-        window.alert(user.nome + " deletado");
+        window.alert(data.nome + " deletado");
         navigate("/admin/users");
     }
 
     //funcao que mudas os privilégios
-    const handlePrivilegeChange = () => {
-        // if(cookies.get("logged_user") && cookies.get("logged_user").email === currentUser.email){
-        //     window.alert("Não é possível alterar a própria permissão");
-        //     return;
-        // }
+    const handlePrivilegeChange = async () => {
+        if(user.email === data.email){
+            window.alert("Não é possível alterar a própria permissão");
+            return;
+        }
 
-        user.adm = !user.adm //inverte as permissões de admnistrador
+        data.adm = !data.adm //inverte as permissões de admnistrador
 
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(user)
+            body: JSON.stringify(data)
         };
 
-        fetch('http://localhost:3001/api/user/' + id, requestOptions)
+        await fetch('http://localhost:3001/api/user/' + id, requestOptions)
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.log('Fail : ' + error.message));
 
-        if(user.adm){
-            window.alert(user.nome + ' se tornou admin')
+        if(data.adm){
+            window.alert(data.nome + ' se tornou admin')
         }
         else{
-            window.alert(user.nome + ' não é mais admin')
+            window.alert(data.nome + ' não é mais admin')
         }
 
         window.location.reload(false);
     }
 
     return (
-        <>
-        {(user.error) ? (
-            <div className='admin-edit-page'>
-                <h1>Usuário não encontrado</h1>
-            </div>
+        user === undefined ? (
+            <NotFound/>
         ):(
-            <div className='admin-edit-page'>
-                <div className='informations'>
-                    <div className='informations-top'>
-                        <p>{user.nome},</p>
-                        <p>noob</p>
-                        <div className='user-img'>
-                            <img src={user.img}/>
+            !user.adm ? (
+                <NotFound/>
+            ):(
+                (data.error) ? (
+                    <div className='admin-edit-page'>
+                        <h1>Usuário não encontrado</h1>
+                    </div>
+                ):(
+                    <div className='admin-edit-page'>
+                        <div className='informations'>
+                            <div className='informations-top'>
+                                <p>{data.nome},</p>
+                                <p>noob</p>
+                                <div className='user-img'>
+                                    <img src={userImg}/>
+                                </div>
+                                <p>Nível: {data.level}</p>
+                            </div>
+                            <div className='informations-down'>
+                                <p>Email: {data.email}</p>
+                                <p>Username: {data.username}</p>
+                                <p>Nome: {data.nome}</p>
+                                <p>Administrador: {data.adm ? "Sim" : "Não" }</p>
+                            </div>
                         </div>
-                        <p>Nível: {user.level}</p>
+                        <div className='all-buttons'>
+                            <button onClick={handleDeleteUser} className='edit-button' id='delete-button'>
+                                Excluir
+                            </button>
+                                {!data.adm ? (
+                                    <button onClick={handlePrivilegeChange} className='edit-button'>
+                                        Tornar Administrador
+                                    </button>
+                                ):(
+                                    <button onClick={handlePrivilegeChange} className='edit-button'>
+                                        Tirar Administrador
+                                    </button>
+                                )}
+                        </div>
                     </div>
-                    <div className='informations-down'>
-                        <p>Email: {user.email}</p>
-                        <p>Username: {user.username}</p>
-                        <p>Nome: {user.nome}</p>
-                        <p>Administrador: {user.adm ? "Sim" : "Não" }</p>
-                    </div>
-                </div>
-                <div className='all-buttons'>
-                    <button onClick={handleDeleteUser} className='edit-button' id='delete-button'>
-                        Excluir
-                    </button>
-                    <button onClick={handlePrivilegeChange} className='edit-button'>
-                        Tornar Administrador
-                    </button>
-                </div>
-            </div>
-        )}
-        </>
+                )
+            )
+        )
     );
 }
  

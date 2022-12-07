@@ -4,6 +4,7 @@ import Card from './Card';
 import "./NewProduct.css";
 import { useNavigate } from 'react-router-dom';
 import {delay} from '../helpers/system.js';
+import NotFound from './NotFound'
 
 let loadFile = (event) => {
     var output = document.getElementById('card-img');
@@ -13,7 +14,7 @@ let loadFile = (event) => {
     }
 };
 
-const NewProduct = ({admin}) => {
+const NewProduct = ({user}) => {
 
     const [price, setPrice] = useState(0)
     const [name, setName] = useState('Jogo')
@@ -114,83 +115,91 @@ const NewProduct = ({admin}) => {
     }
 
     return (
-        <div className='new-product-page'>
-            <div className='informations'>
-                <div className='informations-left'>
-                    <Card name={name} price={price.toFixed(2)} console={console}/>
-                    <button className='edit-button'>
-                        <label htmlFor='file'>Carregar imagem</label>
-                        <input onChange={loadFile} type="file" name="file" accept="image/*" className='button' id="imgInp"/>
-                    </button>
-                </div>
-                <div className='informations-right'>
-                    <div className='row'>
-                        <div className='edit-campo'>
-                            <p>Nome</p>
-                            <input onKeyUp={refresh_product} type="text" name="name" id="newproduct-name" className='campo'/>
+        user === undefined ? (
+            <NotFound/>
+        ):(
+            !user.adm ? (
+                <NotFound/>
+            ):(
+                <div className='new-product-page'>
+                    <div className='informations'>
+                        <div className='informations-left'>
+                            <Card name={name} price={price.toFixed(2)} console={console}/>
+                            <button className='edit-button'>
+                                <label htmlFor='file'>Carregar imagem</label>
+                                <input onChange={loadFile} type="file" name="file" accept="image/*" className='button' id="imgInp"/>
+                            </button>
                         </div>
-                        <div className='edit-campo'>
-                            <p>Estoque</p>
-                            <input type="text" name="stock" id="newproduct-stock" className='campo'/>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='edit-campo'>
-                            <p>Preço</p>
-                            <input onKeyUp={refresh_product} type="text" name="price" id="newproduct-price" className='campo'/>
-                        </div>
-                        <div className='edit-campo'>
-                            <p>Plataforma</p>
-                            <select onChange={refresh_product} name="console" id="newproduct-console" className='campo'>
-                                <optgroup label="8 Bits">
-                                    <option value="Nes">Nes</option>
-                                    <option value="Master System">Master System</option>
-                                </optgroup>
-                                <optgroup label="16 Bits">
-                                    <option value="Snes">Snes</option>
-                                    <option value="Mega Drive">Mega Drive</option>
-                                </optgroup>
-                                <optgroup label="Portátil">
-                                    <option value="GB">GB</option>
-                                    <option value="GBC">GBC</option>
-                                    <option value="GBA">GBA</option>
-                                </optgroup>
-                                <optgroup label="64 Bits">
-                                    <option value="Nintendo 64">Nintendo 64</option>
-                                </optgroup>
-                                <optgroup label="Sony">
-                                    <option value="PS1">PS1</option>
-                                    <option value="PS2">PS2</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='edit-campo'>
-                            <p>Descrição: </p>
-                            <textarea name="description" cols="21" rows="5" className='campo' id="newproduct-description"></textarea>
-                        </div>
-                        <div className='columns'>
-                            <p>Tags: </p>
-                            <div className='all-tags'>
-                                {tags.map((element,index) => {
-                                    return(
-                                        <div onClick={addTag} className='tag' key={index}>
-                                            <p>{element}</p>
-                                        </div>
-                                    )
-                                })}
+                        <div className='informations-right'>
+                            <div className='row'>
+                                <div className='edit-campo'>
+                                    <p>Nome</p>
+                                    <input onKeyUp={refresh_product} type="text" name="name" id="newproduct-name" className='campo'/>
+                                </div>
+                                <div className='edit-campo'>
+                                    <p>Estoque</p>
+                                    <input type="text" name="stock" id="newproduct-stock" className='campo'/>
+                                </div>
                             </div>
-                            <div className='edit-campo'>
-                                <button className='edit-button' onClick={saveProduct}>
-                                    <Link className='button' to="/admin/products">Adicionar Produto</Link>
-                                </button>
+                            <div className='row'>
+                                <div className='edit-campo'>
+                                    <p>Preço</p>
+                                    <input onKeyUp={refresh_product} type="text" name="price" id="newproduct-price" className='campo'/>
+                                </div>
+                                <div className='edit-campo'>
+                                    <p>Plataforma</p>
+                                    <select onChange={refresh_product} name="console" id="newproduct-console" className='campo'>
+                                        <optgroup label="8 Bits">
+                                            <option value="Nes">Nes</option>
+                                            <option value="Master System">Master System</option>
+                                        </optgroup>
+                                        <optgroup label="16 Bits">
+                                            <option value="Snes">Snes</option>
+                                            <option value="Mega Drive">Mega Drive</option>
+                                        </optgroup>
+                                        <optgroup label="Portátil">
+                                            <option value="GB">GB</option>
+                                            <option value="GBC">GBC</option>
+                                            <option value="GBA">GBA</option>
+                                        </optgroup>
+                                        <optgroup label="64 Bits">
+                                            <option value="Nintendo 64">Nintendo 64</option>
+                                        </optgroup>
+                                        <optgroup label="Sony">
+                                            <option value="PS1">PS1</option>
+                                            <option value="PS2">PS2</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='edit-campo'>
+                                    <p>Descrição: </p>
+                                    <textarea name="description" cols="21" rows="5" className='campo' id="newproduct-description"></textarea>
+                                </div>
+                                <div className='columns'>
+                                    <p>Tags: </p>
+                                    <div className='all-tags'>
+                                        {tags.map((element,index) => {
+                                            return(
+                                                <div onClick={addTag} className='tag' key={index}>
+                                                    <p>{element}</p>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                    <div className='edit-campo'>
+                                        <button className='edit-button' onClick={saveProduct}>
+                                            <Link className='button' to="/admin/products">Adicionar Produto</Link>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            )
+        )
     );
 }
  
