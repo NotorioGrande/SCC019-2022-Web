@@ -32,7 +32,7 @@ function App() {
 
 		if(userCookie === undefined) return;
 		
-		await axios.get('http://localhost:3001/api/user/' + userCookie)
+		axios.get('http://localhost:3001/api/user/' + userCookie)
 		.then(response => {
 			if(response !== undefined){
 				setUser(response.data)

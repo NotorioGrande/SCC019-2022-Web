@@ -16,15 +16,13 @@ const Header = ({user, setUser, setInputPesquisa}) => {
         locationFormatted = "Home";
     }
     else{
-
         locationFormatted = locationFormatted[0].toUpperCase() + locationFormatted.slice(1);
     }
     
     const handleLogout = () =>{
         let cookies = new Cookies();
-        cookies.remove("logged_user");
+        cookies.remove("logged_user", {path: '/'});
         setUser(undefined);
-
     }
     
     const handlePesquisaClick = () => {

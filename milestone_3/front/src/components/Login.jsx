@@ -30,7 +30,7 @@ const Login = ({setUser}) => {
 
             let id = response.data._id
             
-            cookies.set("logged_user", id);
+            cookies.set("logged_user", id, {path: '/'});
             setUser(response.data);
             window.alert("Logado com sucesso.");
             navigate("/");

@@ -6,10 +6,10 @@ import userImg from './anonymous-user.png';
 import NotFound from './NotFound';
 
 const AdminEdit = ({user}) => {
+    
     let { id } = useParams();
-
     const [data,setData] = useState({})
-
+    
     useEffect(() => {
         axios.get('http://localhost:3001/api/user/' + id)
         .then(response => {
@@ -73,7 +73,7 @@ const AdminEdit = ({user}) => {
                                 <p>{data.nome},</p>
                                 <p>noob</p>
                                 <div className='user-img'>
-                                    <img src={userImg}/>
+                                    <img src={userImg} alt=""/>
                                 </div>
                                 <p>Nível: {data.level}</p>
                             </div>

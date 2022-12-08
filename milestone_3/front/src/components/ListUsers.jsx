@@ -15,21 +15,17 @@ const ListUsers = ({user}) => {
         })
     }, [])
 
-    if (data == null){
-        return(
-        <div className='list-users'>
-            <h2>Sem usuários cadastrados</h2>
-        </div>
-        )
-    }
-
-    else{
-        return (
-            user === undefined ? (
+    return (
+        user === undefined ? (
+            <NotFound/>
+        ):(
+            !user.adm ? (
                 <NotFound/>
             ):(
-                !user.adm ? (
-                    <NotFound/>
+                data == null ? (
+                    <div className='list-users'>
+                        <h2>Sem usuários cadastrados</h2>
+                    </div>
                 ):(
                     <div className='list-users'>
                         <div className='filter-list'>
@@ -69,8 +65,8 @@ const ListUsers = ({user}) => {
                     </div>
                 )
             )
-        );
-    }
+        )
+    );
 }
  
 export default ListUsers;
