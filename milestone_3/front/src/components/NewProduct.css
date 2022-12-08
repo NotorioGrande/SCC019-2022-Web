@@ -62,8 +62,10 @@
     display: block;
     font-family: 'VT323', monospace;
     font-size: 5.5vmin;
+    color: white;
     background-color: var(--dark-blue);
     border-radius: 5vmin;
+    cursor: pointer;
 }
 
 .new-product-page .edit-button .button{

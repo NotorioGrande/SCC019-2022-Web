@@ -1,9 +1,7 @@
 import React , { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Card from './Card';
 import "./NewProduct.css";
 import { useNavigate } from 'react-router-dom';
-import {delay} from '../helpers/system.js';
 import axios from 'axios'
 import NotFound from './NotFound'
 
@@ -20,6 +18,12 @@ const NewProduct = ({user}) => {
     const [price, setPrice] = useState(0)
     const [name, setName] = useState('Jogo')
     const [plataforma, setPlataforma] = useState('Plataforma')
+    const navigate = useNavigate();
+
+    let tags = ['Ação', "Beat'em up", "Shoot'em up", 'Plataforma', 'Metroidvania', 'Furtivo', 'FPS', 'Mundo aberto',
+    'Aventura', 'RPG', 'Action RPG', 'Tactical RPG', 'Corrida', 'Horror', 'Top-Down', '3D', 'Puzzle']
+
+    let selectedTags = []
 
     const refresh_product = () => {
     
@@ -42,8 +46,6 @@ const NewProduct = ({user}) => {
         }
     }
 
-    const navigate = useNavigate();
-
     const saveProduct = async (e) => {
         e.preventDefault()
 
@@ -57,61 +59,29 @@ const NewProduct = ({user}) => {
 
         const formData = new FormData();
 
+        //adicionando valores para o formato FormData
         formData.append("image", campoImagem);
         formData.append("nome", campoNome);
         formData.append("estoque", campoEstoque);
+        formData.append("vendido", '0');
         formData.append("preco", campoPreco);
         formData.append("plataforma", campoPlataforma);
         formData.append("descricao", campoDescricao);
+        formData.append("tags", selectedTags.toString());
+        
+        await axios.post("/api/product", formData)
+        .then(res => {
+            console.log(res.data)
+            navigate("/admin/products");
 
-        axios.post("/api/product", formData)
-        .then(res => console.log(res.data))
-        .catch(err => console.error('deu ruim : ' + err));
+            return;
+        })
+        .catch(err => {
+            alert(err.response.data)
 
-        let campoId = localStorage.getItem("id");
-
-        if(campoId){
-            localStorage.setItem("id", parseInt(campoId) + 1);
-        }
-        else{
-            localStorage.setItem("id", 1);
-        }
-
-        campoId = localStorage.getItem("id");
-
-        //novo produto a ser colocado no localStorage
-        let newProduct = {
-            nome: campoNome,
-            estoque: campoEstoque,
-            vendido: 0,
-            img: null,
-            preco: campoPreco,
-            plataforma: campoPlataforma,
-            descricao: campoDescricao,
-            id: campoId
-        };
-
-        await delay();
-
-        let productList = localStorage.getItem("productList");
-
-        if(productList){
-            //se salva o id para facilitar a retribuicao dos dados depois
-            localStorage.setItem("productList", productList + " " + newProduct.id);
-        }
-        else{
-            localStorage.setItem("productList", newProduct.id);
-        }
-        //salva no storage o produto
-        localStorage.setItem(newProduct.id, JSON.stringify(newProduct));
-        navigate("/admin/products");
-        return;
+            return
+        });
     }
-
-    let tags = ['Ação', "Beat'em up", "Shoot'em up", 'Plataforma', 'Metroidvania', 'Furtivo', 'FPS', 'Mundo aberto',
-    'Aventura', 'RPG', 'Action RPG', 'Tactical RPG', 'Corrida', 'Horror', 'Top-Down', '3D', 'Puzzle']
-
-    let selectedTags = []
 
     const addTag = (event) => {
         let tag = event.currentTarget.children[0].innerHTML
@@ -207,7 +177,7 @@ const NewProduct = ({user}) => {
                                     </div>
                                     <div className='edit-campo'>
                                         <button className='edit-button' onClick={saveProduct}>
-                                            {/* <Link className='button' to="/admin/products">Adicionar Produto</Link> */}
+                                            Adicionar Produto
                                         </button>
                                     </div>
                                 </div>
