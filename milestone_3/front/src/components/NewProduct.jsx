@@ -4,6 +4,7 @@ import Card from './Card';
 import "./NewProduct.css";
 import { useNavigate } from 'react-router-dom';
 import {delay} from '../helpers/system.js';
+import axios from 'axios'
 import NotFound from './NotFound'
 
 let loadFile = (event) => {
@@ -18,7 +19,7 @@ const NewProduct = ({user}) => {
 
     const [price, setPrice] = useState(0)
     const [name, setName] = useState('Jogo')
-    const [console, setConsole] = useState('Plataforma')
+    const [plataforma, setPlataforma] = useState('Plataforma')
 
     const refresh_product = () => {
     
@@ -34,22 +35,38 @@ const NewProduct = ({user}) => {
         
         let newConsole = document.getElementById('newproduct-console').value
         if(newConsole === ''){
-            setConsole('Console')
+            setPlataforma('Console')
         }
         else{
-            setConsole(newConsole)
+            setPlataforma(newConsole)
         }
     }
 
     const navigate = useNavigate();
 
-    const saveProduct = async () => {
+    const saveProduct = async (e) => {
+        e.preventDefault()
+
         //pegando os valores
         let campoNome = document.getElementById("newproduct-name").value;
         let campoEstoque = document.getElementById("newproduct-stock").value;
         let campoPreco = document.getElementById("newproduct-price").value;
         let campoPlataforma = document.getElementById("newproduct-console").value;
         let campoDescricao = document.getElementById("newproduct-description").value;
+        let campoImagem = document.getElementById("inputFile").files[0]
+
+        const formData = new FormData();
+
+        formData.append("image", campoImagem);
+        formData.append("nome", campoNome);
+        formData.append("estoque", campoEstoque);
+        formData.append("preco", campoPreco);
+        formData.append("plataforma", campoPlataforma);
+        formData.append("descricao", campoDescricao);
+
+        axios.post("/api/product", formData)
+        .then(res => console.log(res.data))
+        .catch(err => console.error('deu ruim : ' + err));
 
         let campoId = localStorage.getItem("id");
 
@@ -66,7 +83,7 @@ const NewProduct = ({user}) => {
         let newProduct = {
             nome: campoNome,
             estoque: campoEstoque,
-            vendido: null,
+            vendido: 0,
             img: null,
             preco: campoPreco,
             plataforma: campoPlataforma,
@@ -124,11 +141,11 @@ const NewProduct = ({user}) => {
                 <div className='new-product-page'>
                     <div className='informations'>
                         <div className='informations-left'>
-                            <Card name={name} price={price.toFixed(2)} console={console}/>
-                            <button className='edit-button'>
-                                <label htmlFor='file'>Carregar imagem</label>
-                                <input onChange={loadFile} type="file" name="file" accept="image/*" className='button' id="imgInp"/>
-                            </button>
+                            <Card name={name} price={price.toFixed(2)} console={plataforma}/>
+                            <label htmlFor='inputFile' className='edit-button'>
+                                <p>Carregar imagem</p>
+                                <input onChange={loadFile} type="file" name="image" accept="image/*" id='inputFile'/>
+                            </label>
                         </div>
                         <div className='informations-right'>
                             <div className='row'>
@@ -190,7 +207,7 @@ const NewProduct = ({user}) => {
                                     </div>
                                     <div className='edit-campo'>
                                         <button className='edit-button' onClick={saveProduct}>
-                                            <Link className='button' to="/admin/products">Adicionar Produto</Link>
+                                            {/* <Link className='button' to="/admin/products">Adicionar Produto</Link> */}
                                         </button>
                                     </div>
                                 </div>

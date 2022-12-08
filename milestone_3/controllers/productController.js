@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const productModel = require('../models/productModel');
+
 module.exports.cadastrarProduct = async (req, res) => {
     const newProduct = new productModel({
         nome: req.body.nome,
         estoque: req.body.estoque,
         vendido: req.body.vendido,
-        img: req.body.img,
+        img: req.file.filename,
         preco: req.body.preco,
         plataforma: req.body.plataforma,
         descricao: req.body.descricao,

@@ -46,11 +46,11 @@
 .new-product-page .informations-left .edit-button{
     justify-content: center;
     margin: 4vh auto 0vh auto;
-    width: 20vw;
-    height: 9vh;
+    width: 17vw;
+    height: 6vh;
     display: block;
     font-family: 'VT323', monospace;
-    font-size: 4.3vh;
+    font-size: 2.3vmax;
     background-color: var(--dark-blue);
     border-radius: 10vmin;
 }
@@ -114,13 +114,15 @@
 }
 
 .new-product-page input[type='file']{
-    display: none
+    display: none;
 }
 
 .new-product-page label{
+    padding-top: 0.5vh;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
+    text-align: center;
 }
 
 @media only screen and (max-device-width: 1150px) {
