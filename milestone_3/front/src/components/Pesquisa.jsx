@@ -1,92 +1,19 @@
-import React from 'react';
+import React , {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Card from './Card';
+import axios from 'axios'
 import "./Pesquisa.css";
-import smw from './smw.png';
-
-let games = [{
-    name: 'Super Mario World',
-    price: '56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '0'
-},
-{
-    name: 'Super Mario World',
-    price: '56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '1'
-},
-{
-    name: 'Super Mario World',
-    price: '56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '2'
-},
-{
-    name: 'Super Mario World',
-    price: '56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '3'
-},
-{
-    name: 'Super Mario World',
-    price: '56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '4'
-},
-{
-    name: 'Super Mario World',
-    price: '56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '5'
-},
-{
-    name: 'Super Mario World',
-    price: '56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '6'
-},
-{
-    name: 'Super Mario World',
-    price: '56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '7'
-},
-{
-    name: 'Super Mario World',
-    price: '56,90',
-    img: smw,
-    console: 'SNES',
-    stock: '100',
-    sold: '10',
-    id: '8'
-}]
 
 const Pesquisa = ({setInputPesquisa}) => {
+
+    const [games,setGames] = useState([{}])
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/api/product')
+        .then(response => {
+            setGames(response.data)
+        })
+    }, [])
 
     return (
         <div className="div-pesquisa">
@@ -139,16 +66,26 @@ const Pesquisa = ({setInputPesquisa}) => {
                 </div>
             </div>
             <div className='content'>
-                {games.map((element,index) => {
-                    return(
-                        <div className='cart-item' key={index} id={'item-' + index}> {/* Dps eu mudo o nome da classe*/}
-                            <Link className='button' to="/product">
-                                <Card name={element.name} price={element.price} img={element.img} console={element.console}/>
-                            </Link>
-                            <p>Quantidade: {element.stock}</p>
-                        </div>
-                    )
-                })}
+                {games === undefined ? (
+                    <h2>Nenhum jogo foi encontrado</h2>
+                ):(
+                    games.map((element,index) => {
+                        let image
+                        try{
+                            image = require('./../../../uploads/' + element.img)
+                        }
+                        catch{
+                            image = ''
+                        }
+                        return(
+                            <div className='item' key={index} id={'item-' + index}>
+                                <Link className='button' to={"/product/" + element._id}>
+                                    <Card name={element.nome} price={element.preco} img={image} console={element.plataforma}/>
+                                </Link>
+                            </div>
+                        )
+                    })
+                )}
             </div>
         </div>
     );
