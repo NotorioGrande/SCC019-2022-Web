@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const productModel = require('../models/productModel');
+const fs = require("fs");
 
 module.exports.cadastrarProduct = async (req, res) => {
 
@@ -29,7 +30,7 @@ module.exports.cadastrarProduct = async (req, res) => {
         estoque: req.body.estoque,
         vendido: req.body.vendido,
         img: req.file.filename,
-        preco: req.body.preco,
+        preco: Number(req.body.preco).toFixed(2),
         plataforma: req.body.plataforma,
         descricao: req.body.descricao,
         tags: req.body.tags
@@ -68,7 +69,16 @@ module.exports.deleteProduct = async (req, res) => {
     }
     const productFound = await productModel.findOneAndDelete({_id : id});
     if(productFound){
-        return res.status(200).json(productFound);
+        let path = 'uploads/' + productFound.img
+        try{
+            fs.unlink(path, () => { //se tirar isso da erro
+                
+            })
+        }
+        finally{
+            return res.status(200).json(productFound);
+        }
+        
     }
     return res.status(404).json({error : "id"});
     

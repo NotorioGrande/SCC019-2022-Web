@@ -30,11 +30,11 @@
 }
 
 .page-search-adm .content{
-    width: 90vw;
+    width: 86vw;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    margin-left: 16vw;
+    margin-left: 15vw;
     padding-top: 2vh;
 }
 
@@ -54,7 +54,20 @@
     font-family: 'VT323', monospace;
     font-size: 4.5vh;
     background-color: #E1B73D;
+    color: white;
     border-radius: 5vmin;
+    cursor: pointer;
+}
+
+.page-search-adm .item{
+    margin: 0vh 0.5vw 2vh 0.5vw;
+    justify-content: center;
+    text-align: center
+}
+
+.page-search-adm .item p{
+    padding-top: 1vh;
+    padding-bottom: 0vh;
 }
 
 .page-search-adm .button-game{
@@ -70,7 +83,6 @@
 .page-search-adm #card{
     width: 25vh;
     height: 40vh;
-    margin: 0vh 2vw 2vh 2vw;
 }
 
 /* Isso é pra mudar depois no próprio card */

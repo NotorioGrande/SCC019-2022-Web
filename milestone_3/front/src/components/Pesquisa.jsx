@@ -13,6 +13,9 @@ const Pesquisa = ({setInputPesquisa}) => {
         .then(response => {
             setGames(response.data)
         })
+        .catch((err) => {
+            setGames([])
+        })
     }, [])
 
     return (
@@ -66,7 +69,7 @@ const Pesquisa = ({setInputPesquisa}) => {
                 </div>
             </div>
             <div className='content'>
-                {games === undefined ? (
+                {games.length == 0 ? (
                     <h2>Nenhum jogo foi encontrado</h2>
                 ):(
                     games.map((element,index) => {

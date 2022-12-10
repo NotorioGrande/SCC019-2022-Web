@@ -8,7 +8,7 @@ import smw from './smw.png';
 //objeto de game de exemplo
 let game = {
     name: 'Super Mario World',
-    price: '56,90',
+    price: 56.90,
     img: smw,
     console: 'SNES'
 }

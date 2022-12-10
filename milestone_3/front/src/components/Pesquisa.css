@@ -30,7 +30,7 @@
 }
 
 .div-pesquisa .content{
-    width: 86vw;
+    width: 80vw;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -57,22 +57,17 @@
     border-radius: 5vmin;
 }
 
-.div-pesquisa .edit-button .button{
-    text-decoration: none;
-    color: white;
-}
-
 .div-pesquisa .button{
     text-decoration: none;
     color: var(--dark-blue);
 }
 
-.div-pesquisa item{
+.div-pesquisa .item{
     width: 27vh;
-    margin: 0vh 2vw 2vh 2vw;
+    margin: 2vh 1vw 2vh 1vw;
 }
 
-.div-pesquisa item p{
+.div-pesquisa .item p{
     padding-top: 1vh;
     font-size: 4vh;
 }
@@ -80,8 +75,6 @@
 .div-pesquisa #card{
     width: 25vh;
     height: 40vh;
-    margin-right: 1.5vw;
-    margin-bottom: 1.5vw;
 }
 
 /* Isso é pra mudar depois no próprio card */
