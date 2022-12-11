@@ -62,7 +62,7 @@ const PesquisaAdm = ({user,setInputPesquisa}) => {
                         </div>
                         <div className="megadrive-filter">
                             <input type="checkbox" name="megadrive"/> 
-                            <p>Megadrive</p>
+                            <p>Mega Drive</p>
                         </div>
                         <div className="genesis-filter">
                             <input type="checkbox" name="genesis"/> 

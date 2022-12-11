@@ -37,7 +37,7 @@ const Pesquisa = ({setInputPesquisa, inputPesquisa}) => {
                 </div>
                 <div className="megadrive-filter">
                     <input type="radio" name="plataforma"/> 
-                    <p>Megadrive</p>
+                    <p>Mega Drive</p>
                 </div>
                 <div className="genesis-filter">
                     <input type="radio" name="plataforma"/> 
