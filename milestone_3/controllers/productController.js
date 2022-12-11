@@ -4,33 +4,12 @@ const fs = require("fs");
 
 module.exports.cadastrarProduct = async (req, res) => {
 
-    if(req.file === undefined){
-        return res.status(400).send('Insira uma imagem no produto');
-    }
-
-    if(req.body.nome === '' || req.body.estoque === '' || req.body.preco === '' ||
-    req.body.plataforma === '' || req.body.descricao === '' || req.body.tags === ''){
-        return res.status(400).send('Um ou mais campos não foram preenchidos');
-    }
-
-    if(isNaN(req.body.estoque)){
-        return res.status(400).send('Estoque deve ser um número');
-    }
-
-    if(!Number.isInteger(Number(req.body.estoque))){
-        return res.status(400).send('Estoque deve ser inteiro');
-    }
-
-    if(isNaN(req.body.preco)){
-        return res.status(400).send('Preço deve ser um número');
-    }
-
     const newProduct = new productModel({
         nome: req.body.nome,
         estoque: req.body.estoque,
         vendido: req.body.vendido,
         img: req.file.filename,
-        preco: Number(req.body.preco).toFixed(2),
+        preco: req.body.preco,
         plataforma: req.body.plataforma,
         descricao: req.body.descricao,
         tags: req.body.tags

@@ -46,6 +46,22 @@ const NewProduct = ({user}) => {
         }
     }
 
+    const addTag = (event) => {
+        let tag = event.currentTarget.children[0].innerHTML
+
+        if(selectedTags.includes(tag)){
+            const index = selectedTags.indexOf(tag);
+            selectedTags.splice(index, 1);
+            event.currentTarget.style.backgroundColor = 'white'
+            event.currentTarget.style.color = 'black'
+        }
+        else{
+            selectedTags.push(tag)
+            event.currentTarget.style.backgroundColor = '#EC5939'
+            event.currentTarget.style.color = 'white'
+        }
+    }
+
     const saveProduct = async (e) => {
         e.preventDefault()
 
@@ -56,6 +72,32 @@ const NewProduct = ({user}) => {
         let campoPlataforma = document.getElementById("newproduct-console").value;
         let campoDescricao = document.getElementById("newproduct-description").value;
         let campoImagem = document.getElementById("inputFile").files[0]
+
+        if(campoImagem === undefined){
+            alert('Insira uma imagem no produto');
+            return;
+        }
+    
+        if(campoNome === '' || campoEstoque === '' || campoPreco === '' ||
+        campoPlataforma === '' || campoDescricao === '' || selectedTags.length === 0){
+            alert('Um ou mais campos não foram preenchidos');
+            return;
+        }
+    
+        if(isNaN(campoEstoque)){
+            alert('Estoque deve ser um número');
+            return;
+        }
+    
+        if(!Number.isInteger(Number(campoEstoque))){
+            alert('Estoque deve ser inteiro');
+            return;
+        }
+    
+        if(isNaN(campoPreco)){
+            alert('Preço deve ser um número');
+            return;
+        }
 
         const formData = new FormData();
 
@@ -71,34 +113,16 @@ const NewProduct = ({user}) => {
         
         await axios.post("/api/product", formData)
         .then(res => {
-            console.log(res.data)
+            alert('O produto foi cadastrado')
             navigate("/admin/products");
-
+            
             return;
         })
         .catch(err => {
-            alert(err.response.data)
-
-            return
+            alert('Erro ao inserir o produto')
+            console.log(err)
+            return;
         });
-    }
-
-    const addTag = (event) => {
-        let tag = event.currentTarget.children[0].innerHTML
-
-        if(selectedTags.includes(tag)){
-            const index = selectedTags.indexOf(tag);
-            selectedTags.splice(index, 1);
-            event.currentTarget.style.backgroundColor = 'white'
-            event.currentTarget.style.color = 'black'
-        }
-        else{
-            selectedTags.push(tag)
-            event.currentTarget.style.backgroundColor = '#EC5939'
-            event.currentTarget.style.color = 'white'
-        }
-
-        console.log(selectedTags)
     }
 
     return (

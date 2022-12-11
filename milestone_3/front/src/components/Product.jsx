@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import Card from './Card';
 import "./Product.css";
-import smw from './smw.png';
-
-//objeto de game de exemplo
-let game = {
-    name: 'Super Mario World',
-    price: 56.90,
-    stock: 16,
-    img: smw,
-    console: 'SNES',
-    description: 'Jogo usado em perfeito estado. Versão dos Estados Unidos',
-    tags: ['Ação', 'Aventura', 'RPG', 'Arcade', 'Beat em up', 'Side Scroller', 'Shoot em up', 'Action RPG']
-}
+import axios from 'axios'
+import NotFound from './NotFound';
 
 const buyProduct = () => {
     alert("O produto foi comprado :)")
@@ -20,59 +11,69 @@ const buyProduct = () => {
 
 const addToCart = () => {
 
-    let cart = localStorage.getItem("cart")
-    cart = JSON.parse(cart)
+    // let cart = localStorage.getItem("cart")
+    // cart = JSON.parse(cart)
 
-    if(!cart) cart = []
+    // if(!cart) cart = []
 
-    let isOnCart = false
+    // let isOnCart = false
 
-    let n = document.getElementsByClassName('quantity-number')[0]
-    n = parseInt(n.innerHTML)
+    // let n = document.getElementsByClassName('quantity-number')[0]
+    // n = parseInt(n.innerHTML)
     
-    cart.forEach(function(element,i){
-        if(element.game.name === game.name){
-            isOnCart = true
-            if(parseInt(element.quantidade) + n <= game.stock){
-                element.quantidade = parseInt(element.quantidade) + n
-            }
-            else{
-                element.quantidade = game.stock
-            }
-        }
-    })
+    // cart.forEach(function(element,i){
+    //     if(element.game.name === game.name){
+    //         isOnCart = true
+    //         if(parseInt(element.quantidade) + n <= game.estoque){
+    //             element.quantidade = parseInt(element.quantidade) + n
+    //         }
+    //         else{
+    //             element.quantidade = game.estoque
+    //         }
+    //     }
+    // })
 
-    if(!isOnCart){
-        let cartItem = {
-            game,
-            quantidade: n
-        }
+    // if(!isOnCart){
+    //     let cartItem = {
+    //         game,
+    //         quantidade: n
+    //     }
 
-        cart.push(cartItem)
-    }
+    //     cart.push(cartItem)
+    // }
 
-    console.log(cart)
+    // console.log(cart)
 
-    localStorage.setItem("cart",JSON.stringify(cart))
+    // localStorage.setItem("cart",JSON.stringify(cart))
 
     alert("Produto adicionado ao carrinho")
 }
 
 const Product = () => {
 
-    const [cost, setCost] = useState(game.price)
+    let { id } = useParams();
+
+    const [game,setGame] = useState({})
+    const [cost, setCost] = useState()
+    
+    useEffect(() => {
+        axios.get('http://localhost:3001/api/product/' + id)
+        .then(response => {
+            setGame(response.data)
+        })
+    }, [])
 
     const addProduct = () => {
         let productNumber = document.getElementsByClassName('quantity-number')[0]
         let n = parseInt(productNumber.innerHTML)
     
-        if(n < 99 && n < game.stock){
+        if(n < 99 && n < game.estoque){
             n++
         }
     
         productNumber.innerHTML = n
     
-        setCost(n*game.price)
+        setCost(n*game.preco)
     }
     
     const subtractProduct = () => {
@@ -85,7 +86,7 @@ const Product = () => {
     
         productNumber.innerHTML = n
 
-        setCost(n*game.price)
+        setCost(n*game.preco)
     }
 
     const renderStock = (stock) => {
@@ -112,63 +113,91 @@ const Product = () => {
         }
     }
 
+    let image
+    try{
+        image = require('./../../../uploads/' + game.img)
+    }
+    catch{
+        image = ''
+    }
+
     return (
-        <div className='product-page'>
-            <div className='informations'>
-                <div className='informations-left'>
-                    <Card name={game.name} price={game.price} img={game.img} console={game.console}/>
-                    <div className='all-tags'>
-                        {game.tags.map((element,index) => {
-                            return(
-                                <div className='tag' key={index}>
-                                    <p>{element}</p>
+        game === undefined ? (
+            <NotFound/>
+        ):(
+            <div className='product-page'>
+                <div className='informations'>
+                    <div className='informations-left'>
+                        <Card name={game.nome} price={game.preco} img={image} console={game.plataforma}/>
+                        <div className='all-tags'>
+                            {game.tags === undefined ? (
+                                <></>
+                            ):(
+                                game.tags.split(',').map((element,index) => {
+                                    return(
+                                        <div className='tag' key={index}>
+                                            <p>{element}</p>
+                                        </div>
+                                    )
+                                })
+                            )}
+                        </div>
+                    </div>
+                    <div className='informations-right'>
+                        <div className='row-1'>
+                            <p>{game.nome}</p>
+                            <p>[{game.plataforma}]</p>
+                        </div>
+                            <div className='row-2'>
+                                <div className='values'>
+                                    <div className='value-1'>
+                                        <p>R$ {
+                                        cost === undefined ? (
+                                            game.preco
+                                        ):(
+                                            cost.toFixed(2)
+                                        )
+                                        }</p>
+                                    </div>
+                                    <div className='value-2'>
+                                        <p>5x de R$ {
+                                        cost === undefined ? (
+                                            Number(game.preco)/5
+                                        ):(
+                                            (cost/5).toFixed(2)
+                                        )
+                                        }</p>
+                                    </div>
                                 </div>
-                            )
-                        })}
-                    </div>
-                </div>
-                <div className='informations-right'>
-                    <div className='row-1'>
-                        <p>{game.name}</p>
-                        <p>[{game.console}]</p>
-                    </div>
-                    <div className='row-2'>
-                        <div className='values'>
-                            <div className='value-1'>
-                                <p>R$ {cost.toFixed(2)}</p>
+                                <div className='quantity'>
+                                    <div onClick={addProduct} className='add-quantity'>
+                                        +
+                                    </div>
+                                    <p> Quantidade: </p>
+                                    <p className='quantity-number'> 1 </p>
+                                    <div onClick={subtractProduct} className='subtract-quantity'>
+                                        -
+                                    </div>
+                                </div>
                             </div>
-                            <div className='value-2'>
-                                <p>5x de R$ {(cost/5).toFixed(2)}</p>
-                            </div>
+                        <div className='row-3'>
+                            <p>Estoque: </p>
+                            {renderStock(game.estoque)}
                         </div>
-                        <div className='quantity'>
-                            <div onClick={addProduct} className='add-quantity'>
-                                +
-                            </div>
-                            <p> Quantidade: </p>
-                            <p className='quantity-number'> 1 </p>
-                            <div onClick={subtractProduct} className='subtract-quantity'>
-                                -
-                            </div>
+                        <div className='row-4'>
+                            <p>Descrição: </p>
+                        </div>
+                        <div className='row-5'>
+                            <p>{game.descricao}</p>
                         </div>
                     </div>
-                    <div className='row-3'>
-                        <p>Estoque: </p>
-                        {renderStock(game.stock)}
-                    </div>
-                    <div className='row-4'>
-                        <p>Descrição: </p>
-                    </div>
-                    <div className='row-5'>
-                        <p>{game.description}</p>
-                    </div>
+                </div>
+                <div className='all-buttons'>
+                    <button onClick={buyProduct}> Comprar </button>
+                    <button onClick={addToCart}> Carrinho </button>
                 </div>
             </div>
-            <div className='all-buttons'>
-                <button onClick={buyProduct}> Comprar </button>
-                <button onClick={addToCart}> Carrinho </button>
-            </div>
-        </div>
+        )
     );
 }
  

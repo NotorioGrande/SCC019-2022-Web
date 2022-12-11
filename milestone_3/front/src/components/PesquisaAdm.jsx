@@ -27,7 +27,6 @@ const PesquisaAdm = ({user,setInputPesquisa}) => {
         await axios.delete('http://localhost:3001/api/product/' + id)
         .then(() => {
             alert('O produto foi deletado')
-            e.target.parentNode.remove()
 
             return;
         })
@@ -95,7 +94,7 @@ const PesquisaAdm = ({user,setInputPesquisa}) => {
                             <p>RPG</p>
                         </div>
                     </div>
-                    {games.length == 0 ? (
+                    {games.length === 0 ? (
                         <div className='content'>
                             <h2>Nenhum jogo foi encontrado</h2>
                         </div>
@@ -112,13 +111,13 @@ const PesquisaAdm = ({user,setInputPesquisa}) => {
                                     }
                                     return(
                                         <div className='item' key={index} id={element._id}>
-                                            <Link className='button-game' to="/product">
+                                            <Link className='button-game' to={"/product/" + element._id}>
                                                 <Card name={element.nome} price={element.preco} img={image} console={element.plataforma}/>
                                             </Link>
                                             <p>Vendidos: {element.vendido}</p>
                                             <p>Estoque: {element.estoque}</p>
                                             <button className='edit-button'>
-                                                <Link className='button' to={"/admin/products/edit/" + element.id}>Alterar</Link>
+                                                <Link className='button' to={"/admin/products/edit/" + element._id}>Alterar</Link>
                                             </button>
                                             <button className='edit-button' onClick={deleteGame}>
                                                 Apagar

@@ -23,10 +23,10 @@ import axios from 'axios'
 import Cookies from 'universal-cookie';
 
 function App() {
-  const [inputPesquisa, setInputPesquisa] = useState("");
-  const [user, setUser] = useState(undefined);
+  	const [inputPesquisa, setInputPesquisa] = useState("");
+  	const [user, setUser] = useState(undefined);
 
-	const handleLoad = async () =>{
+	const handleLoad = async () => {
 		let cookies = new Cookies();
 		let userCookie = cookies.get("logged_user");
 

@@ -3,18 +3,6 @@ import { Link } from 'react-router-dom';
 import "./User.css";
 import userImg from './anonymous-user.png';
 import NotFound from './NotFound'
-//objeto de usuario de exemplo
-/*let user = {
-    name: 'Fulano da Silva',
-    username: 'fulano_gamer1234',
-    title: 'O mago do retrô',
-    email: 'fulanodasilva@gmail.com',
-    address: 'Alameda dos Fulanos, 1234',
-    phone: '+55 16 9 1234-5678',
-    card: 'Mastercard final 1234',
-    level: '999',
-    img: user_img
-}*/
 
 const User = ({user}) => {
     

@@ -69,7 +69,7 @@ const Pesquisa = ({setInputPesquisa}) => {
                 </div>
             </div>
             <div className='content'>
-                {games.length == 0 ? (
+                {games.length === 0 ? (
                     <h2>Nenhum jogo foi encontrado</h2>
                 ):(
                     games.map((element,index) => {

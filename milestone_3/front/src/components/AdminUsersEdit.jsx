@@ -8,6 +8,7 @@ import NotFound from './NotFound';
 const AdminEdit = ({user}) => {
     
     let { id } = useParams();
+    
     const [data,setData] = useState({})
     
     useEffect(() => {

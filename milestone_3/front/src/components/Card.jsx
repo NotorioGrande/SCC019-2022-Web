@@ -5,7 +5,7 @@ const Card = ({name,price,img,console}) => {
     return (
         <div id='card'>
             <img id='card-img' src={img} alt="" />
-            <div id='card-price'>R$ {price}</div>
+            <div id='card-price'>R$ {Number(price).toFixed(2)}</div>
             <div id='card-console'>{console}</div>
             <div id='card-name'>{name}</div>
         </div>
