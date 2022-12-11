@@ -24,31 +24,31 @@ const Pesquisa = ({setInputPesquisa, inputPesquisa}) => {
             <div className="filtros">
                 <p className='filtro-titulo'>Console</p>
                 <div className="atari-filter">
-                    <input type="checkbox" name="atari"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>Atari</p>
                 </div>
                 <div className="nes-filter">
-                    <input type="checkbox" name="nes"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>NES</p>
                 </div>
                 <div className="snes-filter">
-                    <input type="checkbox" name="snes"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>SNES</p>
                 </div>
                 <div className="megadrive-filter">
-                    <input type="checkbox" name="megadrive"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>Megadrive</p>
                 </div>
                 <div className="genesis-filter">
-                    <input type="checkbox" name="genesis"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>Genesis</p>
                 </div>
                 <div className="ps1-filter">
-                    <input type="checkbox" name="ps1"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>PS1</p>
                 </div>
                 <div className="ps2-filter">
-                    <input type="checkbox" name="ps2"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>PS2</p>
                 </div>
                 <p className='filtro-titulo'>Gênero</p>
