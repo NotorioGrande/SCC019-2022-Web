@@ -7,7 +7,7 @@ import NotFound from './NotFound'
 const User = ({user}) => {
     //titulo e nivek depende de xp, é pro titulo avançar de 5 em 5 níveis
     const titulos = ["Noob", "Aventureiro Iniciante", "Clérigo Intermediário", "Paladino Avançado", "Mago do Retro", "Arquimago do Retrô"];
-    let nivel = Math.floor(user.xp/50 + 1);
+    let nivel = Math.floor(user.xp/10 + 1);
     const titulo = nivel < 25? titulos[Math.floor(nivel/5)] : titulos[titulos.length - 1];
     return (
         user === undefined ? (
