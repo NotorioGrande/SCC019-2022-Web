@@ -4,19 +4,20 @@ import Card from './Card';
 import axios from 'axios'
 import "./Pesquisa.css";
 
-const Pesquisa = ({setInputPesquisa}) => {
+const Pesquisa = ({setInputPesquisa, inputPesquisa}) => {
 
     const [games,setGames] = useState([{}])
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/product')
+        
+        axios.get(`http://localhost:3001/api/product/?nome=${inputPesquisa.trim()}`)
         .then(response => {
             setGames(response.data)
         })
         .catch((err) => {
             setGames([])
         })
-    }, [])
+    }, [inputPesquisa])
 
     return (
         <div className="div-pesquisa">

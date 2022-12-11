@@ -18,8 +18,14 @@ module.exports.cadastrarProduct = async (req, res) => {
     return res.status(200).json(productCreated);
 }
 
-module.exports.getAllProducts = async (req, res ) =>{
-    const productsFound = await productModel.find();
+module.exports.getProducts = async (req, res ) =>{
+    let objPesquisa = {}
+    let nome = req.query.nome;
+    if(nome){
+        let regexNome = new RegExp(nome, "gi");
+        objPesquisa.nome = regexNome;
+    }
+    const productsFound = await productModel.find(objPesquisa);
     
     if(productsFound.length > 0)
         return res.status(200).json(productsFound);
@@ -62,7 +68,7 @@ module.exports.deleteProduct = async (req, res) => {
     return res.status(404).json({error : "id"});
     
 }
-
+//atualiza o produto
 module.exports.updateProduct = async (req, res) => {
     const id = req.params.id;
     if(!mongoose.isValidObjectId(id)){
@@ -83,4 +89,8 @@ module.exports.updateProduct = async (req, res) => {
         return res.status(200).json(updatedProduct);
     }
     return res.status(404).json({error : "id"});
-}   
+}  
+
+module.exports.searchProduct = async (req, res) => {
+    //objeto que é passado pro find
+}
