@@ -13,6 +13,8 @@ const NewProduct = ({user}) => {
     const navigate = useNavigate();
 
     let tags = ["Ação", "Aventura", "Arcade", "RPG"]
+    // let tags = ["Ação", "Aventura", "Arcade", "RPG", "Beat'em up", "Shoot'em up", 'Plataforma', 'Metroidvania', 'Furtivo', 'FPS',
+    // 'Mundo aberto', 'Action RPG', 'Tactical RPG', 'Corrida', 'Horror', 'Top-Down', '3D', 'Puzzle']
 
     let selectedTags = []
 

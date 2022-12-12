@@ -133,7 +133,7 @@ const Product = () => {
                             {game.tags === undefined ? (
                                 <></>
                             ):(
-                                game.tags.split(',').map((element,index) => {
+                                game.tags[0].split(',').map((element,index) => {
                                     return(
                                         <div className='tag' key={index}>
                                             <p>{element}</p>

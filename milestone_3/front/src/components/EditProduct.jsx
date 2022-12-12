@@ -15,8 +15,9 @@ const EditProduct = ({user}) => {
     const [name, setName] = useState()
     const [plataforma, setPlataforma] = useState()
 
-    let tags = ['Ação', "Beat'em up", "Shoot'em up", 'Plataforma', 'Metroidvania', 'Furtivo', 'FPS', 'Mundo aberto',
-    'Aventura', 'RPG', 'Action RPG', 'Tactical RPG', 'Corrida', 'Horror', 'Top-Down', '3D', 'Puzzle']
+    let tags = ["Ação", "Aventura", "Arcade", "RPG"]
+    // let tags = ["Ação", "Aventura", "Arcade", "RPG", "Beat'em up", "Shoot'em up", 'Plataforma', 'Metroidvania', 'Furtivo', 'FPS',
+    // 'Mundo aberto', 'Action RPG', 'Tactical RPG', 'Corrida', 'Horror', 'Top-Down', '3D', 'Puzzle']
 
     let selectedTags = []
     
@@ -214,7 +215,7 @@ const EditProduct = ({user}) => {
                                                 <></>
                                             ):(
                                                 tags.map((element,index) => {
-                                                    if(game.tags.split(',').includes(element)){
+                                                    if(game.tags[0].split(',').includes(element)){
                                                         selectedTags.push(element)
                                                         return(
                                                             <div onClick={addTag} className='selected-tag' key={index}>
