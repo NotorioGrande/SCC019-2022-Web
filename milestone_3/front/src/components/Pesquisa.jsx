@@ -74,17 +74,10 @@ const Pesquisa = ({setInputPesquisa, inputPesquisa}) => {
                     <h2>Nenhum jogo foi encontrado</h2>
                 ):(
                     games.map((element,index) => {
-                        let image
-                        try{
-                            image = require('./../../../uploads/' + element.img)
-                        }
-                        catch{
-                            image = ''
-                        }
                         return(
                             <div className='item' key={index} id={'item-' + index}>
                                 <Link className='button' to={"/product/" + element._id}>
-                                    <Card name={element.nome} price={element.preco} img={image} console={element.plataforma}/>
+                                    <Card name={element.nome} price={element.preco} img={element.img && require('./../../../uploads/' + element.img)} console={element.plataforma}/>
                                 </Link>
                             </div>
                         )

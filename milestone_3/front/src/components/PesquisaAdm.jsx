@@ -100,32 +100,23 @@ const PesquisaAdm = ({user,setInputPesquisa}) => {
                         </div>
                     ):(
                         <div className='content'>
-                            {
-                                games.map((element, index) => {
-                                    let image
-                                    try{
-                                        image = require('./../../../uploads/' + element.img)
-                                    }
-                                    catch{
-                                        image = ''
-                                    }
-                                    return(
-                                        <div className='item' key={index} id={element._id}>
-                                            <Link className='button-game' to={"/product/" + element._id}>
-                                                <Card name={element.nome} price={element.preco} img={image} console={element.plataforma}/>
-                                            </Link>
-                                            <p>Vendidos: {element.vendido}</p>
-                                            <p>Estoque: {element.estoque}</p>
-                                            <button className='edit-button'>
-                                                <Link className='button' to={"/admin/products/edit/" + element._id}>Alterar</Link>
-                                            </button>
-                                            <button className='edit-button' onClick={deleteGame}>
-                                                Apagar
-                                            </button>
-                                        </div>
-                                    )
-                                })
-                            }
+                            {games.map((element, index) => {
+                                return(
+                                    <div className='item' key={index} id={element._id}>
+                                        <Link className='button-game' to={"/product/" + element._id}>
+                                            <Card name={element.nome} price={element.preco} img={element.img && require('./../../../uploads/' + element.img)} console={element.plataforma}/>
+                                        </Link>
+                                        <p>Vendidos: {element.vendido}</p>
+                                        <p>Estoque: {element.estoque}</p>
+                                        <button className='edit-button'>
+                                            <Link className='button' to={"/admin/products/edit/" + element._id}>Alterar</Link>
+                                        </button>
+                                        <button className='edit-button' onClick={deleteGame}>
+                                            Apagar
+                                        </button>
+                                    </div>
+                                )
+                            })}
                         </div>
                     )}
                 </div>

@@ -37,8 +37,6 @@
     margin-left: calc(50vw - 15vw/2);
     margin-top: 5vh;
     cursor: pointer;
-
-
 }
 
 .sem-conta{
@@ -46,15 +44,17 @@
     font-family: 'VT323';
     font-size: 6vh;
     text-align: center;
-
 }
 
 .cadastro{
     text-decoration: none;
     color: var(--dark-blue);
-
 }
-.cadastro-form .email, .cadastro-form .nome, .cadastro-form  .logradouro{
-    width: 60vw;
 
-}  
+.cadastro-form .email, .cadastro-form .nome, .cadastro-form .username, .cadastro-form .telefone{
+    width: 45vw;
+}
+
+.cadastro-form .endereco{
+    width: 91.5vw;
+}

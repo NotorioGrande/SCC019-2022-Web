@@ -20,7 +20,7 @@ const Cadastro = () => {
         let campoEmail = document.getElementById("campo-email").value;
         let campoUsername = document.getElementById("campo-username").value;
         let campoNome = document.getElementById("campo-nome").value;
-        let campoEndereco = document.getElementById("campo-logradouro").value;
+        let campoEndereco = document.getElementById("campo-endereco").value;
         let campoTelefone = document.getElementById("campo-telefone").value;
 
         let newUser = {
@@ -64,13 +64,9 @@ const Cadastro = () => {
                     <p>Telefone</p>
                     <input required type="text" name="telefone" id="campo-telefone" className='campo'/>
                 </div>
-                <div className="cep">
-                    <p>Cep</p>
-                    <input required type="text" name="cep" id="campo-cep" className='campo'/>
-                </div>
-                <div className="logradouro">
-                    <p>Logradouro</p>
-                    <input  required type="text" name="logradouro" id="campo-logradouro" className='campo'/>
+                <div className="endereco">
+                    <p>Endereço</p>
+                    <input  required type="text" name="endereco" id="campo-endereco" className='campo'/>
                 </div>
                 <div className="senha">
                     <p>Senha</p>

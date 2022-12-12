@@ -24,6 +24,7 @@ const Edit = ({user}) => {
         let campoEmail = document.getElementById("edit-email").value;
         let campoUsername = document.getElementById("edit-username").value;
         let campoTelefone = document.getElementById("edit-telefone").value;
+        let campoEndereco = document.getElementById("edit-endereco").value;
         let campoNovaSenha1 = document.getElementById("newpassword1").value;
         let campoNovaSenha2 = document.getElementById("newpassword2").value;
         if(campoNovaSenha1 !== campoNovaSenha2){
@@ -35,6 +36,7 @@ const Edit = ({user}) => {
         let newUser = {
             ...user
         };
+
         if(campoEmail !== ""){
             
             let isValidEmail = false
@@ -55,6 +57,9 @@ const Edit = ({user}) => {
         };
         if(campoTelefone !== ""){
             newUser.telefone = campoTelefone;
+        };
+        if(campoEndereco !== ""){
+            newUser.endereco = campoEndereco;
         };
         if(campoNovaSenha1 !== ""){
             newUser.senha = campoNovaSenha1;
@@ -96,6 +101,10 @@ const Edit = ({user}) => {
                             <div className='edit-campo'>
                                 <p>Telefone</p>
                                 <input type="tel" name="telefone" id="edit-telefone" className='campo' placeholder={user.telefone}/>
+                            </div>
+                            <div className='edit-campo'>
+                                <p>Endereço</p>
+                                <input type="text" name="endereco" id="edit-endereco" className='campo' placeholder={user.endereco}/>
                             </div>
                         </div>
                         <div className='row'>

@@ -113,14 +113,6 @@ const Product = () => {
         }
     }
 
-    let image
-    try{
-        image = require('./../../../uploads/' + game.img)
-    }
-    catch{
-        image = ''
-    }
-
     return (
         game === undefined ? (
             <NotFound/>
@@ -128,7 +120,7 @@ const Product = () => {
             <div className='product-page'>
                 <div className='informations'>
                     <div className='informations-left'>
-                        <Card name={game.nome} price={game.preco} img={image} console={game.plataforma}/>
+                        <Card name={game.nome} price={game.preco} img={game.img && require('./../../../uploads/' + game.img)} console={game.plataforma}/>
                         <div className='all-tags'>
                             {game.tags === undefined ? (
                                 <></>
