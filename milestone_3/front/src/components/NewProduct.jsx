@@ -12,8 +12,7 @@ const NewProduct = ({user}) => {
     const [plataforma, setPlataforma] = useState('Plataforma')
     const navigate = useNavigate();
 
-    let tags = ['Ação', "Beat'em up", "Shoot'em up", 'Plataforma', 'Metroidvania', 'Furtivo', 'FPS', 'Mundo aberto',
-    'Aventura', 'RPG', 'Action RPG', 'Tactical RPG', 'Corrida', 'Horror', 'Top-Down', '3D', 'Puzzle']
+    let tags = ["Ação", "Aventura", "Arcade", "RPG"]
 
     let selectedTags = []
 
@@ -158,26 +157,13 @@ const NewProduct = ({user}) => {
                                 <div className='edit-campo'>
                                     <p>Plataforma</p>
                                     <select onChange={refresh_product} name="console" id="newproduct-console" className='campo'>
-                                        <optgroup label="8 Bits">
-                                            <option value="Nes">Nes</option>
-                                            <option value="Master System">Master System</option>
-                                        </optgroup>
-                                        <optgroup label="16 Bits">
-                                            <option value="Snes">Snes</option>
-                                            <option value="Mega Drive">Mega Drive</option>
-                                        </optgroup>
-                                        <optgroup label="Portátil">
-                                            <option value="GB">GB</option>
-                                            <option value="GBC">GBC</option>
-                                            <option value="GBA">GBA</option>
-                                        </optgroup>
-                                        <optgroup label="64 Bits">
-                                            <option value="Nintendo 64">Nintendo 64</option>
-                                        </optgroup>
-                                        <optgroup label="Sony">
-                                            <option value="PS1">PS1</option>
-                                            <option value="PS2">PS2</option>
-                                        </optgroup>
+                                        <option value="Atari">Atari</option>
+                                        <option value="NES">NES</option>
+                                        <option value="SNES">SNES</option>
+                                        <option value="Mega Drive">Mega Drive</option>
+                                        <option value="Genesis">Genesis</option>
+                                        <option value="PS1">PS1</option>
+                                        <option value="PS2">PS2</option>
                                     </select>
                                 </div>
                             </div>

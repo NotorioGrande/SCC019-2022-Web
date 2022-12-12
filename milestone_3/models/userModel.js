@@ -23,7 +23,12 @@ const userSchema = new mongoose.Schema({
         trim: true
     },
     adm : Boolean,
-    xp : Number
+    xp : Number,
+    //cartao fica stringfado em json
+    cartao : {
+        type : String
+    }
+    
     
 
 })

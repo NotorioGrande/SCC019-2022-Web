@@ -48,14 +48,14 @@ function App() {
 	return (
 		<div className="App">
 		<Router>
-		<Header setInputPesquisa={setInputPesquisa} setUser={setUser} user={user}/>
+		<Header inputPesquisa={inputPesquisa} setInputPesquisa={setInputPesquisa} setUser={setUser} user={user}/>
 			<Routes>
 				<Route path="/" element={<Home />}/>
 				<Route path="/login" element={<Login setUser={setUser} />}/>
 				<Route path="/cadastro" element={<Cadastro />}/>
 				<Route path="/usuario" element={<User user={user} />}/>
 				<Route path="/editar" element={<Edit user={user} setUser={setUser} />}/>
-				<Route path="/pesquisa" element={<Pesquisa />}/>
+				<Route path="/pesquisa" element={<Pesquisa inputPesquisa={inputPesquisa} />}/>
 				<Route path="/cartao" element={<Cartao />}/>
 				<Route path="/admin" element={<Admin user={user} />}/>
 				<Route path="/admin/products" element={<AdminProducts user={user} />}/>

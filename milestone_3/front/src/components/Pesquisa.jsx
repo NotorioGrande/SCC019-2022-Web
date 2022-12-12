@@ -4,50 +4,51 @@ import Card from './Card';
 import axios from 'axios'
 import "./Pesquisa.css";
 
-const Pesquisa = ({setInputPesquisa}) => {
+const Pesquisa = ({setInputPesquisa, inputPesquisa}) => {
 
     const [games,setGames] = useState([{}])
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/product')
+        
+        axios.get(`http://localhost:3001/api/product/?nome=${inputPesquisa.trim()}`)
         .then(response => {
             setGames(response.data)
         })
         .catch((err) => {
             setGames([])
         })
-    }, [])
+    }, [inputPesquisa])
 
     return (
         <div className="div-pesquisa">
             <div className="filtros">
                 <p className='filtro-titulo'>Console</p>
                 <div className="atari-filter">
-                    <input type="checkbox" name="atari"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>Atari</p>
                 </div>
                 <div className="nes-filter">
-                    <input type="checkbox" name="nes"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>NES</p>
                 </div>
                 <div className="snes-filter">
-                    <input type="checkbox" name="snes"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>SNES</p>
                 </div>
                 <div className="megadrive-filter">
-                    <input type="checkbox" name="megadrive"/> 
-                    <p>Megadrive</p>
+                    <input type="radio" name="plataforma"/> 
+                    <p>Mega Drive</p>
                 </div>
                 <div className="genesis-filter">
-                    <input type="checkbox" name="genesis"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>Genesis</p>
                 </div>
                 <div className="ps1-filter">
-                    <input type="checkbox" name="ps1"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>PS1</p>
                 </div>
                 <div className="ps2-filter">
-                    <input type="checkbox" name="ps2"/> 
+                    <input type="radio" name="plataforma"/> 
                     <p>PS2</p>
                 </div>
                 <p className='filtro-titulo'>Gênero</p>
