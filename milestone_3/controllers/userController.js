@@ -128,3 +128,42 @@ module.exports.updateUser = async (req, res) => {
     
 
 }
+
+module.exports.updateCard = async (req, res) => {
+    const id = req.params.id;
+    if(!mongoose.isValidObjectId(id)){
+        return res.status(404).json({error : "id"});
+    }
+    try{
+    var updatedCard = await userModel.findOneAndUpdate({_id : id}, {
+        cartao :req.body
+    }, {
+        new: true
+    });
+    }
+    catch(e){
+        console.log(e);
+        //descobrir se deu erro pelo email ou username
+        const userByEmail = await userModel.findOne({email : req.body.email});
+        //a desigualdade precisa ser !=, pq o _id é um object e n uma string
+        //se o id for o mesmo é o user tentou mudar seus dados sem alterar o email
+        if(userByEmail && userByEmail._id != id){
+            console.log(userByEmail)
+            return res.status(404).json({
+                error : "email"
+            });
+        }
+        const userByUsername = await userModel.findOne({username : req.body.username});
+        //se o id for o mesmo é o user tentou mudar seus dados sem alterar o email
+        if(userByUsername && userByUsername._id != id){
+            return res.status(404).json({
+                error : "username"
+            });
+            
+        }
+    }
+    if(updatedCard) {
+        return res.status(200).json(updatedCard);
+    }
+    return res.status(404).json({error : "id"});
+}
