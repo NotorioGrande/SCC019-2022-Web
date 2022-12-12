@@ -3,7 +3,7 @@ const productModel = require('../models/productModel');
 const fs = require("fs");
 
 module.exports.cadastrarProduct = async (req, res) => {
-
+    
     const newProduct = new productModel({
         nome: req.body.nome,
         estoque: req.body.estoque,
@@ -12,7 +12,7 @@ module.exports.cadastrarProduct = async (req, res) => {
         preco: req.body.preco,
         plataforma: req.body.plataforma,
         descricao: req.body.descricao,
-        tags: req.body.tags
+        tags: req.body.tags.split(",")
     });
     const productCreated = await newProduct.save();
     return res.status(200).json(productCreated);
