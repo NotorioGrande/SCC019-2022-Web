@@ -5,14 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import NotFound from './NotFound'
 
-let loadFile = (event) => {
-    var output = document.getElementById('card-img');
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function() {
-        URL.revokeObjectURL(output.src)
-    }
-};
-
 const NewProduct = ({user}) => {
 
     const [price, setPrice] = useState(0)
@@ -24,6 +16,14 @@ const NewProduct = ({user}) => {
     'Aventura', 'RPG', 'Action RPG', 'Tactical RPG', 'Corrida', 'Horror', 'Top-Down', '3D', 'Puzzle']
 
     let selectedTags = []
+
+    let loadFile = (event) => {
+        var output = document.getElementById('card-img');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+            URL.revokeObjectURL(output.src)
+        }
+    };
 
     const refresh_product = () => {
     
@@ -52,13 +52,11 @@ const NewProduct = ({user}) => {
         if(selectedTags.includes(tag)){
             const index = selectedTags.indexOf(tag);
             selectedTags.splice(index, 1);
-            event.currentTarget.style.backgroundColor = 'white'
-            event.currentTarget.style.color = 'black'
+            event.currentTarget.className = 'tag'
         }
         else{
             selectedTags.push(tag)
-            event.currentTarget.style.backgroundColor = '#EC5939'
-            event.currentTarget.style.color = 'white'
+            event.currentTarget.className = 'selected-tag'
         }
     }
 

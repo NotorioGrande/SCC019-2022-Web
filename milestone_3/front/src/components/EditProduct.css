@@ -21,6 +21,7 @@
 }
 
 .edit-product-page .row{
+    padding-top: 3vh;
     display: flex;
 }
 
@@ -40,30 +41,31 @@
 
 .edit-product-page .informations-right p{
     font-size: 7vmin;
-    padding-top: 4vh;
 }
 
 .edit-product-page .informations-left .edit-button{
     justify-content: center;
-    margin: 4vh 2vw 1vh 4vw;
-    width: 20vw;
-    height: 9vh;
+    margin: 4vh auto 0vh auto;
+    width: 17vw;
+    height: 6vh;
     display: block;
     font-family: 'VT323', monospace;
-    font-size: 4.3vh;
+    font-size: 2.3vmax;
     background-color: var(--dark-blue);
     border-radius: 10vmin;
 }
 
 .edit-product-page .informations-right .edit-button{
-    margin: 18vh 2vw 1vh 8vh;
+    margin: 2vh 2vw 1vh 6vw;
     width: 22vw;
     height: 11vh;
     display: block;
     font-family: 'VT323', monospace;
     font-size: 5.5vmin;
+    color: white;
     background-color: var(--dark-blue);
     border-radius: 5vmin;
+    cursor: pointer;
 }
 
 .edit-product-page .edit-button .button{
@@ -72,9 +74,61 @@
 }
 
 .edit-product-page #newproduct-description{
-    margin-right: 6vh;
     height: 30vh;
-    width: 100%;
+}
+
+.edit-product-page .columns{
+    margin-left: 1.5vw;
+}
+
+.edit-product-page .all-tags{
+    margin: 0px;
+    width: 40vw;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 3vh;
+}
+
+.edit-product-page .tag{
+    background-color: white; 
+    border: 2px solid var(--red);
+    border-radius: 5vh;
+    color: black; 
+    padding: 10px 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.edit-product-page .selected-tag{
+    background-color: var(--red); 
+    border: 2px solid var(--red);
+    border-radius: 5vh;
+    color: white;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.edit-product-page .tag:hover{
+    transition-duration: 0.4s;
+    background-color: var(--red);
+    color: white;
+}
+
+.edit-product-page .selected-tag:hover{
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
+}
+
+.edit-product-page .tag p{
+    font-size: 3vmin;
+    padding: 0px;
+}
+
+.edit-product-page .selected-tag p{
+    font-size: 3vmin;
+    padding: 0px;
 }
 
 .edit-product-page #card{
@@ -82,20 +136,16 @@
     height: 26vw;
 }
 
-.edit-product-page #save-button{
-    cursor: pointer;
-    color: white;
-
-}
-
 .edit-product-page input[type='file']{
-    display: none
+    display: none;
 }
 
 .edit-product-page label{
+    padding-top: 0.5vh;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
+    text-align: center;
 }
 
 @media only screen and (max-device-width: 1150px) {

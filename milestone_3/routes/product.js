@@ -7,6 +7,6 @@ router.post("/api/product", upload.single('image'), productController.cadastrarP
 router.get("/api/product", productController.getAllProducts);
 router.get("/api/product/:id", productController.getProduct);
 router.delete("/api/product/:id", productController.deleteProduct);
-router.put("/api/product/:id", productController.updateProduct);
+router.put("/api/product/:id", upload.single('image'), productController.updateProduct);
 
 module.exports = router;

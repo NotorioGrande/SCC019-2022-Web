@@ -68,14 +68,16 @@ module.exports.updateProduct = async (req, res) => {
     if(!mongoose.isValidObjectId(id)){
         return res.status(404).json({error : "id"});
     }
+
     const updatedProduct = await productModel.findOneAndUpdate({_id: id},{
         nome: req.body.nome,
         estoque: req.body.estoque,
         vendido: req.body.vendido,
-        img: req.body.img,
+        img: (req.file === undefined ? req.body.oldImage : req.file.filename),
         preco: req.body.preco,
         plataforma: req.body.plataforma,
         descricao: req.body.descricao,
+        tags: req.body.tags
     }, {
         new: true
     });

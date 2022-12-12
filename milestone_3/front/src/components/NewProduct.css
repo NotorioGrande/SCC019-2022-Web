@@ -99,13 +99,34 @@
     cursor: pointer;
 }
 
+.new-product-page .selected-tag{
+    background-color: var(--red); 
+    border: 2px solid var(--red);
+    border-radius: 5vh;
+    color: white;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 .new-product-page .tag:hover{
     transition-duration: 0.4s;
     background-color: var(--red);
     color: white;
 }
 
+.new-product-page .selected-tag:hover{
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
+}
+
 .new-product-page .tag p{
+    font-size: 3vmin;
+    padding: 0px;
+}
+
+.new-product-page .selected-tag p{
     font-size: 3vmin;
     padding: 0px;
 }

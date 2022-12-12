@@ -153,7 +153,7 @@ const Product = () => {
                                     <div className='value-1'>
                                         <p>R$ {
                                         cost === undefined ? (
-                                            game.preco
+                                            Number(game.preco).toFixed(2)
                                         ):(
                                             cost.toFixed(2)
                                         )
@@ -162,7 +162,7 @@ const Product = () => {
                                     <div className='value-2'>
                                         <p>5x de R$ {
                                         cost === undefined ? (
-                                            Number(game.preco)/5
+                                            (Number(game.preco)/5).toFixed(2)
                                         ):(
                                             (cost/5).toFixed(2)
                                         )
