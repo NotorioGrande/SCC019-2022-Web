@@ -1,39 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from './Card';
 import "./Cart.css";
+import axios from 'axios'
 import smw from './smw.png';
 
 let cart = []
-
-//o cart é um array de objeto game e quantidade
-// let cart = [{
-//     game: {
-//         name: 'Super Mario World',
-//         price: '56.90',
-//         img: smw,
-//         console: 'SNES'
-//     },
-//     quantidade: 1
-// },
-// {
-//     game: {
-//         name: 'Super Mario World',
-//         price: '56.90',
-//         img: smw,
-//         console: 'SNES'
-//     },
-//     quantidade: 1
-// },
-// {
-//     game: {
-//         name: 'Super Mario World',
-//         price: '56.90',
-//         img: smw,
-//         console: 'SNES'
-//     },
-//     quantidade: 1
-// }]
 
 const refresh = () => {
     let campos = document.getElementsByClassName('value-2')
@@ -79,9 +51,15 @@ const endCart = () => {
     refresh()
 }
 
-const Cart= () => {
+const Cart = ({user}) => {
 
-    cart = localStorage.getItem("cart")
+    if(user === undefined){
+        cart = localStorage.getItem("guestCart")
+    }
+    else{
+        cart = localStorage.getItem(user._id + "Cart")
+    }
+
     cart = JSON.parse(cart)
 
     if(!cart) cart = []
@@ -99,13 +77,22 @@ const Cart= () => {
             <div className='informations'>
                 <div className='informations-left'>
                     {cart.map((element,index) => {
-                        return(
-                            <div className='cart-item' key={index} id={'item-' + index}>
-                                <button onClick={remove} className='close-button'>X</button>
-                                <Card name={element.game.name} price={element.game.price} img={element.game.img} console={element.game.console}/>
-                                <p>Quantidade: {element.quantidade}</p>
-                            </div>
-                        )
+                        let game = {}
+                        axios.get('http://localhost:3001/api/product/' + element.game)
+                        .then(response => {
+                            console.log(response.data)
+                            game = response.data
+                            return(
+                                <div className='cart-item' key={index} id={'item-' + index}>
+                                    <button onClick={remove} className='close-button'>X</button>
+                                    <Card name={game.nome} price={game.preco} img={game.img} console={game.plataforma}/>
+                                    <p>Quantidade: {element.quantidade}</p>
+                                </div>
+                            )
+                        })
+                        .catch(err => {
+                            console.log('Deu ruim : ' + err)
+                        })
                     })}
                 </div>
                 <div className='informations-right'>

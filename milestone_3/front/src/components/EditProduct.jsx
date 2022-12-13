@@ -1,8 +1,7 @@
 import React ,{ useState , useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Card from './Card';
 import "./EditProduct.css";
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import NotFound from './NotFound';
 
@@ -10,6 +9,7 @@ const EditProduct = ({user}) => {
 
     let {id} = useParams();
     const navigate = useNavigate();
+
     const [game, setGame] = useState({})
     const [price, setPrice] = useState()
     const [name, setName] = useState()

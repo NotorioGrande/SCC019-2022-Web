@@ -1,5 +1,5 @@
 import React, { useState , useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Card from './Card';
 import "./Product.css";
 import axios from 'axios'
@@ -8,6 +8,7 @@ import NotFound from './NotFound';
 const Product = ({user}) => {
 
     let { id } = useParams();
+    const navigate = useNavigate();
 
     const [game,setGame] = useState({})
     const [cost, setCost] = useState()
@@ -20,6 +21,11 @@ const Product = ({user}) => {
     }, [])
 
     const buyProduct = () => {
+
+        if(user === undefined){
+            alert('Faça login antes de comprar o produto')
+            navigate("/login");
+        }
 
         let quantidade = Number(document.getElementsByClassName('quantity-number')[0].innerHTML)
         
@@ -39,41 +45,54 @@ const Product = ({user}) => {
     }
     
     const addToCart = () => {
+
+        let cart
+
+        if(user === undefined){
+            cart = localStorage.getItem("guestCart")
+        }
+        else{
+            cart = localStorage.getItem(user._id + "Cart")
+        }
     
-        // let cart = localStorage.getItem("cart")
-        // cart = JSON.parse(cart)
+        cart = JSON.parse(cart)
     
-        // if(!cart) cart = []
+        if(!cart) cart = []
     
-        // let isOnCart = false
+        let isOnCart = false
     
-        // let n = document.getElementsByClassName('quantity-number')[0]
-        // n = parseInt(n.innerHTML)
+        let n = document.getElementsByClassName('quantity-number')[0]
+        n = parseInt(n.innerHTML)
         
-        // cart.forEach(function(element,i){
-        //     if(element.game.name === game.name){
-        //         isOnCart = true
-        //         if(parseInt(element.quantidade) + n <= game.estoque){
-        //             element.quantidade = parseInt(element.quantidade) + n
-        //         }
-        //         else{
-        //             element.quantidade = game.estoque
-        //         }
-        //     }
-        // })
+        cart.forEach(function(element,i){
+            if(element.game === game._id){
+                isOnCart = true
+                if(parseInt(element.quantidade) + n <= game.estoque){
+                    element.quantidade = parseInt(element.quantidade) + n
+                }
+                else{
+                    element.quantidade = game.estoque
+                }
+            }
+        })
     
-        // if(!isOnCart){
-        //     let cartItem = {
-        //         game,
-        //         quantidade: n
-        //     }
+        if(!isOnCart){
+            let cartItem = {
+                game: game._id,
+                quantidade: n
+            }
     
-        //     cart.push(cartItem)
-        // }
+            cart.push(cartItem)
+        }
     
-        // console.log(cart)
-    
-        // localStorage.setItem("cart",JSON.stringify(cart))
+        console.log(cart)
+
+        if(user === undefined){
+            localStorage.setItem("guestCart",JSON.stringify(cart))
+        }
+        else{
+            localStorage.setItem(user._id + "Cart",JSON.stringify(cart))
+        }
     
         alert("Produto adicionado ao carrinho")
     }
