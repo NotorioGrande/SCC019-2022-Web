@@ -5,6 +5,7 @@ import user_img from './anonymous-user.png';
 import axios from 'axios'
 import Cookies from 'universal-cookie';
 import NotFound from './NotFound'
+import { telefone_validation } from '../helpers/system';
 
 const Edit = ({user}) => {
 
@@ -29,6 +30,11 @@ const Edit = ({user}) => {
         let campoNovaSenha2 = document.getElementById("newpassword2").value;
         if(campoNovaSenha1 !== campoNovaSenha2){
             window.alert("Nova senha difere")
+            return;
+        }
+
+        if (!telefone_validation(campoTelefone)){
+            window.alert("Telefone inválido")
             return;
         }
 

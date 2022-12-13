@@ -16,7 +16,7 @@
 }
 
 .edit-card-page .row .edit-campo{
-    margin-right: 2vw;
+    margin-right: 1vw;
 }
 
 .edit-card-page .campo{
@@ -43,9 +43,6 @@
     font-size: 5vmin;
     background-color: var(--dark-blue);
     border-radius: 10vmin;
-}
-
-.edit-card-page .edit-button .button{
     text-decoration: none;
     color: white;
 }

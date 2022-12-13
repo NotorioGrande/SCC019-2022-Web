@@ -2,6 +2,7 @@ import React from 'react';
 import "./Cadastro.css"
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { telefone_validation } from '../helpers/system';
 
 const Cadastro = () => {
     const navigate = useNavigate();
@@ -22,6 +23,11 @@ const Cadastro = () => {
         let campoNome = document.getElementById("campo-nome").value;
         let campoEndereco = document.getElementById("campo-endereco").value;
         let campoTelefone = document.getElementById("campo-telefone").value;
+
+        if (!telefone_validation(campoTelefone)){
+            window.alert("Telefone inválido");
+            return;
+        }
 
         let newUser = {
             nome : campoNome,
@@ -77,7 +83,7 @@ const Cadastro = () => {
                     <input required type="password" name="senha" id="campo-confirmar-senha" className='campo'/>
                 </div>
                 <input type="submit"  className='cadastro-button' value="Cadastro"/>
-                </form>
+            </form>
         </div>
 
         </>
