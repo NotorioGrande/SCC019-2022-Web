@@ -26,7 +26,7 @@ const comprar = async (idProduto, quantidade, idUsuario) => {
     produto.estoque -= quantidade;
     produto.vendido += quantidade;
     await produto.save();
-    usuario.xp += produto.preco;
+    usuario.xp += (produto.preco*quantidade);
     await usuario.save();
     return [produto, usuario];
 

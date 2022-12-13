@@ -110,7 +110,7 @@ const EditProduct = ({user}) => {
         formData.append("oldImage", game.img);
         formData.append("nome", campoNome);
         formData.append("estoque", campoEstoque);
-        formData.append("vendido", '0');
+        formData.append("vendido", game.vendido);
         formData.append("preco", campoPreco);
         formData.append("plataforma", campoPlataforma);
         formData.append("descricao", campoDescricao);

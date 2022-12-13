@@ -8,6 +8,7 @@
 
 .product-page .informations{
     display: flex;
+    margin-top: 2vh;
 }
 
 .product-page .informations-right{
@@ -132,46 +133,10 @@
     background-color: #E1B73D;
     color: var(--dark-blue);
     border-radius: 5vmin;
+    cursor: pointer;
 }
 
-@media only screen and (max-device-width: 1150px) {
-    .product-page .informations{
-        flex-wrap: wrap;
-    }
-
-    .product-page .informations-left{
-        margin: auto;
-        justify-content: center;
-        display: block;
-        width: 33vh;
-    }
-
-    .product-page .informations-right{
-        width: 90vw;
-        margin: auto;
-    }
-
-    .product-page .informations-right .edit-button{
-        width: 30vmin;
-        font-size: 5min;
-    }
-
-    .product-page .row-4{
-        width: 100%;
-    }
-
-    .product-page .row-2{
-        margin-top: 2vh;
-    }
-
-    .product-page .row-3{
-        margin-top: 2vh;
-    }
-
-    .product-page #card{
-        width: 34vh;
-        height: 50vh;
-        margin: auto;
-        margin-top: 2vh;
-    }
+.product-page .forbidden-button{
+    cursor: not-allowed;
+    background-color: gray;
 }

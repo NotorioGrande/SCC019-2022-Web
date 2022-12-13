@@ -5,51 +5,7 @@ import "./Product.css";
 import axios from 'axios'
 import NotFound from './NotFound';
 
-const buyProduct = () => {
-    alert("O produto foi comprado :)")
-}
-
-const addToCart = () => {
-
-    // let cart = localStorage.getItem("cart")
-    // cart = JSON.parse(cart)
-
-    // if(!cart) cart = []
-
-    // let isOnCart = false
-
-    // let n = document.getElementsByClassName('quantity-number')[0]
-    // n = parseInt(n.innerHTML)
-    
-    // cart.forEach(function(element,i){
-    //     if(element.game.name === game.name){
-    //         isOnCart = true
-    //         if(parseInt(element.quantidade) + n <= game.estoque){
-    //             element.quantidade = parseInt(element.quantidade) + n
-    //         }
-    //         else{
-    //             element.quantidade = game.estoque
-    //         }
-    //     }
-    // })
-
-    // if(!isOnCart){
-    //     let cartItem = {
-    //         game,
-    //         quantidade: n
-    //     }
-
-    //     cart.push(cartItem)
-    // }
-
-    // console.log(cart)
-
-    // localStorage.setItem("cart",JSON.stringify(cart))
-
-    alert("Produto adicionado ao carrinho")
-}
-
-const Product = () => {
+const Product = ({user}) => {
 
     let { id } = useParams();
 
@@ -62,6 +18,65 @@ const Product = () => {
             setGame(response.data)
         })
     }, [])
+
+    const buyProduct = () => {
+
+        let quantidade = Number(document.getElementsByClassName('quantity-number')[0].innerHTML)
+        
+        axios.post('http://localhost:3001/api/comprar', {
+            idProduto: id,
+            idUsuario: user._id,
+            quantidade: quantidade,
+
+        })
+        .then(() => {
+            alert("O produto foi comprado :)")
+            window.location.reload();
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+    
+    const addToCart = () => {
+    
+        // let cart = localStorage.getItem("cart")
+        // cart = JSON.parse(cart)
+    
+        // if(!cart) cart = []
+    
+        // let isOnCart = false
+    
+        // let n = document.getElementsByClassName('quantity-number')[0]
+        // n = parseInt(n.innerHTML)
+        
+        // cart.forEach(function(element,i){
+        //     if(element.game.name === game.name){
+        //         isOnCart = true
+        //         if(parseInt(element.quantidade) + n <= game.estoque){
+        //             element.quantidade = parseInt(element.quantidade) + n
+        //         }
+        //         else{
+        //             element.quantidade = game.estoque
+        //         }
+        //     }
+        // })
+    
+        // if(!isOnCart){
+        //     let cartItem = {
+        //         game,
+        //         quantidade: n
+        //     }
+    
+        //     cart.push(cartItem)
+        // }
+    
+        // console.log(cart)
+    
+        // localStorage.setItem("cart",JSON.stringify(cart))
+    
+        alert("Produto adicionado ao carrinho")
+    }
 
     const addProduct = () => {
         let productNumber = document.getElementsByClassName('quantity-number')[0]
@@ -184,10 +199,17 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
-                <div className='all-buttons'>
-                    <button onClick={buyProduct}> Comprar </button>
-                    <button onClick={addToCart}> Carrinho </button>
-                </div>
+                {game.estoque === 0 ?(
+                    <div className='all-buttons'>
+                        <button className='forbidden-button'> Comprar </button>
+                        <button className='forbidden-button'> Carrinho </button>
+                    </div>
+                ):(
+                    <div className='all-buttons'>
+                        <button onClick={buyProduct}> Comprar </button>
+                        <button onClick={addToCart}> Carrinho </button>
+                    </div>
+                )}
             </div>
         )
     );

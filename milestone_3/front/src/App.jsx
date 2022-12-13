@@ -64,7 +64,7 @@ function App() {
 				<Route path="/admin/products/edit/:id" element={<EditProduct user={user} />}/>
 				<Route path="/admin/users" element={<ListUsers user={user} />}/>
 				<Route path="/admin/users/:id" element={<AdminUsersEdit user={user} />}/>
-				<Route path="/product/:id" element={<Product />}/>
+				<Route path="/product/:id" element={<Product user={user}/>}/>
 				<Route path="/cart" element={<Cart />}/>
 				<Route path="*" element={<NotFound />}/>
 			</Routes>
