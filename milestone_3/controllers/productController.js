@@ -25,11 +25,18 @@ module.exports.getProducts = async (req, res ) =>{
         let regexNome = new RegExp(nome, "gi");
         objPesquisa.nome = regexNome;
     }
-    let tags = req.params.tags;
+    let tags = req.query.tags;
+    console.log(tags)
     if(tags){
-        tags = req.params.tags.split(" ");
+        tags = tags.split(" ");
         objPesquisa.tags = {$all: tags};
     }
+
+    let plataforma = req.query.plataforma;
+    if(plataforma){
+        objPesquisa.plataforma = plataforma;
+    }
+    
     const productsFound = await productModel.find(objPesquisa);
     
     if(productsFound.length > 0)

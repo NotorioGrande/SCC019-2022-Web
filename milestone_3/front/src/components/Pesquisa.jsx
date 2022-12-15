@@ -8,21 +8,35 @@ const Pesquisa = ({inputPesquisa, pesquisaBool}) => {
 
     const [games,setGames] = useState([{}]);
 
-    useEffect(() => {
+    const fazerPesquisa = () => {
+        //essa funcao é chamada quando se clica na pesquisa
         let tags="";
         //pegas as tags   
         const inputsTags = document.querySelectorAll(".filtros .tag-input");
         for(let input of inputsTags){
             if(input.checked) tags += `${input.value} `;
         }
-        console.log(tags)
-        axios.get(`http://localhost:3001/api/product/?nome=${inputPesquisa.trim()}&tags=${tags.trim()}`)
+        const inputPlataformas = document.querySelectorAll(".filtros .plataforma");
+        let plataforma= "";
+        for(let input of inputPlataformas){
+            if (input.checked){
+                plataforma = input.value;
+                break;
+            }
+        }
+        axios.get(`http://localhost:3001/api/product?nome=${inputPesquisa.trim()}&tags=${tags.trim()}&plataforma=${plataforma}`)
         .then(response => {
             setGames(response.data)
         })
         .catch((err) => {
             setGames([])
         })
+
+
+    }
+
+    useEffect(() => {
+        fazerPesquisa();
     }, [inputPesquisa, pesquisaBool])
     //funcao para desclicar  o input raddio
     const handlePlataformInputClick = (e) =>{
@@ -40,31 +54,31 @@ const Pesquisa = ({inputPesquisa, pesquisaBool}) => {
             <div className="filtros">
                 <p className='filtro-titulo'>Console</p>
                 <div className="atari-filter">
-                    <input type="checkbox" className="plataforma" id="atari-check" onChange={handlePlataformInputClick}/> 
+                    <input value="Atari" type="checkbox" className="plataforma" id="atari-check" onChange={handlePlataformInputClick}/> 
                     <label  for="atari-check">Atari</label>
                 </div>
                 <div className="nes-filter">
-                    <input type="checkbox" className="plataforma" id="nes-check" onChange={handlePlataformInputClick}/> 
+                    <input value="NES" type="checkbox" className="plataforma" id="nes-check" onChange={handlePlataformInputClick}/> 
                     <label for="nes-check">NES</label>
                 </div>
                 <div className="snes-filter">
-                    <input type="checkbox" className="plataforma" id="snes-check" onChange={handlePlataformInputClick}/> 
+                    <input value="SNES" type="checkbox" className="plataforma" id="snes-check" onChange={handlePlataformInputClick}/> 
                     <label for="snes-check">SNES</label>
                 </div>
                 <div className="megadrive-filter">
-                    <input type="checkbox" className="plataforma" id="megadrive-check" onChange={handlePlataformInputClick}/> 
+                    <input value="Mega Drive" type="checkbox" className="plataforma" id="megadrive-check" onChange={handlePlataformInputClick}/> 
                     <label for="megadrive-check">Mega Drive</label>
                 </div>
                 <div className="genesis-filter">
-                    <input type="checkbox" className="plataforma" id="genesis-check" onChange={handlePlataformInputClick}/> 
+                    <input value="Genesis" type="checkbox" className="plataforma" id="genesis-check" onChange={handlePlataformInputClick}/> 
                     <label for="genesis-check">Genesis</label>
                 </div>
                 <div className="ps1-filter">
-                    <input type="checkbox" className="plataforma" id="ps1-check" onChange={handlePlataformInputClick}/> 
+                    <input value="PS1" type="checkbox" className="plataforma" id="ps1-check" onChange={handlePlataformInputClick}/> 
                     <label for="ps1-check">PS1</label>
                 </div>
                 <div className="ps2-filter">
-                    <input type="checkbox" className="plataforma" id="ps2-check" onChange={handlePlataformInputClick}/> 
+                    <input value="PS2" type="checkbox" className="plataforma" id="ps2-check" onChange={handlePlataformInputClick}/> 
                     <label for="ps2-check">PS2</label>
                 </div>
                 <p className='filtro-titulo'>Gênero</p>
