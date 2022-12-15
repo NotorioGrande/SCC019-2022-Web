@@ -6,8 +6,7 @@ import Cookies from 'universal-cookie';
 import cartIcon from '../assets/cart_icon.png';
 import gearIcon from '../assets/gear_icon.png';
 
-const Header = ({user, setUser, setInputPesquisa}) => {
-
+const Header = ({user, setUser, setInputPesquisa, pesquisaBool, updatePesquisa}) => {
     //determina o que colocar no header
     let location = useLocation();
     let navigate = useNavigate();
@@ -28,6 +27,8 @@ const Header = ({user, setUser, setInputPesquisa}) => {
     const handlePesquisaClick = () => {
         let inputPesquisa = document.getElementById("pesquisar").value;
         setInputPesquisa(inputPesquisa);
+        updatePesquisa(!pesquisaBool);
+        
         if(location.pathname !=='/admin/products/search'){
             navigate("/pesquisa");
         }

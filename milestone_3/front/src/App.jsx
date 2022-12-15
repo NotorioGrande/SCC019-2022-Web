@@ -24,7 +24,13 @@ import Cookies from 'universal-cookie';
 
 function App() {
   	const [inputPesquisa, setInputPesquisa] = useState("");
+	//estado para renderizar pesquisa quando eh clicada
+  	const [pesquisaBool, updatePesquisa] = useState(true)
   	const [user, setUser] = useState(undefined);
+
+    //variavel passada para o component de pesquisa para poder re renderizar quando clicar no botao pesquisa
+
+
 
 	const handleLoad = async () => {
 		let cookies = new Cookies();
@@ -48,14 +54,14 @@ function App() {
 	return (
 		<div className="App">
 		<Router>
-		<Header inputPesquisa={inputPesquisa} setInputPesquisa={setInputPesquisa} setUser={setUser} user={user}/>
+		<Header inputPesquisa={inputPesquisa} setInputPesquisa={setInputPesquisa} setUser={setUser} user={user} updatePesquisa={updatePesquisa} pesquisaBool={pesquisaBool}/>
 			<Routes>
 				<Route path="/" element={<Home />}/>
 				<Route path="/login" element={<Login setUser={setUser} />}/>
 				<Route path="/cadastro" element={<Cadastro />}/>
 				<Route path="/usuario" element={<User user={user} />}/>
 				<Route path="/editar" element={<Edit user={user} setUser={setUser} />}/>
-				<Route path="/pesquisa" element={<Pesquisa inputPesquisa={inputPesquisa} />}/>
+				<Route path="/pesquisa" element={<Pesquisa inputPesquisa={inputPesquisa} pesquisaBool={pesquisaBool}/>}/>
 				<Route path="/cartao" element={<Cartao />}/>
 				<Route path="/admin" element={<Admin user={user} />}/>
 				<Route path="/admin/products" element={<AdminProducts user={user} />}/>
