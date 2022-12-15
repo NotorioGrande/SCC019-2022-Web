@@ -159,7 +159,7 @@ const Product = ({user}) => {
                             {game.tags === undefined ? (
                                 <></>
                             ):(
-                                game.tags[0].split(',').map((element,index) => {
+                                game.tags.map((element,index) => {
                                     return(
                                         <div className='tag' key={index}>
                                             <p>{element}</p>
@@ -196,13 +196,13 @@ const Product = ({user}) => {
                                     </div>
                                 </div>
                                 <div className='quantity'>
-                                    <div onClick={addProduct} className='add-quantity'>
-                                        +
+                                    <div onClick={subtractProduct} className='subtract-quantity'>
+                                        -
                                     </div>
                                     <p> Quantidade: </p>
                                     <p className='quantity-number'> 1 </p>
-                                    <div onClick={subtractProduct} className='subtract-quantity'>
-                                        -
+                                    <div onClick={addProduct} className='add-quantity'>
+                                        +
                                     </div>
                                 </div>
                             </div>

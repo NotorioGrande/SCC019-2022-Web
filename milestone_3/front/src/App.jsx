@@ -65,7 +65,7 @@ function App() {
 				<Route path="/cartao" element={<Cartao />}/>
 				<Route path="/admin" element={<Admin user={user} />}/>
 				<Route path="/admin/products" element={<AdminProducts user={user} />}/>
-				<Route path="/admin/products/search" element={<PesquisaAdm user={user} />}/>
+				<Route path="/admin/products/search" element={<PesquisaAdm user={user} inputPesquisa={inputPesquisa} pesquisaBool={pesquisaBool}/>}/>
 				<Route path="/admin/products/new" element={<NewProduct user={user} />}/>
 				<Route path="/admin/products/edit/:id" element={<EditProduct user={user} />}/>
 				<Route path="/admin/users" element={<ListUsers user={user} />}/>
