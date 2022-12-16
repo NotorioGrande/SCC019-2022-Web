@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom';
 import "./Cartao.css";
 import { useNavigate } from 'react-router-dom';
 import { validarCPF, cartaoVencido } from '../helpers/system';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 const Cartao = () => {
     const navigate = useNavigate();
 
-    const handleCadastrar = (e) =>{
+    const handleCadastrar = async (e) =>{
         e.preventDefault();
+        let cookies = new Cookies();
+		let userCookie = cookies.get("logged_user");
 
         let cartaoNumero = document.getElementById("card-number").value;
         let cartaoVencimento = document.getElementById("card-date").value;
@@ -39,7 +43,10 @@ const Cartao = () => {
         console.log(cartao);
 
         cartao = JSON.stringify(cartao);
-
+        let objAtualizacao = {
+            cartao: cartao
+        }
+        await axios.put('http://localhost:3001/api/user/' + userCookie + "card", objAtualizacao);
         navigate("/usuario");
         return;
     }

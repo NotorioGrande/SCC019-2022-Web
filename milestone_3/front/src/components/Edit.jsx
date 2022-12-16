@@ -33,7 +33,7 @@ const Edit = ({user}) => {
             return;
         }
 
-        if (!telefone_validation(campoTelefone)){
+        if (campoTelefone && !telefone_validation(campoTelefone)){
             window.alert("Telefone inválido")
             return;
         }
