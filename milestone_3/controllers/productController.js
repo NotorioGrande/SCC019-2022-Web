@@ -59,6 +59,13 @@ module.exports.getProduct = async (req, res) => {
 
 }
 
+module.exports.getTop3Products = async (req, res) => {
+    const productsFound = await productModel.find().sort({vendido: -1}).limit(3);
+    return res.status(200).json(productsFound);
+    
+    
+}
+
 module.exports.deleteProduct = async (req, res) => {
     const id = req.params.id;
     if(!mongoose.isValidObjectId(id)){

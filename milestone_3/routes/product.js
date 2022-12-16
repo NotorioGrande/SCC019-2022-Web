@@ -5,6 +5,7 @@ const upload = require('./../middlewares/upload')
 
 router.post("/api/product", upload.single('image'), productController.cadastrarProduct);
 router.get("/api/product", productController.getProducts);
+router.get("/api/productTop3/", productController.getTop3Products);
 router.get("/api/product/:id", productController.getProduct);
 router.delete("/api/product/:id", productController.deleteProduct);
 router.put("/api/product/:id", upload.single('image'), productController.updateProduct);
