@@ -136,7 +136,7 @@ module.exports.updateCard = async (req, res) => {
     }
     try{
     var updatedCard = await userModel.findOneAndUpdate({_id : id}, {
-        cartao :req.body
+        cartao :req.body.cartao
     }, {
         new: true
     });

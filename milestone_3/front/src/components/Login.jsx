@@ -31,7 +31,7 @@ const Login = ({setUser}) => {
             let id = response.data._id
             
             cookies.set("logged_user", id, {path: '/'});
-            setUser(response.data);
+            setUser({... response.data, cartao: JSON.parse(response.data.cartao)});
             window.alert("Logado com sucesso.");
             navigate("/");
         })

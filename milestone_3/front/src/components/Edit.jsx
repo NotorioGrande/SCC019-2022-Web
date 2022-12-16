@@ -81,7 +81,7 @@ const Edit = ({user}) => {
         })
 
         navigate("/usuario")
-        window.location.reload(false); //acho q isso aqui n é bom se é s.p.a.
+        window.location.reload(true); //acho q isso aqui n é bom se é s.p.a.
         
         return;
     }

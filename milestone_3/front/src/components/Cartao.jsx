@@ -46,7 +46,7 @@ const Cartao = () => {
         let objAtualizacao = {
             cartao: cartao
         }
-        await axios.put('http://localhost:3001/api/user/' + userCookie + "card", objAtualizacao);
+        await axios.put('http://localhost:3001/api/user/' + userCookie + "/card", objAtualizacao);
         navigate("/usuario");
         return;
     }

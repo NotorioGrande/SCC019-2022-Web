@@ -9,8 +9,15 @@ const User = ({user}) => {
     const titulos = ["Noob", "Aventureiro Iniciante", "Clérigo Intermediário", "Paladino Avançado", "Mago do Retro", "Arquimago do Retrô"];
     let nivel = user === undefined ? (1):(Math.floor(user.xp/10 + 1))
     const titulo = nivel < 25? titulos[Math.floor(nivel/5)] : titulos[titulos.length - 1];
+    let cartao_string;
+    if(user && user.cartao){
+        cartao_string = `${user.cartao.numero.slice(-4)} ${user.cartao.bandeira}`
+    }
+    else{
+        cartao_string = "Nenhum cadastrado"
+    }
     return (
-        user === undefined ? (
+        !user? (
             <NotFound/>
         ):(
             <div className='user-page'>
@@ -20,7 +27,7 @@ const User = ({user}) => {
                         <p>Username: {user.username}</p>
                         <p>Endereço: {user.endereco}</p>
                         <p>Telefone: {user.telefone}</p>
-                        <p>Cartão: placeholder</p>
+                        <p>Cartão: {cartao_string}</p>
                     </div>
                     <div className='informations-right'>
                         <p>{user.nome},</p>
