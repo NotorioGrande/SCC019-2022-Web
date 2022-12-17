@@ -41,7 +41,12 @@ function App() {
 		axios.get('http://localhost:3001/api/user/' + userCookie)
 		.then(response => {
 			if(response !== undefined){
-				setUser({...response.data, cartao : JSON.parse(response.data.cartao)})
+				if(response.data.cartao){
+					setUser({... response.data, cartao: JSON.parse(response.data.cartao)});
+				}
+				else{
+					setUser(response.data);
+				}
 			}
 		})
 		.catch()

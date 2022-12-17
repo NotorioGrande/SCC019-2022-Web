@@ -50,8 +50,28 @@ const endCart = () => {
 
     refresh()
 }
+const getGames = async(cart) => {
+        let tempGamesArray = [];
+        for(let game of cart){
+            (async function (){
+                let response = await axios.get("http://localhost:3001/api/product/" + game.game);
+                if(response.status === 200){
+                    tempGamesArray.push({... response.data})
+                }
+            })();
+        }
+        console.log(tempGamesArray)
+        return tempGamesArray;
+
+}
 
 const Cart = ({user}) => {
+    const [fodase, setFodase] = useState([]);
+    const loadGames = async ()=>{
+            let gamesArray;
+            gamesArray = await getGames(cart);
+            setFodase(gamesArray)
+    }
 
     if(user === undefined){
         cart = localStorage.getItem("guestCart")
@@ -60,40 +80,34 @@ const Cart = ({user}) => {
         cart = localStorage.getItem(user._id + "Cart")
     }
 
-    cart = JSON.parse(cart)
-
+    cart = JSON.parse(cart);
     if(!cart) cart = []
+    useEffect(()=>{loadGames()}, [])
+    
+
 
     let totalPrice = 0
     let totalItens = 0
-
-    cart.forEach(function(element, i){
-        totalPrice += parseFloat(element.game.price) * parseInt(element.quantidade)
-        totalItens += parseInt(element.quantidade)
+    fodase.forEach(function(element, i){
+        totalPrice += parseFloat(element.preco) * parseInt(cart[i].quantidade)
+        console.log("Preco total " + totalPrice)
+        totalItens += parseInt(cart[i].quantidade)
     })
-
+    console.log(fodase)
     return (
         <div className='cart-page'>
             <div className='informations'>
                 <div className='informations-left'>
-                    {cart.map((element,index) => {
-                        let game = {}
-                        axios.get('http://localhost:3001/api/product/' + element.game)
-                        .then(response => {
-                            console.log(response.data)
-                            game = response.data
+                    {fodase.map((element,index) => {
                             return(
                                 <div className='cart-item' key={index} id={'item-' + index}>
                                     <button onClick={remove} className='close-button'>X</button>
-                                    <Card name={game.nome} price={game.preco} img={game.img} console={game.plataforma}/>
-                                    <p>Quantidade: {element.quantidade}</p>
+                                    <Card name={element.nome} price={element.preco} img={element.img && require('./../../../uploads/' + element.img)} console={element.plataforma}/>
+                                    <p>Quantidade: {cart[index].quantidade}</p>
                                 </div>
                             )
                         })
-                        .catch(err => {
-                            console.log('Deu ruim : ' + err)
-                        })
-                    })}
+                    }
                 </div>
                 <div className='informations-right'>
                     <div className='row'>

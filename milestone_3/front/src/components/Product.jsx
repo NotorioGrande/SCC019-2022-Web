@@ -51,7 +51,7 @@ const Product = ({user}) => {
     
     const addToCart = () => {
 
-        let cart
+        let cart;
 
         if(user === undefined){
             cart = localStorage.getItem("guestCart")
