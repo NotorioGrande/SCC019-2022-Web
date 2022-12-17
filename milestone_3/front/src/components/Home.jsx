@@ -38,7 +38,7 @@ const Home = () => {
                     homeGames.map((element,index) => {
                         return(
                             <div className='item' key={index} id={'item-' + index}>
-                                <Link className='button' to={"/product/" + element._id}>
+                                <Link className='linkHome' to={"/product/" + element._id}>
                                     <Card name={element.nome} price={element.preco} img={element.img && require('./../../../uploads/' + element.img)} console={element.plataforma}/>
                                 </Link>
                             </div>

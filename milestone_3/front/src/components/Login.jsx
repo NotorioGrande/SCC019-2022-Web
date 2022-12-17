@@ -31,11 +31,17 @@ const Login = ({setUser}) => {
             let id = response.data._id
             
             cookies.set("logged_user", id, {path: '/'});
-            setUser({... response.data, cartao: JSON.parse(response.data.cartao)});
+            if(response.data.cartao){
+                setUser({... response.data, cartao: JSON.parse(response.data.cartao)});
+            }
+            else{
+                setUser(response.data);
+            }
             window.alert("Logado com sucesso.");
             navigate("/");
         })
-        .catch(() => {
+        .catch((e) => {
+            console.log(e)
             window.alert("email e/ou senha incorretos");
             return;
         })

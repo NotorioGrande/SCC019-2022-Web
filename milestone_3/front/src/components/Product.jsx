@@ -23,8 +23,13 @@ const Product = ({user}) => {
     const buyProduct = () => {
 
         if(user === undefined){
-            alert('Faça login antes de comprar o produto')
+            alert('Faça login antes de comprar o produto');
             navigate("/login");
+
+        }
+        else if(!user.cartao){
+            alert("É necessário cadastrar um cartão antes de poder fazer a compra");
+            return;
         }
 
         let quantidade = Number(document.getElementsByClassName('quantity-number')[0].innerHTML)
