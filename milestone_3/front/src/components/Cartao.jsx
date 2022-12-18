@@ -48,6 +48,7 @@ const Cartao = () => {
         }
         await axios.put('http://localhost:3001/api/user/' + userCookie + "/card", objAtualizacao);
         navigate("/usuario");
+        window.location.reload();
         return;
     }
 

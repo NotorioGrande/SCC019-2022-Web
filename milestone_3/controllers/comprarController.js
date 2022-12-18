@@ -16,8 +16,9 @@ module.exports.lidarCompra = async (req, res) => {
 }
 
 module.exports.processarCarrinho = async (req, res) => {
-    let produtos = req.body;
+    let produtos = req.body.produtos;
     let retorno;
+    
     for(let produto of produtos){
         const idProduto = produto.idProduto;
         const idUsuario = produto.idUsuario;
