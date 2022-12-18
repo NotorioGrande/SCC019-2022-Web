@@ -64,7 +64,7 @@ Sistema age conforme o esperado.
 Rodar npm install dentro da pasta milestone_3 e npm install dentro da pasta front, após isso é necessário rodar um npm start tanto na milestone_3 quanto dentro da front. Colocar dentro da pasta "milestone_3" um arquivo chamado ".env" com esta constante nele: CONN_STR="string de conexao do mongodb", para se conectar ao banco de dados, e depois rodar npm start tanto na pasta milestone_3 quanto dentro do front. Precisa ter NodeJS instalado e npm também.
 
 ## Problemas
-
+Upload de imagem de usu
 ## Comentários
 Sem comentários dessa vez.
 
