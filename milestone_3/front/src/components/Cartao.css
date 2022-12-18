@@ -29,6 +29,25 @@
     border-radius: 25px;
 }
 
+.edit-card-page .campo-inline{
+    background-color: var(--form-gray);
+    height: 7vh;
+    width: fit-content;
+    font-size: 5vh;
+    padding: 0 1vw;
+    border: none;
+    border-radius: 25px;
+}
+
+#card-year{
+    width: 60%;
+    margin-left: 2vw;
+}
+
+#card-month{
+    width: 30%;
+}
+
 .edit-card-page .informations p{
     font-size: 6vmin;
     padding-top: 4vh;

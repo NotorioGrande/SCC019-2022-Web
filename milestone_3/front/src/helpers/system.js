@@ -85,7 +85,7 @@ export function cartaoVencido(mesAno) {
     return true;
   }
 
-  if (ma[0] == today.getFullYear() && ma[1] < today.getMonth()) {
+  if (ma[0] == today.getFullYear() && ma[1] < today.getMonth() + 1) {
     return true;
   }
 
