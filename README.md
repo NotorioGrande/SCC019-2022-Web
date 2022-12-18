@@ -46,28 +46,27 @@ As funcionalidades são:
 * Filtros: filtros podem ser aplicados aos produtos pelos clientes. Os filtros possíveis são por _name_, _plataform, _genres_, _price_, _quantity stock_ e _quantity sold_. Por exemplo, um cliente pode definir um filtro que mostra apenas os jogos cuja plataforma é o Playstation 2;
 
 ## Descrição
-Projeto foi feito usando React, a conta de administrador tem email: admin@admin.com e senha: admin. A área do administrador 
-
+Projeto foi feito usando React, para a conta de administrador, cadastrar conta com email: admin@admin.com e senha: admin.
 ## Diagrama de Navegação
 ![plot](./milestone_2/src/assets/diagrama.png)
 
 ## Comentários Sobre o Código
-No momento não foram implementados mecanismos de segurança ou todas as garantias que o usuário está seguindo o devido fluxo. Além disso, para simular algumas funções do back end foi usado localStorage.
+
 ## Plano de Teste
 
-Os testes estão sendo feitos manualmente, e possivelmente usaremos um script ou ferramenta que automatize o processo para testar o back end na última entrega.
+Os testes foram feitos manualmente.
 
 ## Resultados do Teste
 
 Sistema age conforme o esperado.
 
 ## Procedimentos de Build
-Rodar npm install dentro da pasta milestone_2 e depois rodar npm start. Precisa ter NodeJS instalado e npm tamb
+Rodar npm install dentro da pasta milestone_3 e npm install dentro da pasta front, após isso é necessário rodar um npm start tanto na milestone_3 quanto dentro da front. Colocar em uma .env CONN_STR=<string de conexao do mongodb>, e depois rodar npm start tanto na pasta milestone_3 quanto dentro do front. Precisa ter NodeJS instalado e npm também. 
 
 ## Problemas
 
 ## Comentários
-Para essa entrega, nem todas as funções tem um back end simulado, aquelas que tem são: cadastro, login e gerenciar usuários, cadastrar e gerenciar produtos. A pesquisa e mostrar os produtos cadastrados, junto com o carrinho, só mostram a tela em si, sem realmente fazer leitura ou escrita.
+Sem comentários dessa vez.
 
 ## Integrantes
 

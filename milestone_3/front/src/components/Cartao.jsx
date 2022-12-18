@@ -15,11 +15,14 @@ const Cartao = () => {
 		let userCookie = cookies.get("logged_user");
 
         let cartaoNumero = document.getElementById("card-number").value;
-        let cartaoVencimento = document.getElementById("card-date").value;
+        let cartaoMes = document.getElementById("card-month").value;
+        let cartaoAno = document.getElementById("card-year").value;
         let cartaoCVV = document.getElementById("card-cvv").value;
         let cartaoBandeira = document.getElementById("card-flag").value;
         let cartaoTitular = document.getElementById("card-titular").value;
         let cartaoTitularCPF = document.getElementById("card-titular-cpf").value;
+
+        let cartaoVencimento = cartaoAno + "-" + cartaoMes;
 
         if (cartaoVencido(cartaoVencimento)){
             window.alert("Cartão vencido");
@@ -46,9 +49,9 @@ const Cartao = () => {
         let objAtualizacao = {
             cartao: cartao
         }
-        await axios.put('http://localhost:3001/api/user/' + userCookie + "/card", objAtualizacao);
+        console.log(await axios.put('http://localhost:3001/api/user/' + userCookie + "/card", objAtualizacao));
         navigate("/usuario");
-        window.location.reload();
+        window.location.reload(true);
         return;
     }
 
@@ -63,15 +66,29 @@ const Cartao = () => {
                     <div className='row'>
                         <div className='edit-campo'>
                             <p>Vencimento </p>
-                            <input required type="month" name="card-date" id="card-date" className='campo'/>
+                            <select required id="card-month" name="card-month" className="campo-inline">
+                                <option value="1">Jan</option>
+                                <option value="2">Fev</option>
+                                <option value="3">Mar</option>
+                                <option value="4">Abr</option>
+                                <option value="5">Mai</option>
+                                <option value="6">Jun</option>
+                                <option value="7">Jul</option>
+                                <option value="8">Ago</option>
+                                <option value="9">Set</option>
+                                <option value="10">Out</option>
+                                <option value="11">Nov</option>
+                                <option value="12">Dec</option>
+                            </select>
+                            <input required type="number" name="card-year" id="card-year" className="campo-inline"/>
                         </div>
                         <div className='edit-campo'>
                             <p>CVV </p>
-                            <input required type="text" pattern="[0-9]{3}" name="card-cvv" id="card-cvv" className='campo' placeholder='XXX'/>
+                            <input required type="text" pattern="[0-9]{3}" name="card-cvv" id="card-cvv" className='campo-inline' placeholder='XXX'/>
                         </div>
                         <div className='edit-campo'>
                             <p>Bandeira </p>
-                            <select required name="card-flag" id="card-flag" className='campo'>
+                            <select required name="card-flag" id="card-flag" className='campo-inline'>
                                 <option value="Master">Master</option>
                                 <option value="Visa">Visa</option>
                             </select>
